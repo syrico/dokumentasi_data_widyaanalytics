@@ -496,8 +496,8 @@ Menggunakan third party (?)
 ###### Persyaratan
 | Tipe          | Deskripsi                                                                                                                                                                                           |
 |---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Access Tokens** | User.                                                                                                                                                                                                 |
-| **Permissions**   | **instagram_basic** <br /> **pages_read_engagement** <br /> **pages_show_list** <br /> Jika pengguna aplikasi diberi peran di Halaman melalui Business Manager, Anda juga memerlukan salah satu dari yang berikut: <br /> **ads_management** <br /> **business_management** |
+| Akses Token | User.                                                                                                                                                                                                 |
+| Izin   | **instagram_basic** <br /> **pages_read_engagement** <br /> **pages_show_list** <br /><br /> Jika pengguna aplikasi diberi peran di Halaman melalui Business Manager, Anda juga memerlukan salah satu dari yang berikut: <br /> **ads_management** <br /> **business_management** |
 
 
 ###### Request Syntax
@@ -510,16 +510,16 @@ GET https://graph.facebook.com/{api-version}/{ig-media-id}
 
 | Placeholder   | Value                  |
 |---------------|------------------------|
-| **{api-version}** | API version.           |
+| **{api-version}** | Versi API.           |
 | **{ig-media-id}** | Perlu. IG Media ID. |
 
 
-###### Parameter String Query
+###### Parameter String Kueri
 
 |      Key     |   Placeholder  |                       Value                       |
 |:------------:|:--------------:|:-------------------------------------------------:|
-| **access_token** | {access-token} | Perlu. Token akses pengguna dari pengguna aplikasi.           |
-| **fields**       | {fields}       | List dari field yang ingin dihasilkan yang dipisahkan dengan tanda koma. |
+| **access_token** | **{access-token}** | Perlu. Token akses pengguna dari pengguna aplikasi.           |
+| **fields**       | **{fields}**       | List dari field yang ingin dihasilkan yang dipisahkan dengan tanda koma. |
 
 ###### Fields
 Public fields dan dapat di-read via ekspansi field.
@@ -533,20 +533,55 @@ Public fields dan dapat di-read via ekspansi field.
 | **is_comment_enabled**        | Menunjukkan jika komentar diaktifkan atau dinonaktifkan. Tidak termasuk anak album.                                                                                                                                                                                                                                                                                                                          |
 | **is_shared_to_feed** <br />Public  | Reels saja. Jika benar, berarti reel dapat muncul di tab feed dan reels. Jika salah, berarti gulungan hanya dapat muncul di tab reel. Perhatikan bahwa tidak ada nilai yang menunjukkan apakah reel benar-benar muncul di tab reels, karena reel mungkin tidak memenuhi persyaratan kelayakan atau telah dipilih oleh algoritme kami. Lihat spesifikasi reel untuk kriteria kelayakan.                   |
 | **like_count**                | Jumlah likes di media, termasuk reply di komentar. Tidak termasuk likes di media anak album dan likes di pos yang dipromosikan dibuat dari media. <br /><br /> Jika ditanyakan secara tidak langsung melalui titik akhir lain atau ekspansi fields: <br />-v10.0 dan calls yang lebih lama: Nilainya adalah 0 jika pemilik media menyembunyikan jumlah like. <br />-v11.0+ calls: Field like_count dihilangkan jika pemilik media memiliki jumlah like yang tersembunyi. |
-| **media_product_type** <br />Public | Surface where the media is published. Can be AD, FEED, STORY or REELS.                                                                                                                                                                                                                                                                                                                           |
-| **media_type** <br />Public         | Media type. Can be CAROUSEL_ALBUM, IMAGE, or VIDEO.                                                                                                                                                                                                                                                                                                                                              |
-| **media_url** <br />Public          | The URL for the media. The media_url field is omitted from responses if the media contains copyrighted material or has been flagged for a copyright violation. Examples of copyrighted material can include audio on reels.                                                                                                                                                                      |
-| **owner** <br />Public              | Instagram user ID who created the media. Only returned if the app user making the query also created the media; otherwise, username field is returned instead.                                                                                                                                                                                                                                   |
-| **permalink** <br />Public          | Permanent URL to the media.                                                                                                                                                                                                                                                                                                                                                                      |
-| **shortcode** <br />Public          | Shortcode to the media.                                                                                                                                                                                                                                                                                                                                                                          |
-| **thumbnail_url** <br />Public      | Media thumbnail URL. Only available on VIDEO media.                                                                                                                                                                                                                                                                                                                                              |
-| **timestamp** <br />Public          | ISO 8601-formatted creation date in UTC (default is UTC ±00:00).                                                                                                                                                                                                                                                                                                                                 |
-| **username** <br />Public           | Username of user who created the media.                                                                                                                                                                                                                                                                                                                                                          |
-| **video_title** <br />Public        | Deprecated. Omitted from response.                                                                                                                                                                                                                                                                                                                                                               |
+| **media_product_type** <br />Public | Lokasi media dipublikasi. Dapat berupa iklan, feed, story, atau reels.                                                                                                                                                                                                                                                                                                                           |
+| **media_type** <br />Public         | Tipe media. Dapat berupa album carousel, gambar, or video.                                                                                                                                                                                                                                                                                                                                              |
+| **media_url** <br />Public          | URL untuk media. Field dari media_url field URL dihilangkan dari respons jika media berisi materi berhak cipta atau telah ditandai karena pelanggaran hak cipta. Contoh materi berhak cipta dapat mencakup audio pada reels.                                                                                                                                                                     |
+| **owner** <br />Public              | ID pengguna Instagram yang membuat media. Hanya di-return jika pengguna aplikasi yang membuat kueri juga membuat media; jika tidak, field dari username yang di-return sebagai gantinya.                                                                                                                                                                                                                                   |
+| **permalink** <br />Public          | URL permanen ke media.                                                                                                                                                                                                                                                                                                                                                                      |
+| **shortcode** <br />Public          | Shortcode ke media.                                                                                                                                                                                                                                                                                                                                                                          |
+| **thumbnail_url** <br />Public      | URL dari thumbnail media. Hanya tersedia di media video.                                                                                                                                                                                                                                                                                                                                              |
+| **timestamp** <br />Public          | Tanggal pembuatan berformat ISO 8601 dalam UTC (standarnya adalah UTC ±00:00).                                                                                                                                                                                                                                                                                                                                 |
+| **username** <br />Public           | Username pengguna yang membuat media.                                                                                                                                                                                                                                                                                                                                                          |
+| **video_title** <br />Public        | Tidak digunakan lagi. Dihilangkan dari respons.                                                                                                                                                                                                                                                                                                                                                               |
 
 ###### Edges
+Public edges dapat dikembalikan melalui ekspansi field.
 
+| Edge             | Description                                                       |
+|------------------|-------------------------------------------------------------------|
+| **children** <br />Public. | Merepresentasikan kumpulan objek IG Media di album IG Media. |
+| **comments**         | Merepresentasikan kumpulan Komentar IG pada objek Media IG.     |
+| **insights**         | Merepresentasikan metrik interaksi sosial pada objek IG Media.      |
 
 ##### Updating
+**POST /{ig-media-id}**
+Mengaktifkan atau menonaktifkan komentar di media IG.
 
+###### Limitasi
+Video langsung IG media tidak didukung.
 
+###### Persyaratan
+
+| Tipe          | Deskripsi                                                                                                                                                                                               |
+|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Akses Token | User.                                                                                                                                                                                                     |
+| Izin   | **instagram_basic** <br /> **instagram_manage_comments**<br /> **pages_show_list**<br /><br /> Jika pengguna aplikasi diberi peran di Halaman via Business Manager, Anda juga memerlukan salah satu dari yang berikut: <br />**ads_management** <br />**business_management** |
+
+###### Request Syntax
+POST https://graph.facebook.com/{api-version}/{ig-media-id}
+  <br />  &nbsp;&nbsp;&nbsp;&nbsp;?comment_enabled={comment-enabled}
+  <br />  &nbsp;&nbsp;&nbsp;&nbsp;&access_token={access-token}
+
+###### Parameter Path
+
+| Placeholder   | Value                  |
+|---------------|------------------------|
+| **{api-version}** | API version.           |
+| **{ig-media-id}** | Perlu. IG Media ID. |
+
+###### Parameter String Kueri
+
+| Key             | Placeholder       | Value                                                                  |
+|-----------------|-------------------|------------------------------------------------------------------------|
+| **access_token**    | **{access-token}**    | Perlu. Token akses pengguna dari pengguna aplikasi.                                 |
+| **comment_enabled** | **{comment-enabled}** | Perlu. Set ke true untuk mengaktifkan komentar atau false untuk menonaktifkan komentar. |
