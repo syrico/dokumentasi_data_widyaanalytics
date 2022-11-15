@@ -556,6 +556,7 @@ Public edges dapat dikembalikan melalui ekspansi field.
 ##### Updating
 **POST /{ig-media-id}**
 Mengaktifkan atau menonaktifkan komentar di media IG.
+--tidak menggunakan POST--
 
 ###### Limitasi
 Video langsung IG media tidak didukung.
