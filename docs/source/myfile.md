@@ -483,30 +483,29 @@ Berisi data waktu paling aktif suatu user.
 #### IG Media
 Mewakili album, foto, atau video Instagram (video yang diunggah, video live, video yang dibuat dengan aplikasi Instagram TV, reel, atau story Instagram).
 
-#####  Reading
-Menggunakan third party (?)
+Cekbrand menggunakan 3rd-party dari pyfacebook yang memfasilitasi pemanggilan dari masing-masing endpoint API Graph facebook.
 
-###### Limitasi
+##### Limitasi
 - Kolom yang menampilkan nilai aggregat tidak menyertakan data yang digerakkan oleh iklan. Misalnya, comments_count menghitung komentar pada sebuah foto, tetapi tidak menghitung komentar pada iklan yang berisi foto tersebut.
 - Caption tidak menyertakan simbol @ kecuali pengguna aplikasi juga dapat melakukan tugas yang setara dengan Admin di aplikasi.
 - Beberapa kolom tidak dapat digunakan pada foto di dalam album (anak).
 - Media Instagram TV harus dibagikan ke Instagram pada saat publikasi (Post a Preview atau Share Preview to Feed diaktifkan) agar dapat diakses melalui API.
 - Live video IG Media hanya dapat dibaca saat sedang disiarkan.
 
-###### Persyaratan
+##### Persyaratan
 | Tipe          | Deskripsi                                                                                                                                                                                           |
 |---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Akses Token | User.                                                                                                                                                                                                 |
 | Izin   | **instagram_basic** <br /> **pages_read_engagement** <br /> **pages_show_list** <br /><br /> Jika pengguna aplikasi diberi peran di Halaman melalui Business Manager, Anda juga memerlukan salah satu dari yang berikut: <br /> **ads_management** <br /> **business_management** |
 
 
-###### Request Syntax
+##### Request Syntax
 
 GET https://graph.facebook.com/{api-version}/{ig-media-id}
   <br />  &nbsp;&nbsp;&nbsp;&nbsp;?fields={fields}
   <br />  &nbsp;&nbsp;&nbsp;&nbsp;&access_token={access-token}
 
-###### Parameter Path
+##### Parameter Path
 
 | Placeholder   | Value                  |
 |---------------|------------------------|
@@ -514,14 +513,14 @@ GET https://graph.facebook.com/{api-version}/{ig-media-id}
 | **{ig-media-id}** | Perlu. IG Media ID. |
 
 
-###### Parameter String Kueri
+##### Parameter String Kueri
 
 |      Key     |   Placeholder  |                       Value                       |
 |:------------:|:--------------:|:-------------------------------------------------:|
 | **access_token** | **{access-token}** | Perlu. Token akses pengguna dari pengguna aplikasi.           |
 | **fields**       | **{fields}**       | List dari field yang ingin dihasilkan yang dipisahkan dengan tanda koma. |
 
-###### Fields
+##### Fields
 Public fields dan dapat di-read via ekspansi field.
 
 | Field                     | Deskripsi                                                                                                                                                                                                                                                                                                                                                                                      |
@@ -544,7 +543,7 @@ Public fields dan dapat di-read via ekspansi field.
 | **username** <br />Public           | Username pengguna yang membuat media.                                                                                                                                                                                                                                                                                                                                                          |
 | **video_title** <br />Public        | Tidak digunakan lagi. Dihilangkan dari respons.                                                                                                                                                                                                                                                                                                                                                               |
 
-###### Edges
+##### Edges
 Public edges dapat dikembalikan melalui ekspansi field.
 
 | Edge             | Description                                                       |
@@ -553,36 +552,19 @@ Public edges dapat dikembalikan melalui ekspansi field.
 | **comments**         | Merepresentasikan kumpulan Komentar IG pada objek Media IG.     |
 | **insights**         | Merepresentasikan metrik interaksi sosial pada objek IG Media.      |
 
-##### Updating
-**POST /{ig-media-id}**
-Mengaktifkan atau menonaktifkan komentar di media IG.
---tidak menggunakan POST--
 
-###### Limitasi
-Video langsung IG media tidak didukung.
+##### Request Syntax 3rd-party pyfacebook
 
-###### Persyaratan
-
-| Tipe          | Deskripsi                                                                                                                                                                                               |
-|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Akses Token | User.                                                                                                                                                                                                     |
-| Izin   | **instagram_basic** <br /> **instagram_manage_comments**<br /> **pages_show_list**<br /><br /> Jika pengguna aplikasi diberi peran di Halaman via Business Manager, Anda juga memerlukan salah satu dari yang berikut: <br />**ads_management** <br />**business_management** |
-
-###### Request Syntax
-POST https://graph.facebook.com/{api-version}/{ig-media-id}
-  <br />  &nbsp;&nbsp;&nbsp;&nbsp;?comment_enabled={comment-enabled}
-  <br />  &nbsp;&nbsp;&nbsp;&nbsp;&access_token={access-token}
-
-###### Parameter Path
-
-| Placeholder   | Value                  |
-|---------------|------------------------|
-| **{api-version}** | API version.           |
-| **{ig-media-id}** | Perlu. IG Media ID. |
-
-###### Parameter String Kueri
-
-| Key             | Placeholder       | Value                                                                  |
-|-----------------|-------------------|------------------------------------------------------------------------|
-| **access_token**    | **{access-token}**    | Perlu. Token akses pengguna dari pengguna aplikasi.                                 |
-| **comment_enabled** | **{comment-enabled}** | Perlu. Set ke true untuk mengaktifkan komentar atau false untuk menonaktifkan komentar. |
+def get_user_medias(self,
+  user_id, fields=None, since_time=None, until_time=None,  count=10, limit=10, return_json=False)
+        
+Mengambil data media pengguna ig berdasarkan user_id, dengan penjelasan parameter fungsi get_user_medias sebagai berikut.
+|     Parameter      |     Tipe data                                   |     Keterangan                                                                                                                      |
+|--------------------|-------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+|     user_id        |     str                                         |     Id untuk   pengguna instagram business yang ingin Anda dapatkan datanya.                                                        |
+|     fields         |     Optional[Union[str,   List, Tuple, Set]]    |     String id   yang dipisahkan koma untuk field data yang Anda inginkan. Anda juga dapat pass   ini dengan list id, tuple, set.    |
+|     since_time     |     Optional[str]                               |     Batas bawah   rentang waktu ke waktu publikasi media. Formatnya adalah %Y-%m-%d.                                                |
+|     until_time     |     Optional[str]                               |     Batas atas   rentang waktu ke waktu publikasi media. Formatnya adalah %Y-%m-%d.                                                 |
+|     count          |     Optional[str]                               |     Jumlah Anda   ingin mendapatkan media. Jika perlu mendapatkan semuanya, set ini dengan None.                                    |
+|     limit          |     int                                         |     Setiap   permintaan mengambil jumlah media dari api. Untuk media sebaiknya tidak lebih   dari 500.                              |
+|     return_json    |     bool                                        |     Set ke False   akan mengembalikan instance dari IgProUser.                                                                      |
