@@ -478,7 +478,7 @@ Berisi data waktu paling aktif suatu user.
 | value_paling_aktif | -           | varchar     |                                       |         |
 | updated_date       | -           | timestamp   | Timestamp kapan data di update        |         |
 
-### Routine
+### Facebook and 3-rd Party Endpoint
 
 #### IG Media
 Mewakili album, foto, atau video Instagram (video yang diunggah, video live, video yang dibuat dengan aplikasi Instagram TV, reel, atau story Instagram).
@@ -725,9 +725,106 @@ Field publik dapat dikembalikan oleh edge menggunakan ekspansi field.
 | **stories**                    | Represents a collection of story IG Media objects on an IG User.                                                              |
 | **tags**                       | Represents a collection of IG Media in which an IG User has been tagged by another Instagram user.                            |
 
-user insights
+#### IG User Insights
 
-user business discovery
+Merepresentasi metrik interaksi sosial pada IG User.
 
-Ig Comment
-comment replies
+**GET /{ig-user-id}/insights** <br />
+Mengembalikan insights tentang IG User.
+
+##### Limitasi
+- Metrik **follower_count**, **online_followers**, dan semua **audience_\*** tidak tersedia di IG Users dengan followers kurang dari 100. 
+- Data insights untuk metrik **online_followers** hanya tersedia selama 30 hari terakhir.
+-  Jika data insights yang Anda minta tidak ada atau saat ini tidak tersedia, API akan mengembalikan kumpulan data kosong, bukan 0 untuk masing-masing metrik.
+- Metrik demografis hanya menampilkan 45 artis dengan performa teratas (misalnya untuk **audience_city**, hingga 45 kota dengan jumlah pengikut tertinggi dapat ditampilkan).
+- Hanya viewers yang data demografisnya kami miliki yang digunakan dalam penghitungan metrik demografis.
+- Menjumlahkan nilai metrik demografi dapat menghasilkan nilai yang kurang dari jumlah pengikut (lihat poin-poin sebelumnya).
+- Metrik **audience_\*** tidak mendukung parameter range **since** dan **until**.
+- Data yang digunakan untuk menghitung metrik mungkin tertunda hingga 48 jam.
+
+##### Persyaratan
+
+| Tipe          | Deskripsi                                                                                                                                                                                                            |
+|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Akses Token | User                                                                                                                                                                                                                   |
+| Izin   | **instagram_basic** <br /> **instagram_manage_insights** <br /> **pages_read_engagement** <br /> **pages_show_list** <br /><br /> Jika pengguna aplikasi diberi peran di Halaman melalui Pengelola Bisnis, Anda juga memerlukan salah satu dari: **ads_management** <br /> **business_management** <br /> |
+
+##### Request Syntax
+
+GET https://graph.facebook.com/{api-version}/{ig-user-id}/insights
+  <br />  &nbsp;&nbsp;&nbsp;&nbsp;?metric={metric}
+  <br />  &nbsp;&nbsp;&nbsp;&nbsp;&period={period}
+  <br />  &nbsp;&nbsp;&nbsp;&nbsp;&since={since}
+  <br />  &nbsp;&nbsp;&nbsp;&nbsp;&until={until}
+  <br />  &nbsp;&nbsp;&nbsp;&nbsp;&access_token={access-token}
+
+##### Parameter Path
+
+| Placeholder   | Value                  |
+|---------------|------------------------|
+| **{api-version}** | Versi API.           |
+| **{ig-user-id}** | Perlu. IG User ID. |
+
+##### Parameter String Kueri
+
+| Parameter                              | Value                                                                                                                                                                                                                                                                                              |
+|----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **{access-token}**<br /> Required<br /> String         | Token Akses Pengguna dari pengguna aplikasi.                                                                                                                                                                                                                                                                  |
+| **{metric}**<br /> Required<br /> Comma-separated list | Daftar Metrik yang dipisahkan koma yang ingin Anda kembalikan. Jika meminta beberapa metrik, semuanya harus memiliki Periode kompatibel yang sama.                                                                                                                                                   |
+| **{period}**<br /> Required<br /> String               | Periode yang kompatibel dengan metrik yang Anda minta.                                                                                                                                                                                                                                   |
+| **{since}**<br /> Unix timestamp                 | Digunakan bersamaan dengan **{until}** untuk mendefinisikan Range. Jika Anda menghilangkan **since** dan **until**, API default ke range 2 hari: kemarin hingga hari ini. Catatan: Kursor paginasi (sebelum dan sesudahnya) mengambil window waktu berikutnya dari hasil, bukan kelompok hasil berikutnya dalam window waktu saat ini. |
+| **{until}**<br /> Unix timestamp                 | Digunakan bersamaan dengan **{since}** untuk menentukan Range. Jika Anda menghilangkan **since** dan **until**, API default ke rentang 2 hari: kemarin hingga hari ini. Catatan: Kursor paginasi (previous dan **next**) mengambil window waktu berikutnya dari hasil, bukan kelompok hasil berikutnya dalam window waktu saat ini. |
+
+##### Metrik dan Periode
+
+Metrik yang mendukung periode **lifetime** akan memiliki hasil yang dikembalikan dalam susunan periode 24 jam, dengan periode yang berakhir pada UTC−07:00. metrik **audience_\*** tidak mendukung parameter range **since** dan **until**.
+
+| Metrik                | Periode Kompatibel  | Deskripsi                                                                                                                                                                                                                                                                                                                          |
+|-----------------------|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| audience_city         | lifetime           | Kota pengikut yang data demografisnya kita miliki. <br /><br /> - Tidak termasuk data hari ini. <br /> - Tidak tersedia di IG User dengan pengikut kurang dari 100. <br /> - Hanya 45 kota teratas dengan nilai tertinggi yang dikembalikan. <br /> - Tidak mendukung parameter **since** dan **until**. <br /> - Respons tidak menyertakan properti JSON **end_time**.                             |
+| audience_country      | lifetime           | Negara pengikut yang data demografisnya kita miliki. <br /><br /> - Tidak termasuk data hari ini.<br /> - Tidak tersedia di IG User dengan pengikut kurang dari 100.<br /> - Hanya 45 negara teratas dengan nilai tertinggi yang dikembalikan.<br /> - Tidak mendukung parameter **since** dan **until**.<br /> - Respons tidak menyertakan properti JSON **end_time**.                       |
+| audience_gender_age   | lifetime           | Distribusi gender dan usia pengikut yang data demografisnya kami miliki. Nilai yang mungkin: **M** (laki-laki), **F** (perempuan), **U** (tidak diketahui).<br /><br /> - Tidak termasuk data hari ini.<br /> - Tidak tersedia di IG User dengan pengikut kurang dari 100.<br /> - Tidak mendukung parameter **since** dan **until**.<br /> - Respons tidak menyertakan properti JSON **end_time**. |
+| audience_locale       | lifetime           | Locales by country codes of followers for whom we have demographic data. Does not include current day's data. Not available on IG Users with fewer than 100 followers. Only top 45 locales with highest values returned. Does not support since and until parameters. Response does not include the end_time JSON property.          |
+| email_contacts        | day                | Total number of taps on the email link in the IG User's profile.                                                                                                                                                                                                                                                                     |
+| follower_count        | day                | Total number of new followers each day within the specified range. Returns a maximum of 30 days worth of data. Not available on IG Users with fewer than 100 followers.                                                                                                                                                              |
+| get_directions_clicks | day                | Total number of taps on the directions link in the IG User's profile.                                                                                                                                                                                                                                                                |
+| impressions           | day, week, days_28 | Total number of times the IG User's IG Media have been viewed. Includes ad activity generated through the API, Facebook ads interfaces, and the Promote feature. Does not include profile views.                                                                                                                                     |
+| online_followers      | lifetime           | Total number of the IG User's followers who were online during the specified range. Not available on IG Users with fewer than 100 followers.                                                                                                                                                                                         |
+| phone_call_clicks     | day                | Total number of taps on the call link in the IG User's profile.                                                                                                                                                                                                                                                                      |
+| profile_views         | day                | Total number of users who have viewed the IG User's profile within the specified period.                                                                                                                                                                                                                                             |
+| reach                 | day, week, days_28 | Total number of unique users who have viewed at least one of the IG User's IG Media. Repeat views and views across different IG Media owned by the IG User by the same user are only counted as a single view. Includes ad activity generated through the API, Facebook ads interfaces, and the Promote feature.                     |
+| text_message_clicks   | day                | Total number of taps on the text message link in the IG User's profile.                                                                                                                                                                                                                                                              |
+| website_clicks        | day                | Total number of taps on the website link in the IG User's profile.                                                                                                                                                                                                                                                                   |
+
+##### Range
+
+#### user business discovery
+
+##### Limitasi
+##### Persyaratan
+##### Request Syntax
+##### Parameter Path
+##### Parameter String Kueri
+##### Metrik dan Periode
+##### Range
+
+#### Ig Comment
+
+##### Limitasi
+##### Persyaratan
+##### Request Syntax
+##### Parameter Path
+##### Parameter String Kueri
+##### Metrik dan Periode
+##### Range
+
+#### comment replies
+
+##### Limitasi
+##### Persyaratan
+##### Request Syntax
+##### Parameter Path
+##### Parameter String Kueri
+##### Metrik dan Periode
+##### Range
+
