@@ -891,11 +891,23 @@ GET https://graph.facebook.com/{api-version}/{ig-comment-id}
 
 #### IG Comment Replies
 
+Merupakan kumpulan Komentar IG pada IG Comment untuk mendapatkan semua balasan pada Komentar.<br />
+**GET /{ig-comment-id}/replies** <br />
+Mengembalikan daftar komentar IG pada IG Comment.
+
 ##### Limitasi
+
+Kita tidak bisa mendapatkan balasan untuk komentar yang telah dihapus.
+
 ##### Persyaratan
-##### Request Syntax
-##### Parameter Path
-##### Parameter String Kueri
-##### Metrik dan Periode
-##### Range
+
+Token akses dari User yang membuat komentar, dengan izin berikut:
+- **instagram_basic**
+- **pages_show_list**
+- **page_read_engagement**
+
+Jika token berasal dari User yang peran halamannya diberikan melalui Business Manager, salah satu izin berikut juga diperlukan:
+- **ads_management**
+- **pages_read_engagement**
+- **business_management**
 
