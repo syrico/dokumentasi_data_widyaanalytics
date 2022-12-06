@@ -558,8 +558,8 @@ Public edges dapat dikembalikan melalui ekspansi field.
 def get_user_medias(self,
   user_id, fields=None, since_time=None, until_time=None,  count=10, limit=10, return_json=False)
         
-Mengambil data media pengguna ig berdasarkan user_id, dengan penjelasan parameter fungsi get_user_medias sebagai berikut.
-|     Parameter      |     Tipe data                                   |     Keterangan                                                                                                                      |
+Mengambil data media pengguna ig berdasarkan user_id. Penjelasan parameter fungsi get_user_medias sebagai berikut.
+|     Parameter      |     Tipe Data                                   |     Keterangan                                                                                                                      |
 |--------------------|-------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 |     user_id        |     str                                         |     Id untuk   pengguna instagram business yang ingin kita dapatkan datanya.                                                        |
 |     fields         |     Optional[Union[str,   List, Tuple, Set]]    |     String id   yang dipisahkan koma untuk field data yang kita inginkan. Kita juga dapat pass   ini dengan list id, tuple, set.    |
@@ -655,6 +655,18 @@ Jumlah berapa kali reels mulai diputar setelah tayangan dihitung. Ini didefinisi
 | **taps_forward** | Total jumlah tap untuk melihat foto atau video selanjutnya dari objek IG Media ini.                                                                                                                                                                                                                                  |
 | **taps_back**    | Total jumlah tap untuk melihat foto atau video sebelumnya dari objek IG Media ini.                                                                                                                                                                                                                            |
 
+##### Request Syntax 3rd-party pyfacebook
+
+def get_media_insights(self, media_id, metrics, access_token=None, return_json=False)
+        
+Mengambil data media insights. Penjelasan parameter fungsi get_media_insights sebagai berikut, dengan tipe data List[Union[IgProInsight, dict]].
+| Parameter    | Tipe Data                    | Keterangan                                                      |
+|--------------|------------------------------|-----------------------------------------------------------------|
+| media_id     | str                          | ID media yang ingin kita dapatkan datanya.                    |
+| metrics      | Union[str, List, Tuple, Set] | String id yang dipisahkan koma untuk metrik yang perlu diambil. Kita juga dapat meneruskan ini dengan list, tuple, atau set dari id. <br />Catatan: Jenis media yang berbeda memiliki metrik yang berbeda. <br />Lihat selengkapnya: https://developers.facebook.com/docs/instagram-api/reference/media/insights#insights-2 |
+| access_token | str                          | Token akses pengguna target. Jika tidak akan menggunakan token akses default. |
+| return_json  | bool                         | Set ke false akan mengembalikan list instance IgProInsight. Atau kembalikan data json. Default adalah false.   |
+
 #### IG User
 
 Mewakili Akun Bisnis Instagram atau Akun Kreator Instagram. 
@@ -724,6 +736,17 @@ Field publik dapat dikembalikan oleh edge menggunakan ekspansi field.
 | **recently_searched_hashtags** | Get IG Hashtags that an IG User has searched for within the last 7 days.                                                      |
 | **stories**                    | Represents a collection of story IG Media objects on an IG User.                                                              |
 | **tags**                       | Represents a collection of IG Media in which an IG User has been tagged by another Instagram user.                            |
+
+##### Request Syntax 3rd-party pyfacebook
+
+def get_user_info(self, user_id, fields=None, return_json=False)
+
+Mengambil data pengguna ig dari user id. Penjelasan parameter fungsi get_user_info sebagai berikut, dengan tipe data Optional[IgProUser, dict].
+| Parameter   | Tipe Data                    | Keterangan                                                      |
+|-------------|------------------------------|-----------------------------------------------------------------|
+| user_id     | str                          | Id untuk instagram business user yang ingin kita dapatkan datanya.                    |
+| fields      | Optional[Union[str, List, Tuple, Set]] | String id yang dipisahkan koma untuk metrik yang perlu diambil. Kita juga dapat meneruskan ini dengan list, tuple, atau set dari id. |
+| return_json | bool                         | Set ke false akan mengembalikan list instance IgProUser.    |
 
 #### IG User Insights
 
@@ -802,6 +825,21 @@ Edge ini mendukung paginasi berbasis waktu, sehingga kita dapat menyertakan para
 **metric=impressions&period=days_28&since=1501545600&until=1502493720**
 <br />Parameter **since** dan **until** bersifat inklusif, sehingga jika range kita menyertakan hari yang belum berakhir (misalnya hari ini), kueri berikutnya sepanjang hari dapat mengembalikan nilai yang meningkat. Jika kita tidak menyertakan parameter **since** dan **until**, API akan default ke range 2 hari: kemarin sampai hari ini.
 
+##### Request Syntax 3rd-party pyfacebook 
+
+def get_user_insights(self, user_id, period, metrics, since=None, until=None, access_token=None, return_json=False)
+
+Mengambil user insights data dari akun instagram business. Penjelasan parameter fungsi get_user_insights sebagai berikut, dengan tipe data List[Union[IgProInsight, dict]].
+| Parameter    | Tipe Data                    | Keterangan                                                         |
+|--------------|------------------------------|--------------------------------------------------------------------|
+| user_id      | str                          | Id untuk instagram business user yang ingin kita dapatkan datanya.     |
+| period       | str                          | Periode untuk data agregasi. Parameter yang diterima: lifetime, day, dan days_28.                                    |
+| metrics      | Union[str, List, Tuple, Set] | String id yang dipisahkan koma untuk metrik yang perlu diambil. Kita juga dapat meneruskan ini dengan list, tuple, atau set dari id. <br/>Catatan: Beberapa metrik tidak sesuai dengan periode.  <br/>Lihat selengkapnya: https://developers.facebook.com/docs/instagram-api/reference/user/insights#metrics-periods|
+| since        | Optional[int]                | Batas bawah rentang waktu untuk mengambil data. Perlu Unix timestamps. |
+| until        | Optional[int]                | Batas atas rentang waktu untuk mengambil data. Perlu Unix timestamps. Rentang waktu tidak lebih dari 30 hari (2592000 detik). |
+| access_token | str                          | Token akses pengguna target. Jika tidak akan menggunakan token akses default.    |
+| return_json  | bool                         | Set ke false akan mengembalikan list instance IgProInsight.       |
+
 #### IG User Business Discovery
 Memungkinkan kita mendapatkan data tentang Pengguna Instagram Business atau Creator IG lainnya.
 
@@ -829,6 +867,17 @@ Jika token berasal dari User yang peran Page diberikan melalui Business Manager,
 
 ##### Ekspansi Field
 Kita dapat menggunakan ekspansi field untuk mendapatkan field publik pada IG Useryang ditargetkan. Lihat referensi IG User untuk daftar kolom publik.
+
+##### Request Syntax 3rd-party pyfacebook 
+
+def discovery_user(self, username, fields=None, return_json=False)
+                       
+Mengambil info dasar pengguna bisnis lain berdasarkan username. Penjelasan parameter fungsi discovery_user sebagai berikut, dengan tipe data Union[IgProUser, dict].
+| Parameter   | Tipe Data                    | Keterangan                                                      |
+|-------------|------------------------------|-----------------------------------------------------------------|
+| username     | str                          | Username untuk kita ingin mengambil data.                    |
+| fields      | Union[str, List, Tuple, Set] | String id yang dipisahkan koma untuk fields data yang perlu diambil. Kita juga dapat meneruskan ini dengan list, tuple, atau set dari id. |
+| return_json | bool                         | Set ke false akan mengembalikan list instance IgProUser. Atau mengembalikan data json. Default adalah false. |
 
 #### IG Comment
 Merupakan komentar di IG Media.
@@ -889,6 +938,20 @@ GET https://graph.facebook.com/{api-version}/{ig-comment-id}
 |---------|-------------------------------------------------------------------------------------|
 | **replies** | Dapatkan daftar komentar IG di IG Comment; Buat Komentar IG di IG Comment. |
 
+##### Request Syntax 3rd-party pyfacebook
+
+def get_comments_by_media(self, media_id, fields=None, count=10, limit=10, include_reply=True, return_json=False)
+
+Ambil data komentar untuk id media yang diberikan. Penjelasan parameter fungsi get_comments_by_media sebagai berikut, dengan tipe data List[Union[IgProComment, dict]].
+| Parameter     | Tipe Data                              | Keterangan |
+|---------------|----------------------------------------|------------|
+| media_id      | str                                    | Id media yang ingin kita dapatkan data komentarnya. |
+| fields        | Optional[Union[str, List, Tuple, Set]] | String id yang dipisahkan koma untuk fields data yang perlu diambil. Kita juga dapat meneruskan ini dengan list, tuple, atau set dari id. |
+| count         | Optional[int]                          | Jumlah komentar yang kita inginkan. Default adalah 10. Jika perlu mendapatkan semua, set ini dengan None. |
+| limit         | int                                    | Setiap permintaan mengambil hitungan komentar dari api. Untuk komentar sebaiknya tidak lebih dari 50. |
+| include_reply | bool                                   | Set ke True akan menyertakan balasan ke komentar. Default adalah benar. |
+| return_json   | bool                                   | Set ke false akan mengembalikan list instance IgProComment. Atau mengembalikan data json. Default adalah false. |
+
 #### IG Comment Replies
 
 Merupakan kumpulan Komentar IG pada IG Comment untuk mendapatkan semua balasan pada Komentar.<br />
@@ -911,3 +974,15 @@ Jika token berasal dari User yang peran halamannya diberikan melalui Business Ma
 - **pages_read_engagement**
 - **business_management**
 
+
+##### Request Syntax 3rd-party pyfacebook
+
+def get_replies_info(self, reply_ids, fields=None, return_json=False)
+
+Mengambil info reply oleh reply id. Penjelasan parameter fungsi get_replies_info sebagai berikut, dengan tipe data dict.
+
+| Parameter   | Tipe Data                    | Keterangan                                                      |
+|-------------|------------------------------|-----------------------------------------------------------------|
+| user_id     | Union[str, List, Tuple, Set] | Id untuk instagram business user yang ingin kita dapatkan datanya.                    |
+| fields      | Optional[Union[str, List, Tuple, Set]] | String id yang dipisahkan koma untuk field data yang perlu diambil. Kita juga dapat meneruskan ini dengan list, tuple, atau set dari id. |
+| return_json | bool                         | Set ke false akan mengembalikan list instance IgProComment. Atau mengembalikan data json. Default adalah false. |
