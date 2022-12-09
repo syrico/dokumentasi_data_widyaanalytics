@@ -3,18 +3,24 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Data Team's documentation!
+Welcome to Widya Analytic's documentation!
 =======================================
 
 .. toctree::
-   :maxdepth: 3
-   :caption: Contents:
+   :maxdepth: 6
+   :caption: Toba
+   
+   Toba/cekbrand
+   Toba/cektren
 
-   myfile
 
-Indices and tables
-==================
+.. toctree::
+   :maxdepth: 5
+   :caption: Folderlink
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   Folderlink/folderlink
+
+
+   
+
+
