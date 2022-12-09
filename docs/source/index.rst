@@ -8,13 +8,19 @@ Welcome to Widya Analytic's documentation!
 
 .. toctree::
    :maxdepth: 6
-   :caption: Contents:
+   :caption: Toba
+   
+   Toba/cekbrand
+   Toba/cektren
 
-   myfile
 
-Indices and tables
-==================
+.. toctree::
+   :maxdepth: 5
+   :caption: Folderlink
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   Folderlink/folderlink
+
+
+   
+
+
