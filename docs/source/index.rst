@@ -10,8 +10,8 @@ Welcome to Widya Analytic's documentation!
    :maxdepth: 6
    :caption: Toba
    
-   Toba/cekbrand
-   Toba/cektren
+   Toba/indexcekbrand
+   Toba/indexcektren
 
 
 .. toctree::
