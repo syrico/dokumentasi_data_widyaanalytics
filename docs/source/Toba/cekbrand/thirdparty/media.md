@@ -80,7 +80,7 @@ def get_user_medias(self,
   user_id, fields=None, since_time=None, until_time=None,  count=10, limit=10, return_json=False)
 ```
         
-Mengambil data media pengguna ig berdasarkan user_id. Penjelasan parameter fungsi get_user_medias sebagai berikut.
+Mengambil data media pengguna ig berdasarkan user_id. Penjelasan parameter fungsi ``get_user_medias`` sebagai berikut.
 |     Parameter      |     Tipe Data                                   |     Keterangan                                                                                                                      |
 |--------------------|-------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 |     ``user_id``        |     str                                         |     Id untuk   pengguna instagram business yang ingin kita dapatkan datanya.                                                        |

@@ -68,7 +68,7 @@ GET https://graph.facebook.com/{api-version}/{ig-comment-id}
 def get_comments_by_media(self, media_id, fields=None, count=10, limit=10, include_reply=True, return_json=False)
 ```
 
-Ambil data komentar untuk id media yang diberikan. Penjelasan parameter fungsi get_comments_by_media sebagai berikut, dengan tipe data List[Union[IgProComment, dict]].
+Ambil data komentar untuk id media yang diberikan. Penjelasan parameter fungsi ``get_comments_by_media`` sebagai berikut, dengan tipe data List[Union[IgProComment, dict]].
 | Parameter     | Tipe Data                              | Keterangan |
 |---------------|----------------------------------------|------------|
 | ``media_id``      | str                                    | Id media yang ingin kita dapatkan data komentarnya. |

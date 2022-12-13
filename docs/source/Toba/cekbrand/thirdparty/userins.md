@@ -86,7 +86,7 @@ Edge ini mendukung paginasi berbasis waktu, sehingga kita dapat menyertakan para
 def get_user_insights(self, user_id, period, metrics, since=None, until=None, access_token=None, return_json=False)
 ```
 
-Mengambil user insights data dari akun instagram business. Penjelasan parameter fungsi get_user_insights sebagai berikut, dengan tipe data List[Union[IgProInsight, dict]].
+Mengambil user insights data dari akun instagram business. Penjelasan parameter fungsi ``get_user_insights`` sebagai berikut, dengan tipe data List[Union[IgProInsight, dict]].
 | Parameter    | Tipe Data                    | Keterangan                                                         |
 |--------------|------------------------------|--------------------------------------------------------------------|
 | ``user_id``      | str    | Id untuk instagram business user yang ingin kita dapatkan datanya.     |

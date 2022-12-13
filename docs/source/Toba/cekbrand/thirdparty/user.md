@@ -78,7 +78,7 @@ Field publik dapat dikembalikan oleh edge menggunakan ekspansi field.
 def get_user_info(self, user_id, fields=None, return_json=False)
 ```
 
-Mengambil data pengguna ig dari user id. Penjelasan parameter fungsi get_user_info sebagai berikut, dengan tipe data Optional[IgProUser, dict].
+Mengambil data pengguna ig dari user id. Penjelasan parameter fungsi ``get_user_info`` sebagai berikut, dengan tipe data Optional[IgProUser, dict].
 | Parameter   | Tipe Data                    | Keterangan                                                      |
 |-------------|------------------------------|-----------------------------------------------------------------|
 | ``user_id``     | str                          | Id untuk instagram business user yang ingin kita dapatkan datanya.                    |

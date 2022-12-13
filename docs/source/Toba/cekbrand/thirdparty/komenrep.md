@@ -1,7 +1,7 @@
 
 # IG Comment Replies
 
-Merupakan kumpulan Komentar IG pada IG Comment untuk mendapatkan semua balasan pada Komentar.<br />
+Merupakan kumpulan Komentar IG pada IG Comment untuk mendapatkan semua balasan pada Komentar.
 ```
 GET /{ig-comment-id}/replies
 ```
@@ -30,7 +30,7 @@ Jika token berasal dari User yang peran halamannya diberikan melalui Business Ma
 def get_replies_info(self, reply_ids, fields=None, return_json=False)
 ```
 
-Mengambil info reply oleh reply id. Penjelasan parameter fungsi get_replies_info sebagai berikut, dengan tipe data dict.
+Mengambil info reply oleh reply id. Penjelasan parameter fungsi ``get_replies_info`` sebagai berikut, dengan tipe data dict.
 
 | Parameter   | Tipe Data                    | Keterangan                                                      |
 |-------------|------------------------------|-----------------------------------------------------------------|

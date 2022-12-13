@@ -35,7 +35,7 @@ Kita dapat menggunakan ekspansi field untuk mendapatkan field publik pada IG Use
 def discovery_user(self, username, fields=None, return_json=False)
 ```
                        
-Mengambil info dasar pengguna bisnis lain berdasarkan username. Penjelasan parameter fungsi discovery_user sebagai berikut, dengan tipe data Union[IgProUser, dict].
+Mengambil info dasar pengguna bisnis lain berdasarkan username. Penjelasan parameter fungsi ``discovery_user`` sebagai berikut, dengan tipe data Union[IgProUser, dict].
 | Parameter   | Tipe Data                    | Keterangan                                                      |
 |-------------|------------------------------|-----------------------------------------------------------------|
 | ``username``     | str                          | Username untuk kita ingin mengambil data.                    |

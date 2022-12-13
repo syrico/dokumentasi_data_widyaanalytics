@@ -89,10 +89,10 @@ Metrik pada media dalam album tidak didukung. Sebagai gantinya, diambil metrik d
 def get_media_insights(self, media_id, metrics, access_token=None, return_json=False)
 ```
         
-Mengambil data media insights. Penjelasan parameter fungsi get_media_insights sebagai berikut, dengan tipe data List[Union[IgProInsight, dict]].
+Mengambil data media insights. Penjelasan parameter fungsi ``get_media_insights``    sebagai berikut, dengan tipe data List[Union[IgProInsight, dict]].
 | Parameter    | Tipe Data                    | Keterangan                                                      |
 |--------------|------------------------------|-----------------------------------------------------------------|
 | ``media_id``     | str                          | ID media yang ingin kita dapatkan datanya.                    |
-| ``metrics``      | Union[str, List, Tuple, Set] | String id yang dipisahkan koma untuk metrik yang perlu diambil. Kita juga dapat meneruskan ini dengan list, tuple, atau set dari id. <br />Catatan: Jenis media yang berbeda memiliki metrik yang berbeda. <br />Lihat selengkapnya: `https://developers.facebook.com/docs/instagram-api/reference/media/insights#insights-2` |
+| ``metrics``      | Union[str, List, Tuple, Set] | String id yang dipisahkan koma untuk metrik yang perlu diambil. Kita juga dapat meneruskan ini dengan list, tuple, atau set dari id. <br />Catatan: Jenis media yang berbeda memiliki metrik yang berbeda. <br />Lihat selengkapnya: https://developers.facebook.com/docs/instagram-api/reference/media/insights#insights-2 |
 | ``access_token`` | str                          | Token akses pengguna target. Jika tidak akan menggunakan token akses default. |
 | ``return_json``  | bool                         | Set ke false akan mengembalikan list instance IgProInsight. Atau kembalikan data json. Default adalah false.   |
