@@ -3,7 +3,7 @@ Berisi tentang data yang diambil dari instagram seperti data user, data media, d
 
 ![ER Diagram Instagram](image/instagram.png)
 
-## ``user``
+### ``user``
 Berisi tentang data user yang diambil dari instagram.
 
 | Nama Kolom          | Tipe        | Tipe Data | Isi                                                                                                 | Catatan |
@@ -19,7 +19,7 @@ Berisi tentang data user yang diambil dari instagram.
 | has_problems        | -           | bool      | Keterangan apakah user bermasalah                                                                   |         |
 | is_userid_valid     | -           | bool      | Keterangan apakah user id tersebut valid, ditandai dengan bisa/tidaknya akun tersebut mereturn data |         |
 
-## ``user_data``
+### ``user_data``
 Berisi tentang data user dengan atribut sosial media di instagram seperti jumlah follower, jumlah media (foto/video).
 
 | Nama Kolom             | Tipe        | Tipe Data | Isi                                                                                                 | Catatan |
@@ -35,7 +35,7 @@ Berisi tentang data user dengan atribut sosial media di instagram seperti jumlah
 | media_count_growth     | -           | int4      | Pertumbuhan jumlah media/postingan                                                                  |         |
 
 
-## ``user_competitor``
+### ``user_competitor``
 Berisi tentang data id user dengan id user competitor. 
 
 | Nama Kolom    | Tipe        | Tipe Data | Isi                                                                             | Catatan |
@@ -44,7 +44,7 @@ Berisi tentang data id user dengan id user competitor.
 | user_id       | Foreign Key | varchar   | Nomor ID yang merujuk pada table user                                           |         |
 | competitor_id | Foreign Key | varchar   | Nomor ID yang merujuk pada table user yang merupakan kompetitor dari suatu user |         |
 
-## ``user_insight_audience_city``
+### ``user_insight_audience_city``
 Berisi tentang data insight kota & provinai dari follower suatu user.
 
 | Nama Kolom | Tipe        | Tipe Data | Isi                                               | Catatan |
@@ -55,7 +55,7 @@ Berisi tentang data insight kota & provinai dari follower suatu user.
 | province   | -           | varchar   | Nama Province                                     |         |
 | value      | -           | int       | Jumlah follower dengan kota dan provinsi tertentu |         |
 
-## ``user_insight_audience_country``
+### ``user_insight_audience_country``
 Berisi tentang data insight sebaran negara follower suatu user.
 
 | Nama Kolom        | Tipe        | Tipe Data | Isi                                    | Catatan |
@@ -67,7 +67,7 @@ Berisi tentang data insight sebaran negara follower suatu user.
 | end_time          | -           | timestamp | Datestamp data update dari facebook    |         |
 | updated_timestamp | -           | timestamp | Timestamp kapan data di update         |         |
 
-## ``user_insight_audience_gender_age``
+### ``user_insight_audience_gender_age``
 Berisi tentang data insight sebaran jenis kelamin dan range usia follower dari suatu user.
 | Nama Kolom        | Tipe        | Tipe Data | Isi                                                          | Catatan |
 |-------------------|-------------|-----------|--------------------------------------------------------------|---------|
@@ -80,7 +80,7 @@ Berisi tentang data insight sebaran jenis kelamin dan range usia follower dari s
 | updated_timestamp | -           | timestamp | Timestamp kapan data di update                               |         |
 
 
-## ``user_insight_audience_locale``
+### ``user_insight_audience_locale``
 Berisi tentang data insight sebaran *ISO Language Code* follower dari suatu user.
 
 | Nama Kolom        | Tipe        | Tipe Data | Isi                                         | Catatan |
@@ -92,7 +92,7 @@ Berisi tentang data insight sebaran *ISO Language Code* follower dari suatu user
 | end_time          | -           | timestamp | Datestamp data update dari facebook         |         |
 | updated_timestamp | -           | timestamp | Timestamp kapan data di update              |         |
 
-## ``user_insight_impressions``
+### ``user_insight_impressions``
 Berisi tentang data insight impression follower dari suatu user.
 
 | Nama Kolom        | Tipe        | Tipe Data | Isi                                   | Catatan             |
@@ -104,7 +104,7 @@ Berisi tentang data insight impression follower dari suatu user.
 | end_time          | -           | timestamp | Datestamp data update dari facebook   |                     |
 | updated_timestamp | -           | timestamp | Timestamp kapan data di update        |                     | 
 
-## ``user_insight_online_follower``
+### ``user_insight_online_follower``
 Berisi tentang data insight sebaran jam online follower dari suatu user.
 
 | Nama Kolom        | Tipe        | Tipe Data | Isi                                            | Catatan |
@@ -116,7 +116,7 @@ Berisi tentang data insight sebaran jam online follower dari suatu user.
 | end_time          | -           | timestamp | Datestamp data update dari facebook            |         |
 | updated_timestamp | -           | timestamp | Timestamp kapan data di update                 |         |
 
-## ``user_insight_reach``
+### ``user_insight_reach``
 Berisi tentang data insight nilai reach dari suatu user.
 
 | Nama Kolom        | Tipe        | Tipe Data | Isi                                                         | Catatan             |
@@ -128,7 +128,7 @@ Berisi tentang data insight nilai reach dari suatu user.
 | end_time          | -           | timestamp | Datestamp data dihitung dari tanggal berapa (dari facebook) |                     |
 | updated_timestamp | -           | timestamp | Timestamp kapan data di update                              |                     |
 
-## ``media``
+### ``media``
 Berisi tentang data media (foto/video) setiap user.
 
 | Nama Kolom         | Tipe        | Tipe Data   | Isi                                          | Catatan                        |
@@ -152,7 +152,7 @@ Berisi tentang data media (foto/video) setiap user.
 | updated_timestamp  |             | timestamptz | Timestamp kapan data di update               |                                |
 | datestamp          |             | date        | Tanggal kapan data di update                 |                                |
 
-## ``media_comment``
+### ``media_comment``
 Berisi tentang data komentar pada media (foto/video) setiap user.
 
 | Nama Kolom        | Tipe        | Tipe Data  | Isi                                               | Catatan |
@@ -166,7 +166,7 @@ Berisi tentang data komentar pada media (foto/video) setiap user.
 | hidden            | -           | bool       | Boolean apakah komentar di sembunyikan atau tidak |         |
 | updated_timestamp |             | timestampz | Timestamp kapan data di update                    |         |
 
-## ``media_like_comment``
+### ``media_like_comment``
 Berisi tentang data history jumlah like dan komen media setiap user.
 
 | Nama Kolom            | Tipe        | Tipe Data  | Isi                                    | Catatan |
@@ -180,7 +180,7 @@ Berisi tentang data history jumlah like dan komen media setiap user.
 | comments_count_growth |             | int4       | Pertumbuhan jumlah komen               |         |
 | like_count_growth     |             | int4       | Pertumbuhan jumlah like                |         |
 
-## ``media_insight``
+### ``media_insight``
 Berisi tentang data insight seperti engagement, impressions, reach, dan jumlah saved pada media (foto/video).
 
 | Nama Kolom        | Tipe        | Tipe Data  | Isi                                                            | Catatan                                                      |
@@ -192,7 +192,7 @@ Berisi tentang data insight seperti engagement, impressions, reach, dan jumlah s
 | updated_timestamp | -           | timestampz | Timestamp kapan data di update                                 |                                                              |
 | datestamp         | -           | date       | Date kapan data di update                                      | Unique                                                       |
 
-## ``instagram_tokens``
+### ``instagram_tokens``
 Berisi tentang data token instagram pada setiap user.
 
 | Nama Kolom   | Tipe        | Tipe Data   | Isi                                      | Catatan |
@@ -202,7 +202,7 @@ Berisi tentang data token instagram pada setiap user.
 | token_secret | -           | text        | Secret Token                             |         |
 | expired_at   | -           | timestamptz | Waktu kadaluarsa token                   |         |
 
-## ``fetch_catalogue``
+### ``fetch_catalogue``
 Berisi tentang data fetch.
 
 | Nama Kolom | Tipe        | Tipe Data | Isi         | Catatan |
@@ -210,7 +210,7 @@ Berisi tentang data fetch.
 | fetch_id   | Primary Key | int       | Nomor ID    |         |
 | fetch_name | -           | varchar   | Nama Fetch  |         |
 
-## ``user_insight_visitor``
+### ``user_insight_visitor``
 Berisi data nilai insight visitor dengan perhitungan nilai pada hari ini dibandingkan dengan nilai 7 hari atau 28 hari yang lalu untuk setiap user. 
 
 | Nama Kolom        | Tipe        | Tipe Data   | Isi                                       | Catatan |

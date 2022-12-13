@@ -7,10 +7,11 @@ Welcome to Widya Analytic's documentation!
 =======================================
 
 .. toctree::
-   :maxdepth: 6
+   :maxdepth: 7
    :caption: Toba
    
    Toba/indexcekbrand
+   Toba/indexwstore
    Toba/indexcektren
 
 
@@ -18,7 +19,7 @@ Welcome to Widya Analytic's documentation!
    :maxdepth: 5
    :caption: Folderlink
 
-   Folderlink/folderlink
+   Folderlink/indexfolderlink
 
 
 Indices and tables
