@@ -1,5 +1,0 @@
-System Database
-++++++++++++++++
-
-Schema Instagram
-=================
