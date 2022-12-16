@@ -7,6 +7,6 @@ ETL
    
    etl/api
    etl/update
-   
+   etl/analytic
 
 
