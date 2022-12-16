@@ -45,7 +45,7 @@ Berisi tentang data id user dengan id user competitor.
 | competitor_id | Foreign Key | varchar   | Nomor ID yang merujuk pada table user yang merupakan kompetitor dari suatu user |         |
 
 ### ``user_insight_audience_city``
-Berisi tentang data insight kota & provinai dari follower suatu user.
+Berisi tentang data insight kota & provinsi dari follower suatu user.
 
 | Nama Kolom | Tipe        | Tipe Data | Isi                                               | Catatan |
 |------------|-------------|-----------|---------------------------------------------------|---------|
