@@ -4,6 +4,7 @@ Berisi tentang data olahan analytics dari data awal instagram.
 
 ![ER Diagram Instagram](image/toba_cek_insta.png)
 
+## Schema User
 
 ### ``user_insight_engagement``
 Berisi data nilai engagement yang diperoleh dari penambahan jumlah like dan jumlah comment untuk setiap user dengan periode waktu 7 hari dan 28 hari.
@@ -117,6 +118,8 @@ Berisi data nilai growth setiap sentiment dengan melakukan penguragan nilai pada
 | updated_timestamp | -           | timestamp | Timestamp kapan data di update                   |          |
 | timeframe         | -           | int       | Periode waktu perhitungan perbandingan sentiment | [7 , 28] |
 
+## Schema Media
+
 ### ``user_media_largest_engagement``
 Berisi data media yang memiliki nilai engagement terbanyak pada suatu user dengan periode waktu 7 atau 28 hari.
 
@@ -128,6 +131,7 @@ Berisi data media yang memiliki nilai engagement terbanyak pada suatu user denga
 | timeframe         | -           | int       | Periode waktu perhitungan engagement terbanyak | [7 , 28] |
 | engagement_count  | -           | int       | Jumlah engagement media                        |          |
 | updated_timestamp | -           | timestamp | Timestamp kapan data di update                 |          |
+
 
 ### ``user_media_largest_reach``
 Berisi data media yang memiliki nilai reach terbanyak pada suatu user dengan periode waktu 7 atau 28 hari.
@@ -188,6 +192,7 @@ Berisi data sentiment setiap komentar pada suatu media.
 | sentiment         | -           | varchar   | Sentiment komentar suatu media           | [neu , pos, neg] |
 | updated_timestamp | -           | timestamp | Timestamp kapan data di update           |                  |
 
+## Schema Lainnya
 
 ### ``user_hastags_metrics``
 Berisi data metrics setiap hashtag pada suatu media user.
