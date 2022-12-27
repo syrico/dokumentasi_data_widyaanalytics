@@ -119,7 +119,7 @@ Media
 Media Engagement Average Summary
 ================================
 
-.. http:get:: /cekbrand/account/(int:account_id)/competitor-accounts/(int:competitor_account_id)/media/engagement/average/summary?date_frame=7
+.. http:get:: /cekbrand/account/(int:account_id)/competitor-accounts/(int:competitor_account_id)/media/engagement/average/summary
 
     Mengembalikan data *summary* rerata engagement media akun Instagram kompetitor pengguna.
 
@@ -146,7 +146,7 @@ Media Engagement Average Summary
 Media Summary
 =============
 
-.. http:get:: /cekbrand/account/(int:account_id)/competitor-accounts/(int:competitor_account_id)/media/summary?start=2022-12-21T17:00:00.000Z&end=2022-12-26T16:59:59.000Z
+.. http:get:: /cekbrand/account/(int:account_id)/competitor-accounts/(int:competitor_account_id)/media/summary
 
     Mengembalikan data *summary* media akun Instagram kompetitor pengguna.
 
