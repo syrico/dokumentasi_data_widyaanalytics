@@ -1,14 +1,14 @@
 Social Account
 ++++++++++++++
 
-Berikut adalah beberapa endpoint yang digunakan pada halaman **Daftar Pengguna** yang hanya dapat digunakan oleh `admin`
+Berikut adalah beberapa endpoint yang digunakan pada halaman **Daftar Pengguna** yang hanya dapat digunakan oleh `admin`.
 
 Facebook List
 =============
 
 .. http:get:: /user-management/(int:user_id)/socialaccount/facebook
 
-   Mengambil semua daftar data akun Facebook pengguna
+   Mengambil semua daftar data akun Facebook pengguna.
 
    .. list-table:: 
       :widths: 15 80
@@ -50,7 +50,7 @@ Instagram List
 
 .. http:get:: /user-management/(int:user_id)/socialaccount/instagram
 
-   Mengambil semua daftar data akun Instagram pengguna
+   Mengambil semua daftar data akun Instagram pengguna.
 
    .. list-table:: 
       :widths: 15 80
@@ -79,6 +79,14 @@ Instagram List
                "email": "string"
             },
             "updated_timestamp": "2022-12-19T18:20:50.522Z",
-            "latest_user_data": "string"
+            "latest_user_data": {
+                "followers_count": 0,
+                "follows_count": 0,
+                "media_count": 0,
+                "followers_count_growth": 0,
+                "media_count_growth": 0,
+                "updated_timestamp": "2022-12-26T20:25:53+07:00",
+                "datestamp": "2022-12-26"
+            }
          }
       ]
