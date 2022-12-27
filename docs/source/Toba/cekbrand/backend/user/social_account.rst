@@ -1,15 +1,15 @@
 Social Account
 ++++++++++++++
 
-Pengguna dapat menambahkan koneksi terhadap akun media sosial terkait, misalkan Facebook, Instagram, Twitter, dsb. Endpoint berikut digunakan untuk mengelola akun-akun tersebut.
+Pengguna dapat menambahkan koneksi terhadap akun media sosial terkait, misalkan Facebook, Instagram, Twitter, dsb.
+Endpoint berikut digunakan untuk mengelola akun-akun tersebut.
 
 List
 ====
 
 .. http:get:: /user/socialaccount
 
-   Mengembalikan semua daftar data akun media sosial pengguna
-
+   Mengembalikan semua daftar data akun media sosial pengguna.
    **Contoh Response**:
 
    .. sourcecode:: json
@@ -43,7 +43,7 @@ Detail
 
 .. http:get:: /user/socialaccount/(int:id)
 
-   Mengembalikan detail data akun media sosial pengguna
+   Mengembalikan detail data akun media sosial pengguna.
 
    .. list-table:: 
       :widths: 15 80
@@ -85,7 +85,7 @@ Update
 
 .. http:put:: /user/socialaccount/(int:id)
 
-   Mengubah detail data akun media sosial pengguna
+   Mengubah detail data akun media sosial pengguna.
 
    .. list-table:: 
       :widths: 15 80
@@ -135,7 +135,7 @@ Delete
 
 .. http:delete:: /user/socialaccount/(int:id)
 
-   Menghapus data akun media sosial pengguna
+   Menghapus data akun media sosial pengguna.
 
    .. list-table:: 
       :widths: 15 80
