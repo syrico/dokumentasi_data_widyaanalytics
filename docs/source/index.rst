@@ -11,7 +11,7 @@ Welcome to Widya Analytic's documentation!
    :caption: Toba
    
    Toba/indexcekbrand
-   Toba/indexwstore
+   Toba/indexwastore
    Toba/indexcektren
 
 
