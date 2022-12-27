@@ -40,8 +40,8 @@ Audience City
             }
         ]
 
-    :query string start: tanggal awal filter data in TUC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in TUC-0 (ISO 8601 format)
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
 
 Retrieve City Coordinate
@@ -89,8 +89,8 @@ Audience Country
             }
         ]
 
-    :query string start: tanggal awal filter data in TUC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in TUC-0 (ISO 8601 format)
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
 
 Audience Gender Age
@@ -114,8 +114,8 @@ Audience Gender Age
             }
         ]
 
-    :query string start: tanggal awal filter data in TUC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in TUC-0 (ISO 8601 format)
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
 
 Impressions
@@ -138,8 +138,8 @@ Impressions
             }
         ]
 
-    :query string start: tanggal awal filter data in TUC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in TUC-0 (ISO 8601 format)
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
 
 Impressions Average Summary
@@ -159,8 +159,8 @@ Impressions Average Summary
             "impressions_average_growth": "-0.4560729716754763%"
         }
 
-    :query string start: tanggal awal filter data in TUC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in TUC-0 (ISO 8601 format)
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
 
 Online Followers
@@ -183,8 +183,8 @@ Online Followers
             }
         ]
 
-    :query string start: tanggal awal filter data in TUC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in TUC-0 (ISO 8601 format)
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
 
 Reach
@@ -207,8 +207,8 @@ Reach
             }
         ]
 
-    :query string start: tanggal awal filter data in TUC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in TUC-0 (ISO 8601 format)
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
 
 Reach Average Summary
@@ -228,8 +228,8 @@ Reach Average Summary
             "reach_average_growth": "3.4747221787447247%"
         }
 
-    :query string start: tanggal awal filter data in TUC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in TUC-0 (ISO 8601 format)
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
 
 Hashtag Metrics
@@ -251,6 +251,6 @@ Hashtag Metrics
             }
         ]
 
-    :query string start: tanggal awal filter data in TUC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in TUC-0 (ISO 8601 format)
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90

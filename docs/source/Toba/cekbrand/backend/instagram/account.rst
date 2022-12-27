@@ -131,8 +131,8 @@ User Data
             }
         ]
 
-    :query string start: tanggal awal filter data in TUC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in TUC-0 (ISO 8601 format)
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
 
 User Data Summary
@@ -152,8 +152,8 @@ User Data Summary
             "followers_growth_rate_growth": "0.5079374391504041%"
         }
 
-    :query string start: tanggal awal filter data in TUC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in TUC-0 (ISO 8601 format)
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
 
 Re-Authorization

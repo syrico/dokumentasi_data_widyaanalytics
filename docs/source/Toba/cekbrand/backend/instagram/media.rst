@@ -45,8 +45,8 @@ List
             }
         ]
 
-    :query string start: tanggal awal filter data in TUC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in TUC-0 (ISO 8601 format)
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
 
 Detail
@@ -194,8 +194,8 @@ Summary
                 "highest_reach_media_before": null
             }
 
-    :query string start: tanggal awal filter data in TUC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in TUC-0 (ISO 8601 format)
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
 
 Comments List
@@ -257,8 +257,8 @@ Engagement List
             }
         ]
 
-    :query string start: tanggal awal filter data in TUC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in TUC-0 (ISO 8601 format)
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
 
 Engagement Rate Standard Value
@@ -285,8 +285,8 @@ Engagement Rate Standard Value
             "max_followers": 2147483647
         }
 
-    :query string start: tanggal awal filter data in TUC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in TUC-0 (ISO 8601 format)
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
 
 
@@ -313,8 +313,8 @@ Engagement Average Summary
             "like_average_growth": -4.158333333333331
         }
 
-    :query string start: tanggal awal filter data in TUC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in TUC-0 (ISO 8601 format)
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
 
 
@@ -335,6 +335,6 @@ Engagement Summary
             "engagement_growth_rate_growth": "-0.9352930550661558%"
         }
 
-    :query string start: tanggal awal filter data in TUC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in TUC-0 (ISO 8601 format)
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
