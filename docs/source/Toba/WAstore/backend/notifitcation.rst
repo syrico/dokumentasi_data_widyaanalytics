@@ -1,6 +1,6 @@
-Subscription Groups
+Notification
 +++++
 
 .. toctree:: 
 
-   subscription-groups/subscription-groups
+   notification/notification
