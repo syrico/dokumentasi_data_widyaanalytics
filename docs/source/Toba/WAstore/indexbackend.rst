@@ -8,9 +8,10 @@ Backend
    backend/events-form
    backend/feedback
    backend/landing
-   backend/notification
+   backend/notifitcation
    backend/payments
    backend/store
+   backend/subscription
    backend/subscription-groups
    backend/subscription-plans
    backend/user-management

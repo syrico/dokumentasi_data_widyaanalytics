@@ -3,32 +3,17 @@ Notification
 
 Pengaturan untuk notifikasi WNS. Endpoint berikut digunakan untuk mengelola akun yang dimiliki
 
-POST
+Add
 =====
 
 .. http:post:: /notification/push/device/wns/
 
-    Untuk melakukan reset password
+    Untuk menambahkan *list* notifikasi 
     
-    Calls Django Auth PasswordResetForm save method.
-
-    Accepts the following POST parameters: email
-    Returns the success/fail message.
-
-   **Parameter**:
-
-   .. sourcecode:: json
-        	
-        {
-            "name": "string",
-            "registration_id": "string",
-            "active": true,
-            "p256dh": "string",
-            "auth": "string",
-            "browser": "CHROME",
-            "application_id": "string"
-        }
-
+    .. note::
+        - Calls Django Auth PasswordResetForm save method.
+        - Accepts the following POST parameters: email
+        - Returns the success/fail message.
 
    **Contoh Response**:
 
