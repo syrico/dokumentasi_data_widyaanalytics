@@ -3,26 +3,17 @@ Reset Password
 
 Pengguna dapat melakukan reset password akun pengguna. Endpoint berikut digunakan untuk mengelola akun yang dimiliki
 
-POST
-====
+Add Reset Password
+==================
 
 .. http:post:: /auth/password/reset/
 
-    Untuk melakukan reset password
+    Untuk menambahkan reset password baru pengguna
     
-    Calls Django Auth PasswordResetForm save method.
-
-    Accepts the following POST parameters: email
-    Returns the success/fail message.
-
-    **Parameter**:
-
-    .. sourcecode:: json
-                
-        {
-            "email": "user@example.com"
-        }
-
+    .. note::
+        - Calls Django Auth PasswordResetForm save method.
+        - Accepts the following POST parameters: email
+        - Returns the success/fail message.
 
     **Contoh Response**:
 
@@ -32,30 +23,17 @@ POST
             "email": "user@example.com"
         }
 
-POST
-====
+Add Confirm Reset Password
+==========================
 
 .. http:post:: /auth/password/reset/confirm/
 
     Untuk melakukan confirm reset password
     
-    Password reset e-mail link is confirmed, therefore this resets the user's password.
-
-    Accepts the following POST parameters: token, uid,
-    new_password1, new_password2
-    Returns the success/fail message.
-
-    **Parameter**:
-
-    .. sourcecode:: json
-
-        {
-            "new_password1": "string",
-            "new_password2": "string",
-            "uid": "string",
-            "token": "string"
-        }
-
+    .. note::
+        - Password reset e-mail link is confirmed, therefore this resets the user's password.
+        - Accepts the following POST parameters: token, uid, new_password1, new_password2
+        -  Returns the success/fail message.
 
     **Contoh Response**:
 
@@ -68,23 +46,15 @@ POST
             "token": "string"
         }
 
-POST
-====
+Add Authorization Token
+=======================
 
 .. http:post:: /auth/obtain-authorization-token/
 
     Untuk melakukan authorization token
     
-    Returns a JSON Web Token that can be used for authenticated requests.
-
-    **Parameter**:
-
-    .. sourcecode:: json
-
-        {
-            
-        }
-
+    .. note::
+        Returns a JSON Web Token that can be used for authenticated requests.
 
     **Contoh Response**:
 

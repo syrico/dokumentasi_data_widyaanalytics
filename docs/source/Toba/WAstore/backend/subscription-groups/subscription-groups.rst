@@ -1,12 +1,14 @@
 Subscription Groups
 +++++++
 
-Untuk dilakukan pertukaran data dengan Midtrans dalam melakukan pembayaran. Endpoint berikut digunakan untuk mengelola akun yang dimiliki
+Untuk memperoleh *Subscription Groups*. Endpoint yang digunakan sebagai berikut.
 
-GET
+List
 =====
 
 .. http:get:: /subscription-groups/
+
+    Mengembalikan *Subscription Groups* yang dimiliki pengguna.
 
    **Contoh Response**:
 
