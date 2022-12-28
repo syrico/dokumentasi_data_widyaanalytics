@@ -6,9 +6,9 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Widya Analytic'
-copyright = '2022, Laura'
-author = 'Laura'
+project = 'Widya Analytic Documentation'
+copyright = '2022, Widya Analytic Team'
+author = 'Widya Analytic Team'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
