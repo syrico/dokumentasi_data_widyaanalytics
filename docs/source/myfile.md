@@ -478,35 +478,34 @@ Berisi data waktu paling aktif suatu user.
 | value_paling_aktif | -           | varchar     |                                       |         |
 | updated_date       | -           | timestamp   | Timestamp kapan data di update        |         |
 
-### Routine
+### Facebook and 3-rd Party Endpoint
 
 #### IG Media
 Mewakili album, foto, atau video Instagram (video yang diunggah, video live, video yang dibuat dengan aplikasi Instagram TV, reel, atau story Instagram).
 
-#####  Reading
-Menggunakan third party (?)
+Cekbrand menggunakan 3rd-party dari pyfacebook yang memfasilitasi pemanggilan dari masing-masing endpoint API Graph facebook.
 
-###### Limitasi
+##### Limitasi
 - Kolom yang menampilkan nilai aggregat tidak menyertakan data yang digerakkan oleh iklan. Misalnya, comments_count menghitung komentar pada sebuah foto, tetapi tidak menghitung komentar pada iklan yang berisi foto tersebut.
 - Caption tidak menyertakan simbol @ kecuali pengguna aplikasi juga dapat melakukan tugas yang setara dengan Admin di aplikasi.
 - Beberapa kolom tidak dapat digunakan pada foto di dalam album (anak).
 - Media Instagram TV harus dibagikan ke Instagram pada saat publikasi (Post a Preview atau Share Preview to Feed diaktifkan) agar dapat diakses melalui API.
 - Live video IG Media hanya dapat dibaca saat sedang disiarkan.
 
-###### Persyaratan
+##### Persyaratan
 | Tipe          | Deskripsi                                                                                                                                                                                           |
 |---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Akses Token | User.                                                                                                                                                                                                 |
-| Izin   | **instagram_basic** <br /> **pages_read_engagement** <br /> **pages_show_list** <br /><br /> Jika pengguna aplikasi diberi peran di Halaman melalui Business Manager, Anda juga memerlukan salah satu dari yang berikut: <br /> **ads_management** <br /> **business_management** |
+| Izin   | **instagram_basic** <br /> **pages_read_engagement** <br /> **pages_show_list** <br /><br /> Jika pengguna aplikasi diberi peran di Halaman melalui Business Manager, kita juga memerlukan salah satu dari yang berikut: <br /> **ads_management** <br /> **business_management** |
 
 
-###### Request Syntax
+##### Request Syntax
 
 GET https://graph.facebook.com/{api-version}/{ig-media-id}
   <br />  &nbsp;&nbsp;&nbsp;&nbsp;?fields={fields}
   <br />  &nbsp;&nbsp;&nbsp;&nbsp;&access_token={access-token}
 
-###### Parameter Path
+##### Parameter Path
 
 | Placeholder   | Value                  |
 |---------------|------------------------|
@@ -514,14 +513,14 @@ GET https://graph.facebook.com/{api-version}/{ig-media-id}
 | **{ig-media-id}** | Perlu. IG Media ID. |
 
 
-###### Parameter String Kueri
+##### Parameter String Kueri
 
 |      Key     |   Placeholder  |                       Value                       |
 |:------------:|:--------------:|:-------------------------------------------------:|
 | **access_token** | **{access-token}** | Perlu. Token akses pengguna dari pengguna aplikasi.           |
-| **fields**       | **{fields}**       | List dari field yang ingin dihasilkan yang dipisahkan dengan tanda koma. |
+| **fields**       | **{fields}**       | List yang dipisahkan dengan tanda koma dari field yang ingin dihasilkan. |
 
-###### Fields
+##### Fields
 Public fields dan dapat di-read via ekspansi field.
 
 | Field                     | Deskripsi                                                                                                                                                                                                                                                                                                                                                                                      |
@@ -544,7 +543,7 @@ Public fields dan dapat di-read via ekspansi field.
 | **username** <br />Public           | Username pengguna yang membuat media.                                                                                                                                                                                                                                                                                                                                                          |
 | **video_title** <br />Public        | Tidak digunakan lagi. Dihilangkan dari respons.                                                                                                                                                                                                                                                                                                                                                               |
 
-###### Edges
+##### Edges
 Public edges dapat dikembalikan melalui ekspansi field.
 
 | Edge             | Description                                                       |
@@ -553,35 +552,437 @@ Public edges dapat dikembalikan melalui ekspansi field.
 | **comments**         | Merepresentasikan kumpulan Komentar IG pada objek Media IG.     |
 | **insights**         | Merepresentasikan metrik interaksi sosial pada objek IG Media.      |
 
-##### Updating
-**POST /{ig-media-id}**
-Mengaktifkan atau menonaktifkan komentar di media IG.
 
-###### Limitasi
-Video langsung IG media tidak didukung.
+##### Request Syntax 3rd-party pyfacebook
 
-###### Persyaratan
+def get_user_medias(self,
+  user_id, fields=None, since_time=None, until_time=None,  count=10, limit=10, return_json=False)
+        
+Mengambil data media pengguna ig berdasarkan user_id. Penjelasan parameter fungsi get_user_medias sebagai berikut.
+|     Parameter      |     Tipe Data                                   |     Keterangan                                                                                                                      |
+|--------------------|-------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+|     user_id        |     str                                         |     Id untuk   pengguna instagram business yang ingin kita dapatkan datanya.                                                        |
+|     fields         |     Optional[Union[str,   List, Tuple, Set]]    |     String id   yang dipisahkan koma untuk field data yang kita inginkan. Kita juga dapat pass   ini dengan list id, tuple, set.    |
+|     since_time     |     Optional[str]                               |     Batas bawah rentang waktu ke waktu publikasi media. Formatnya adalah %Y-%m-%d.                                                |
+|     until_time     |     Optional[str]                               |     Batas atas rentang waktu ke waktu publikasi media. Formatnya adalah %Y-%m-%d.                                                 |
+|     count          |     Optional[str]                               |     Jumlah kita ingin mendapatkan media. Jika perlu mendapatkan semuanya, set ini dengan None.                                    |
+|     limit          |     int                                         |     Setiap   permintaan mengambil jumlah media dari api. Untuk media sebaiknya tidak lebih   dari 500.                              |
+|     return_json    |     bool                                        |     Set ke False   akan mengembalikan instance dari IgProUser.                                                                      |
 
-| Tipe          | Deskripsi                                                                                                                                                                                               |
-|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Akses Token | User.                                                                                                                                                                                                     |
-| Izin   | **instagram_basic** <br /> **instagram_manage_comments**<br /> **pages_show_list**<br /><br /> Jika pengguna aplikasi diberi peran di Halaman via Business Manager, Anda juga memerlukan salah satu dari yang berikut: <br />**ads_management** <br />**business_management** |
+#### IG Media Insights
+Mewakili metrik interaksi sosial pada objek IG Media.
 
-###### Request Syntax
-POST https://graph.facebook.com/{api-version}/{ig-media-id}
-  <br />  &nbsp;&nbsp;&nbsp;&nbsp;?comment_enabled={comment-enabled}
+##### Limitasi
+- Insight data tidak tersedia untuk media apa pun dalam album IG Media.
+- Metrik story media hanya tersedia selama 24 jam, meskipun story tersebut diarsipkan atau di-highlight. Untuk mendapatkan insight terbaru tentang sebuah story sebelum kedaluwarsa, siapkan Webhook untuk field **Instagram** dan subscribe ke field **story_insights**.
+- Metrik story media dengan nilai kurang dari 5 menampilkan kode kesalahan **10** dengan pesan **(#10) Not enough viewers for the media to show insights.**
+- Untuk story yang dibuat oleh user di Eropa dan Jepang, metrik **replies** kini return nilai **0**.
+- Untuk story, balasan yang dibuat oleh pengguna di Eropa dan Jepang tidak termasuk dalam penghitungan **replies**.
+- Jika insight data yang kita minta tidak ada atau saat ini tidak tersedia, API akan return kumpulan data kosong, bukan 0 untuk masing-masing metrik.
+- Data yang digunakan untuk menghitung metrik dapat ditunda hingga 48 jam.
+
+##### Persyaratan
+| Tipe          | Deskripsi                                                                                                                                                                                           |
+|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Akses Token | User.                                                                                                                                                                                                 |
+| Izin   | **instagram_basic** <br /> 
+**instagram_manage_insights** <br /> 
+**pages_read_engagement** <br /> **pages_show_list** <br /><br /> Jika pengguna aplikasi diberi peran di Halaman melalui Business Manager, kita juga memerlukan salah satu dari yang berikut: <br /> **ads_management** <br /> **business_management** |
+
+##### Request Syntax
+
+GET https://graph.facebook.com/{api-version}/{ig-media-id}/insights
+  <br />  &nbsp;&nbsp;&nbsp;&nbsp;?metric={metric}
   <br />  &nbsp;&nbsp;&nbsp;&nbsp;&access_token={access-token}
 
-###### Parameter Path
+##### Parameter Path
+
+ Placeholder   | Value                  |
+|---------------|------------------------|
+| **{api-version}** | Versi API.           |
+| **{ig-media-id}** | Perlu. IG Media ID. |
+
+##### Parameter String Kueri
+
+| Parameter                           | Value                                                        |
+|-------------------------------------|--------------------------------------------------------------|
+| **{access-token}** <br />Type: string         | Perlu. Akses toker dari User pengguna aplikasi.                      |
+| **{metric}** <br />Type: Comma-separated list | Perlu. List yang diseparasi oleh metrik yang mau di-return. |
+
+##### Metrik
+
+###### Metrik Album
+
+| Metrik                     | Deskripsi                                                                                 |
+|----------------------------|---------------------------------------------------------------------------------------------|
+| **carousel_album_engagement**  | Total jumlah like dan Komentar IG pada album objek IG Media.                         |
+| **carousel_album_impressions** | Total berapa kali objek IG Media album telah dilihat.                              |
+| **carousel_album_reach**       | Total jumlah akun Instagram unik yang telah melihat album objek IG Media.         |
+| **carousel_album_saved**       | Total jumlah akun Instagram unik yang telah menyimpan album objek IG Media.        |
+| **carousel_album_video_views** | Total jumlah akun Instagram unik yang telah melihat video IG Media dalam album. |
+
+###### Metrik Foto dan Video
+Metrik pada media dalam album tidak didukung. Sebagai gantinya, diambil metrik di album.
+| Metrik      | Deskripsi                                                                                                                                 |
+|-------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| **engagement**  | Jumlahan dari **likes_count**, **comment_count**, dan **saved counts** pada IG Media.                                                                        |
+| **impressions** | Total banyaknya objek IG Media telah dilihat.                                                                                    |
+| **reach**       | Total akun  Instagram unik yang telah melihat objek IG Media.                                                               |
+| **saved**       | Total jumlah akun Instagram unik yang telah melihat objek IG Media.                                                              |
+| **video_views** | Total berapa kali video IG Media telah dilihat. Untuk album IG Media, berapa kali semua video dalam album telah dilihat. |
+
+###### Metrik Reels
+
+| Metrik             | Deskripsi                                                                                                                                                                                                   |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **comments**           | Jumlah komentar pada reel. Metrik dalam pengembangan.                                                                                                                                                        |
+| **likes**              | Jumlah likes di reel. Metrik dalam pengembangan.                                                                                                                                                           |
+| **plays**              | 
+Jumlah berapa kali reels mulai diputar setelah tayangan dihitung. Ini didefinisikan sebagai sesi video dengan pemutaran 1 ms atau lebih dan tidak termasuk pemutaran ulang. Metrik dalam pengembangan. |
+| **reach**              | Jumlah akun unik yang telah melihat reel setidaknya sekali. Reach berbeda dengan impresi, yang dapat mencakup beberapa penayangan reel oleh akun yang sama. Metrik diperkirakan dan dalam pengembangan. |
+| **saved**              | Jumlah penyimpanan reel. Metrik dalam pengembangan.                                                                                                                                                           |
+| **shares**             | Jumlah share dari reel. Metrik dalam pengembangan.                                                                                                                                                         |
+| **total_interactions** | Jumlah likes, simpan, komentar, dan share pada reel, dikurangi jumlah unlikes, tidak simpan, dan komentar yang dihapus. Metrik dalam pengembangan.                                                                  |
+
+###### Metrik story
+
+| Metrik       | Deskripsi                                                                                                                                                                                                                                                                                                    |
+|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **exits**        | Total berapa kali seseorang keluar dari story objek IG Media.                                                                                                                                                                                                                                                |
+| **impressions**  | Total berapa kali story objek IG Media telah dilihat.                                                                                                                                                                                                                                                 |
+| **reach**        | Total jumlah akun Instagram unik yang telah melihat story objek IG Media.                                                                                                                                                                                                                            |
+| **replies**      | Total jumlah reply (Komentar IG) pada story objek IG Media. Nilai tidak termasuk reply yang dibuat oleh pengguna di beberapa wilayah. Wilayah ini meliputi: Eropa mulai 1 Desember 2020 dan Jepang mulai 14 April 2021. Jika story dibuat oleh pengguna di salah satu wilayah ini, akan mengembalikan nilai 0. |
+| **taps_forward** | Total jumlah tap untuk melihat foto atau video selanjutnya dari objek IG Media ini.                                                                                                                                                                                                                                  |
+| **taps_back**    | Total jumlah tap untuk melihat foto atau video sebelumnya dari objek IG Media ini.                                                                                                                                                                                                                            |
+
+##### Request Syntax 3rd-party pyfacebook
+
+def get_media_insights(self, media_id, metrics, access_token=None, return_json=False)
+        
+Mengambil data media insights. Penjelasan parameter fungsi get_media_insights sebagai berikut, dengan tipe data List[Union[IgProInsight, dict]].
+| Parameter    | Tipe Data                    | Keterangan                                                      |
+|--------------|------------------------------|-----------------------------------------------------------------|
+| media_id     | str                          | ID media yang ingin kita dapatkan datanya.                    |
+| metrics      | Union[str, List, Tuple, Set] | String id yang dipisahkan koma untuk metrik yang perlu diambil. Kita juga dapat meneruskan ini dengan list, tuple, atau set dari id. <br />Catatan: Jenis media yang berbeda memiliki metrik yang berbeda. <br />Lihat selengkapnya: https://developers.facebook.com/docs/instagram-api/reference/media/insights#insights-2 |
+| access_token | str                          | Token akses pengguna target. Jika tidak akan menggunakan token akses default. |
+| return_json  | bool                         | Set ke false akan mengembalikan list instance IgProInsight. Atau kembalikan data json. Default adalah false.   |
+
+#### IG User
+
+Mewakili Akun Bisnis Instagram atau Akun Kreator Instagram. 
+
+**GET /{ig-user-id}**
+Mendapatkan fields dan edges pada Instagram Business atau Akun Kreator.
+
+##### Persyaratan
+
+| Tipe           | Deskripsi                                                                                                                                                                                                                                                                                                                                                        |
+|----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Aksen Token  | User.                                                                                                                                                                                                                                                                                                                                                              |
+| Peran Bisnis | Jika kita meminta field **shopping_product_tag_eligibility** untuk tagging produk, pengguna aplikasi harus memiliki peran admin di Business Manager yang memiliki Instagram Shop dari Pengguna IG.                                                                                                                                                                        |
+| Instagram Shop | Jika kita meminta field **shopping_product_tag_eligibility** untuk tagging produk, Pengguna IG harus memiliki Instagram Shop yang disetujui dengan katalog produk berisi produk.                                                                                                                                                                                 |
+| Izin    | **instagram_basic** <br /> **pages_read_engagement** <br /> **pages_show_list** <br /> Jika pengguna aplikasi diberi peran di Halaman melalui Business Manager, kita juga memerlukan salah satu dari yang berikut: <br />**ads_management** <br /> **business_management** <br /> Jika kita meminta field **shopping_product_tag_eligibility** untuk pemberian tag produk, kita juga memerlukan: <br /> **catalog_management** <br /> **instagram_shopping_tag_products** <br /> |
+
+##### Request Syntax
+
+GET https://graph.facebook.com/{api-version}/{ig-user-id}
+  <br />  &nbsp;&nbsp;&nbsp;&nbsp;?fields={fields}
+  <br />  &nbsp;&nbsp;&nbsp;&nbsp;&access_token={access-token}
+
+##### Parameter Path
 
 | Placeholder   | Value                  |
 |---------------|------------------------|
-| **{api-version}** | API version.           |
-| **{ig-media-id}** | Perlu. IG Media ID. |
+| **{api-version}** | Versi API.           |
+| **{ig-used-id}** | Perlu. IG User ID. |
 
-###### Parameter String Kueri
+##### Parameter String Kueri
 
-| Key             | Placeholder       | Value                                                                  |
-|-----------------|-------------------|------------------------------------------------------------------------|
-| **access_token**    | **{access-token}**    | Perlu. Token akses pengguna dari pengguna aplikasi.                                 |
-| **comment_enabled** | **{comment-enabled}** | Perlu. Set ke true untuk mengaktifkan komentar atau false untuk menonaktifkan komentar. |
+|      Key     |   Placeholder  |                       Value                       |
+|:------------:|:--------------:|:-------------------------------------------------:|
+| **access_token** | **{access-token}** | Perlu. Token akses pengguna dari pengguna aplikasi.           |
+| **fields**       | **{fields}**       | List yang dipisahkan dengan tanda koma dari field IG User yang ingin dihasilkan oleh setiap IG User pada himpunan hasil.|
+
+##### Fields
+Field publik dapat dikembalikan oleh edge menggunakan ekspansi field.
+
+| Field Nama                       | Deskripsi                                                                                                                      |
+|----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| **biography** Public                 | Teks dari profil bio.                                                                                                                 |
+| **id** <br /> Public                        |User ID dalam cakupan aplikasi.                                                                                                               |
+| **ig_id**                            | User ID Instagram. Digunakan dengan Legacy Instagram API, sekarang sudah tidak digunakan lagi. Menggunakan id sebagai gantinya.                                                |
+| **followers_count** <br /> Public           | Total jumlah Instagram user yang mengikuti user.                                                                  |
+| **follows_count**                    | Total jumlah pengguna Instagram yang diikuti user.                                                                            |
+| **media_count** <br /> Public               | Total jumlah Media IG yang dipublikasikan oleh user.                                                                                  |
+| **name**                             | Nama profil.                                                                                                                   |
+| **profile_picture_url**              | URL gambar profil.                                                                                                              |
+| **shopping_product_tag_eligibility** | Mengembalikan nilai true jika pengguna aplikasi telah menyiapkan Instagram Shop dan karenanya memenuhi syarat untuk pemberian tag produk, jika tidak, mengembalikan nilai false. |
+| **username** <br /> Public                  | Username dari profil.                                                                                                                 |
+| **website** <br /> Public                   | URL dari laman profil.                                                                                                              |
+
+##### Edges
+
+| Edge                       | Deskripsi                                                                                                                   |
+|----------------------------|-------------------------------------------------------------------------------------------------------------------------------|
+| **business_discovery**         | Mendapatkan data tentang User IG Instagram Business atau Instagram Creator IG.                                                        |
+| **content_publishing_limit**   | Merepresentasikan penggunaan penerbitan konten User IG saat ini.                                                                     |
+| **insights**                   | Mewakili metrik interaksi sosial pada User IG.                                                                          |
+| **live_media**                 | Merepresentasi kumpulan live video IG Media pada IG User.                                                                 |
+| **media**                      | Merepresentasi kumpulan IG Media pada IG User.                                                                           |
+| **media_publish**              | Mempublikasi IG Container di User ID Instagram Business.                                                                     |
+| **mentions**                   | Create an IG Comment on an IG Comment or captioned IG Media that an IG User has been @mentioned in by another Instagram user. |
+| **mentioned_comment**          | Get data on an IG Comment in which an IG User has been @mentioned by another Instagram user.                                  |
+| **mentioned_media**            | Get data on an IG Media in which an IG User has been @mentioned in a caption by another Instagram user.                       |
+| **recently_searched_hashtags** | Get IG Hashtags that an IG User has searched for within the last 7 days.                                                      |
+| **stories**                    | Represents a collection of story IG Media objects on an IG User.                                                              |
+| **tags**                       | Represents a collection of IG Media in which an IG User has been tagged by another Instagram user.                            |
+
+##### Request Syntax 3rd-party pyfacebook
+
+def get_user_info(self, user_id, fields=None, return_json=False)
+
+Mengambil data pengguna ig dari user id. Penjelasan parameter fungsi get_user_info sebagai berikut, dengan tipe data Optional[IgProUser, dict].
+| Parameter   | Tipe Data                    | Keterangan                                                      |
+|-------------|------------------------------|-----------------------------------------------------------------|
+| user_id     | str                          | Id untuk instagram business user yang ingin kita dapatkan datanya.                    |
+| fields      | Optional[Union[str, List, Tuple, Set]] | String id yang dipisahkan koma untuk metrik yang perlu diambil. Kita juga dapat meneruskan ini dengan list, tuple, atau set dari id. |
+| return_json | bool                         | Set ke false akan mengembalikan list instance IgProUser.    |
+
+#### IG User Insights
+
+Merepresentasi metrik interaksi sosial pada IG User.
+
+**GET /{ig-user-id}/insights** <br />
+Mengembalikan insights tentang IG User.
+
+##### Limitasi
+- Metrik **follower_count**, **online_followers**, dan semua **audience_\*** tidak tersedia di IG Users dengan followers kurang dari 100. 
+- Data insights untuk metrik **online_followers** hanya tersedia selama 30 hari terakhir.
+-  Jika data insights yang kita minta tidak ada atau saat ini tidak tersedia, API akan mengembalikan kumpulan data kosong, bukan 0 untuk masing-masing metrik.
+- Metrik demografis hanya menampilkan 45 artis dengan performa teratas (misalnya untuk **audience_city**, hingga 45 kota dengan jumlah pengikut tertinggi dapat ditampilkan).
+- Hanya viewers yang data demografisnya kami miliki yang digunakan dalam penghitungan metrik demografis.
+- Menjumlahkan nilai metrik demografi dapat menghasilkan nilai yang kurang dari jumlah pengikut (lihat poin-poin sebelumnya).
+- Metrik **audience_\*** tidak mendukung parameter range **since** dan **until**.
+- Data yang digunakan untuk menghitung metrik mungkin tertunda hingga 48 jam.
+
+##### Persyaratan
+
+| Tipe          | Deskripsi                                                                                                                                                                                                            |
+|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Akses Token | User                                                                                                                                                                                                                   |
+| Izin   | **instagram_basic** <br /> **instagram_manage_insights** <br /> **pages_read_engagement** <br /> **pages_show_list** <br /><br /> Jika pengguna aplikasi diberi peran di Halaman melalui Business Manager, kita juga memerlukan salah satu dari: **ads_management** <br /> **business_management** <br /> |
+
+##### Request Syntax
+
+GET https://graph.facebook.com/{api-version}/{ig-user-id}/insights
+  <br />  &nbsp;&nbsp;&nbsp;&nbsp;?metric={metric}
+  <br />  &nbsp;&nbsp;&nbsp;&nbsp;&period={period}
+  <br />  &nbsp;&nbsp;&nbsp;&nbsp;&since={since}
+  <br />  &nbsp;&nbsp;&nbsp;&nbsp;&until={until}
+  <br />  &nbsp;&nbsp;&nbsp;&nbsp;&access_token={access-token}
+
+##### Parameter Path
+
+| Placeholder   | Value                  |
+|---------------|------------------------|
+| **{api-version}** | Versi API.           |
+| **{ig-user-id}** | Perlu. IG User ID. |
+
+##### Parameter String Kueri
+
+| Parameter                              | Value                                                                                                                                                                                                                                                                                              |
+|----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **{access-token}**<br /> Required<br /> String         | Token Akses Pengguna dari pengguna aplikasi.                                                                                                                                                                                                                                                                  |
+| **{metric}**<br /> Required<br /> Comma-separated list | Daftar Metrik yang dipisahkan koma yang ingin kita kembalikan. Jika meminta beberapa metrik, semuanya harus memiliki Periode kompatibel yang sama.                                                                                                                                                   |
+| **{period}**<br /> Required<br /> String               | Periode yang kompatibel dengan metrik yang kita minta.                                                                                                                                                                                                                                   |
+| **{since}**<br /> Unix timestamp                 | Digunakan bersamaan dengan **{until}** untuk mendefinisikan Range. Jika kita menghilangkan **since** dan **until**, API default ke range 2 hari: kemarin hingga hari ini. Catatan: Kursor paginasi (sebelum dan sesudahnya) mengambil window waktu berikutnya dari hasil, bukan kelompok hasil berikutnya dalam window waktu saat ini. |
+| **{until}**<br /> Unix timestamp                 | Digunakan bersamaan dengan **{since}** untuk menentukan Range. Jika kita menghilangkan **since** dan **until**, API default ke range 2 hari: kemarin hingga hari ini. Catatan: Kursor paginasi (previous dan **next**) mengambil window waktu berikutnya dari hasil, bukan kelompok hasil berikutnya dalam window waktu saat ini. |
+
+##### Metrik dan Periode
+
+Metrik yang mendukung periode **lifetime** akan memiliki hasil yang dikembalikan dalam susunan periode 24 jam, dengan periode yang berakhir pada UTC−07:00. metrik **audience_\*** tidak mendukung parameter range **since** dan **until**.
+
+| Metrik                | Periode Kompatibel  | Deskripsi                                                                                                                                                                                                                                                                                                                          |
+|-----------------------|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| audience_city         | lifetime           | Kota pengikut yang data demografisnya kita miliki. <br /><br /> - Tidak termasuk data hari ini. <br /> - Tidak tersedia di IG User dengan pengikut kurang dari 100. <br /> - Hanya 45 kota teratas dengan nilai tertinggi yang dikembalikan. <br /> - Tidak mendukung parameter **since** dan **until**. <br /> - Respons tidak menyertakan properti JSON **end_time**.                             |
+| audience_country      | lifetime           | Negara pengikut yang data demografisnya kita miliki. <br /><br /> - Tidak termasuk data hari ini.<br /> - Tidak tersedia di IG User dengan pengikut kurang dari 100.<br /> - Hanya 45 negara teratas dengan nilai tertinggi yang dikembalikan.<br /> - Tidak mendukung parameter **since** dan **until**.<br /> - Respons tidak menyertakan properti JSON **end_time**.                       |
+| audience_gender_age   | lifetime           | Distribusi gender dan usia pengikut yang data demografisnya kami miliki. Nilai yang mungkin: **M** (laki-laki), **F** (perempuan), **U** (tidak diketahui).<br /><br /> - Tidak termasuk data hari ini.<br /> - Tidak tersedia di IG User dengan pengikut kurang dari 100.<br /> - Tidak mendukung parameter **since** dan **until**.<br /> - Respons tidak menyertakan properti JSON **end_time**. |
+| audience_locale       | lifetime           | Lokal menurut kode negara pengikut yang data demografisnya kita miliki.<br /><br /> - Tidak termasuk data hari ini.<br /> - Tidak tersedia di IG User dengan pengikut kurang dari 100. <br /> - Hanya 45 lokal teratas dengan nilai tertinggi yang dikembalikan. <br /> - Tidak mendukung parameter **since** dan **until**. <br /> - Respons tidak menyertakan properti JSON **end_time**.          |
+| email_contacts        | day                | Total jumlah ketukan pada tautan email di profil IG User.                                                                                                                                                                                                                                                                     |
+| follower_count        | day                | Total jumlah pengikut baru setiap hari dalam range yang ditentukan. Mengembalikan data maksimal 30 hari. Tidak tersedia di Pengguna IG dengan pengikut kurang dari 100.                                                                                                                                                              |
+| get_directions_clicks | day                | Total jumlah ketukan pada tautan petunjuk arah di profil IG User.                                                                                                                                                                                                                                                                |
+| impressions           | day, week, days_28 | Total berapa kali IG Media dari IG User telah dilihat. Mencakup aktivitas iklan yang dihasilkan melalui API, antarmuka iklan Facebook, dan fitur Promote. Tidak termasuk view dari profil.                                                                                                                                     |
+| online_followers      | lifetime           |  Total jumlah pengikut IG User yang online selama range yang ditentukan. Tidak tersedia di IG User dengan pengikut kurang dari 100.                                                                                                                                                                                       |
+| phone_call_clicks     | day                | Total jumlah ketukan pada tautan panggilan di profil IG User.                                                                                                                                                                                                                                                                      |
+| profile_views         | day                |  Total jumlah pengguna yang telah melihat profil IG User dalam periode yang ditentukan.                                                                                                                                                                                                                                             |
+| reach                 | day, week, days_28 | Total jumlah pengguna unik yang telah melihat setidaknya satu IG Media dari IG User. Tampilan berulang dan tampilan di berbagai IG Media yang dimiliki oleh IG User oleh pengguna yang sama hanya dihitung sebagai satu tampilan. Mencakup aktivitas iklan yang dihasilkan melalui API, antarmuka iklan Facebook, dan fitur Promote.                    |
+| text_message_clicks   | day                |  Total jumlah ketukan pada tautan pesan teks di profil IG User.                                                                                                                                                                                                                                                              |
+| website_clicks        | day                |  Total jumlah ketukan pada tautan situs web di profil IG User.                                                                                                                                                                                                                                                                   |
+
+##### Range
+
+Edge ini mendukung paginasi berbasis waktu, sehingga kita dapat menyertakan parameter **since** dan **until** dengan Unix timestamps untuk menentukan range. Misalnya, untuk mendapatkan impression selama 28 hari — setiap hari selama 10 hari terakhir — kita dapat membuat Unix timestamps untuk 10 hari yang lalu dan hari ini, assign ke parameter **since** dan **until**, dan menyertakannya dalam permintaan kita: <br />
+**metric=impressions&period=days_28&since=1501545600&until=1502493720**
+<br />Parameter **since** dan **until** bersifat inklusif, sehingga jika range kita menyertakan hari yang belum berakhir (misalnya hari ini), kueri berikutnya sepanjang hari dapat mengembalikan nilai yang meningkat. Jika kita tidak menyertakan parameter **since** dan **until**, API akan default ke range 2 hari: kemarin sampai hari ini.
+
+##### Request Syntax 3rd-party pyfacebook 
+
+def get_user_insights(self, user_id, period, metrics, since=None, until=None, access_token=None, return_json=False)
+
+Mengambil user insights data dari akun instagram business. Penjelasan parameter fungsi get_user_insights sebagai berikut, dengan tipe data List[Union[IgProInsight, dict]].
+| Parameter    | Tipe Data                    | Keterangan                                                         |
+|--------------|------------------------------|--------------------------------------------------------------------|
+| user_id      | str                          | Id untuk instagram business user yang ingin kita dapatkan datanya.     |
+| period       | str                          | Periode untuk data agregasi. Parameter yang diterima: lifetime, day, dan days_28.                                    |
+| metrics      | Union[str, List, Tuple, Set] | String id yang dipisahkan koma untuk metrik yang perlu diambil. Kita juga dapat meneruskan ini dengan list, tuple, atau set dari id. <br/>Catatan: Beberapa metrik tidak sesuai dengan periode.  <br/>Lihat selengkapnya: https://developers.facebook.com/docs/instagram-api/reference/user/insights#metrics-periods|
+| since        | Optional[int]                | Batas bawah rentang waktu untuk mengambil data. Perlu Unix timestamps. |
+| until        | Optional[int]                | Batas atas rentang waktu untuk mengambil data. Perlu Unix timestamps. Rentang waktu tidak lebih dari 30 hari (2592000 detik). |
+| access_token | str                          | Token akses pengguna target. Jika tidak akan menggunakan token akses default.    |
+| return_json  | bool                         | Set ke false akan mengembalikan list instance IgProInsight.       |
+
+#### IG User Business Discovery
+Memungkinkan kita mendapatkan data tentang Pengguna Instagram Business atau Creator IG lainnya.
+
+**GET /{ig-user-id}?fields=business_discovery.username({username})** <br />
+Mengembalikan data tentang Pengguna Instagram Business atau Creator IG lainnya. Lakukan permintaan ini pada Pengguna Instagram Business atau Creator IG yang membuat kueri, dan identifikasi bisnis yang ditargetkan dengan parameter **username**.
+
+##### Limitasi
+
+Data tentang Instagram Business IG User yang dikenai pembatasan usia tidak akan dikembalikan. 
+
+##### Parameter String Kueri
+**{username}** (required) — Nama pengguna Instagram Business atau Creator IG User yang ingin kita dapatkan datanya.
+
+##### Izin
+
+Token akses Facebook User dengan izin berikut:
+- **instagram_basic**
+- **instagram_manage_insights**
+- **pages_read_engagement** atau **pages_show_list**
+<br />
+Jika token berasal dari User yang peran Page diberikan melalui Business Manager, salah satu izin berikut juga diperlukan:
+- ads_management
+- pages_read_engagement
+- business_management 
+
+##### Ekspansi Field
+Kita dapat menggunakan ekspansi field untuk mendapatkan field publik pada IG Useryang ditargetkan. Lihat referensi IG User untuk daftar kolom publik.
+
+##### Request Syntax 3rd-party pyfacebook 
+
+def discovery_user(self, username, fields=None, return_json=False)
+                       
+Mengambil info dasar pengguna bisnis lain berdasarkan username. Penjelasan parameter fungsi discovery_user sebagai berikut, dengan tipe data Union[IgProUser, dict].
+| Parameter   | Tipe Data                    | Keterangan                                                      |
+|-------------|------------------------------|-----------------------------------------------------------------|
+| username     | str                          | Username untuk kita ingin mengambil data.                    |
+| fields      | Union[str, List, Tuple, Set] | String id yang dipisahkan koma untuk fields data yang perlu diambil. Kita juga dapat meneruskan ini dengan list, tuple, atau set dari id. |
+| return_json | bool                         | Set ke false akan mengembalikan list instance IgProUser. Atau mengembalikan data json. Default adalah false. |
+
+#### IG Comment
+Merupakan komentar di IG Media.
+
+**GET /{ig-comment-id}?fields={fields}**<br />
+Dapatkan field dan edges pada IG Comment.
+
+##### Limitasi
+- Permintaan tidak dapat dilakukan pada komentar yang ditemukan melalui Mentions API kecuali jika permintaan dibuat oleh pemilik comment. Sebagai gantinya, gunakan simpul Mentioned Comment.
+- Komentar pada media yang dibatasi usia tidak dikembalikan.
+- Komentar yang dibuat oleh IG User yang telah dibatasi oleh pengguna aplikasi tidak akan dikembalikan kecuali IG User tersebut tidak dibatasi dan Comment tersebut disetujui.
+- Komentar pada video langsung Media IG hanya dapat dibaca saat IG Media tempat komentar dibuat sedang disiarkan.
+
+##### Persyaratan
+
+| Tipe          | Deskripsi                                                                                                                                                                                                            |
+|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Akses Token | User                                                                                                                                                                                                                   |
+| Izin   | **instagram_basic** <br /> **pages_read_engagement** <br /> **pages_show_list** <br /><br /> Jika pengguna aplikasi diberi peran di Halaman melalui Business Manager, kita juga memerlukan salah satu dari: **ads_management** <br /> **business_management** <br /> | 
+
+##### Request Syntax
+GET https://graph.facebook.com/{api-version}/{ig-comment-id}
+  <br />  &nbsp;&nbsp;&nbsp;&nbsp;?fields={fields}
+  <br />  &nbsp;&nbsp;&nbsp;&nbsp;&access_token={access-token}
+
+##### Parameter Path
+
+| Placeholder   | Value                  |
+|---------------|------------------------|
+| **{api-version}** | Versi API.           |
+| **{ig-comment-id}** | Perlu. IG Comment ID. |
+
+##### Parameter String Kueri
+| Key          | Placeholder    | Value                                                                                              |
+|--------------|----------------|----------------------------------------------------------------------------------------------------|
+| **access_token** | **{access-token}** | Required. Token akses pengguna dari pengguna aplikasi.                                                            |
+| **fields**       | **{fields}**       | Daftar fields dari IG Comment yang dipisahkan koma yang ingin kita kembalikan untuk setiap IG Comment di himpunan hasil. |                
+
+##### Fields
+
+| Nama Field | Deskripsi                                                                                                                                                                                                    |   |
+|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
+| **from**       | Objek yang berisi: <br />**id** — IGSID pengguna Instagram yang membuat IG Comment. <br />**username** — Nama pengguna dari pengguna Instagram yang membuat IG Comment.                                                       |   |
+| **hidden**     | Mengindikasi apakah komentar telah disembunyikan (**true**) atau tidak (**false**).                                                                                                                                                    |   |
+| **id**         | IG Comment ID.                                                                                                                                                                                                 |   |
+| **like_count** | Jumlah suka di IG Comment.                                                                                                                                                                             |   |
+| **media**      | Objek yang berisi: <br /> **id** — ID dari IG Media tempat IG Comment dibuat. <br /> **media_product_type** — Permukaan IG Media yang dipublikasikan (yaitu tempat IG Media muncul) tempat IG Comment dibuat. |   |
+| **parent_id**  | ID dari parent IG Comment jika komentar ini dibuat di IG Comment lain (yaitu balasan untuk komentar lain).                                                                                                |   |
+| **replies**    | Daftar balasan (IG Comment) dibuat di IG Comment.                                                                                                                                                        |   |
+| **text**       | teks di IG Comment.                                                                                                                                                                                               |   |
+| **timestamp**  | Timestamp berformat ISO 8601 yang menunjukkan kapan IG Comment dibuat. Contoh: 2017-05-19T23:27:28+0000.                                                                                                        |   |
+| **user**       | ID dari IG User yang membuat IG Comment. Hanya dikembalikan jika pengguna aplikasi membuat IG Comment, jika tidak, nama pengguna akan dikembalikan.                                                                   |   |
+| **username**   | Username pengguna Instagram yang membuat IG Comment.                                                                                                                                                         |   |
+
+##### Edges
+
+| Edge    | Deskripsi                                                                         |
+|---------|-------------------------------------------------------------------------------------|
+| **replies** | Dapatkan daftar komentar IG di IG Comment; Buat Komentar IG di IG Comment. |
+
+##### Request Syntax 3rd-party pyfacebook
+
+def get_comments_by_media(self, media_id, fields=None, count=10, limit=10, include_reply=True, return_json=False)
+
+Ambil data komentar untuk id media yang diberikan. Penjelasan parameter fungsi get_comments_by_media sebagai berikut, dengan tipe data List[Union[IgProComment, dict]].
+| Parameter     | Tipe Data                              | Keterangan |
+|---------------|----------------------------------------|------------|
+| media_id      | str                                    | Id media yang ingin kita dapatkan data komentarnya. |
+| fields        | Optional[Union[str, List, Tuple, Set]] | String id yang dipisahkan koma untuk fields data yang perlu diambil. Kita juga dapat meneruskan ini dengan list, tuple, atau set dari id. |
+| count         | Optional[int]                          | Jumlah komentar yang kita inginkan. Default adalah 10. Jika perlu mendapatkan semua, set ini dengan None. |
+| limit         | int                                    | Setiap permintaan mengambil hitungan komentar dari api. Untuk komentar sebaiknya tidak lebih dari 50. |
+| include_reply | bool                                   | Set ke True akan menyertakan balasan ke komentar. Default adalah benar. |
+| return_json   | bool                                   | Set ke false akan mengembalikan list instance IgProComment. Atau mengembalikan data json. Default adalah false. |
+
+#### IG Comment Replies
+
+Merupakan kumpulan Komentar IG pada IG Comment untuk mendapatkan semua balasan pada Komentar.<br />
+**GET /{ig-comment-id}/replies** <br />
+Mengembalikan daftar komentar IG pada IG Comment.
+
+##### Limitasi
+
+Kita tidak bisa mendapatkan balasan untuk komentar yang telah dihapus.
+
+##### Persyaratan
+
+Token akses dari User yang membuat komentar, dengan izin berikut:
+- **instagram_basic**
+- **pages_show_list**
+- **page_read_engagement**
+
+Jika token berasal dari User yang peran halamannya diberikan melalui Business Manager, salah satu izin berikut juga diperlukan:
+- **ads_management**
+- **pages_read_engagement**
+- **business_management**
+
+
+##### Request Syntax 3rd-party pyfacebook
+
+def get_replies_info(self, reply_ids, fields=None, return_json=False)
+
+Mengambil info reply oleh reply id. Penjelasan parameter fungsi get_replies_info sebagai berikut, dengan tipe data dict.
+
+| Parameter   | Tipe Data                    | Keterangan                                                      |
+|-------------|------------------------------|-----------------------------------------------------------------|
+| user_id     | Union[str, List, Tuple, Set] | Id untuk instagram business user yang ingin kita dapatkan datanya.                    |
+| fields      | Optional[Union[str, List, Tuple, Set]] | String id yang dipisahkan koma untuk field data yang perlu diambil. Kita juga dapat meneruskan ini dengan list, tuple, atau set dari id. |
+| return_json | bool                         | Set ke false akan mengembalikan list instance IgProComment. Atau mengembalikan data json. Default adalah false. |
