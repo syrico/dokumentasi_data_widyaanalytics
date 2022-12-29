@@ -1,5 +1,5 @@
-Backend
-+++++++
+Endpoint
+++++++++
 
 .. toctree::
 
