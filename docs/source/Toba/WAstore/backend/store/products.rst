@@ -41,18 +41,6 @@ Add Product
   .. note::
     A viewset for viewing and editing store application (product) instances.
 
-
-  **Penjelasan Parameter URL**
-
-  .. list-table::
-    :widths: 15 80
-    :header-rows: 1
-
-    * - Parameter
-      - Deskripsi
-    * - id
-      - ID yang memiliki nilai *UUID* untuk mengidentifikasi *payment product*
-
   **Contoh Response**:
 
   .. sourcecode:: json
@@ -108,7 +96,7 @@ Detail Products
 Update Products
 =====
 
-.. http:put:: /store/products/{int:id}/
+.. http:put:: /store/products/(int:id)/
 
   Memperbarui data list product yang tersedia di *store* berdasarkan ``id``.
 
@@ -145,7 +133,7 @@ Update Products
 Delate Products
 =====
 
-.. http:delete:: /store/products/{int:id}/
+.. http:delete:: /store/products/(int:id)/
 
   Menghapus data list product yang tersedia di *store* berdasarkan ``id``.
 
