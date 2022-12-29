@@ -2,7 +2,7 @@
 
 Berisi tentang data olahan analytics dari data awal instagram.
 
-![ER Diagram Instagram](image/toba_cek_insta.png)
+![ER Diagram Toba Cek Insta](image/toba_cek_insta.png)
 
 ## Schema User
 

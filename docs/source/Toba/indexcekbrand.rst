@@ -8,5 +8,8 @@ CekBrand
    cekbrand/indexsysdata
    cekbrand/indexthirdparty
    cekbrand/indexetl
+   cekbrand/indexairflow
+   cekbrand/indexsentimen
+   
 
 

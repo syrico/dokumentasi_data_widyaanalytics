@@ -1,4 +1,5 @@
 # API Call
+Di update data, kita masukkan endpoint untuk mengupdate data. Selanjutnya, update.py akan memanggil fungsi user info api call dari file api call.py . Kemudian fungsi user info api call, dibutuhkan user id token argumen true/false. kemudian dari user info api call, dia kan memanggil third party fungis get user info. Dari get user info, dia mengembalikan data berbentuk json dan setelah itu, terjadi proses transformasi dengan memanggil fungsi transform user static (dst) yang ada di folder transfor di utils
 
 ## User
 
@@ -17,7 +18,7 @@
 
 ## Competitor
 
-| update_data.py      | api_call.py                | update.py (function)  | update.py (metrics/fields) | Schema   Instagram |
+| update_data.py      | api_call.py                | instagram.py (function)  | instagram.py (metrics/fields) | Schema   Instagram |
 |---------------------|----------------------------|-----------------------|----------------------------|--------------------|
 | update comp static  | competitor_info_api_call   | discovery_user        | fields = None              | user               |
 | update comp dynamic | competitor_info_api_call   | discovery_user        | fields = None              | user_data          |
@@ -26,7 +27,7 @@
 ## Media Insight
 
 
-| update_data.py       | api_call.py                  | update.py (function)  | update.py (metrics/fields)                                                                                                                                                                                                                                                                                               | Schema   Instagram |
+| update_data.py       | api_call.py                  | instagram.py (function)  | instagram.py (metrics/fields)                                                                                                                                                                                                                                                                                               | Schema   Instagram |
 |----------------------|------------------------------|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
 | update media insight | user_media_insights_api_call | get_media_insights    | image_metric = ['engagement',   'reach', 'impressions', 'saved'] <br />video_metric = ['engagement', 'reach', 'impressions', 'saved',   'video_views'] <br /> album_metric = ['carousel_album_engagement', 'carousel_album_impressions',   'carousel_album_reach',    'carousel_album_saved', 'carousel_album_video_views'] | media_insight      |
 | update media comment | user_media_comment_api_call  | get_comments_by_media | fields = None                                                                                                                                                                                                                                                                                                            | media_comments     |
