@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Welcome to Widya Analytic's documentation!
-=======================================
+==========================================
 
 .. toctree::
    :maxdepth: 7

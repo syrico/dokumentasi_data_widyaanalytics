@@ -1,14 +1,15 @@
 Facebook Authentication
 +++++++++++++++++++++++
 
-Untuk mendapatkan data Instagram diperlukan akses terhadap akun Facebook pengguna. Di bawah ini adalah endpoint yang digunakan dalam proses autentikasi akun Facebook.
+Untuk mendapatkan data Instagram diperlukan akses terhadap akun Facebook pengguna.
+Di bawah ini adalah endpoint yang digunakan dalam proses autentikasi akun Facebook.
 
 Login
 =====
 
 .. http:get:: /user/auth/facebook/login/?process=connect
 
-   Meminta alamat halaman otentikasi Facebook untuk melakukan *connecting* akun Facebbok dengan pengguna
+   Meminta alamat halaman otentikasi Facebook untuk melakukan *connecting* akun Facebbok dengan pengguna.
 
    **Contoh Response**:
 
@@ -23,17 +24,19 @@ Login Callback
 
 .. http:get:: /user/auth/facebook/login/callback
 
-   Ini adalah endpoint *callback* yang digunakan oleh Facebook untuk mengirimkan kode otorisasi yang akan dilampirkan pada parameter query url. Kemudian kode tersebut akan digunakan untuk mendapatakn token akses jangka pabjang.
+   Ini adalah endpoint *callback* yang digunakan oleh Facebook untuk mengirimkan kode otorisasi yang akan dilampirkan pada parameter query url.
+   Kemudian kode tersebut akan digunakan untuk mendapatakn token akses jangka panjang.
 
    :query string code: merupakan kode otorisasi yang diberikan oleh Facebook.
    
    .. note::
 
-      Jika dalam parameter query tidak ditemukan `code` maka dapat dipastikan terdapat error pada proses login Facebook atau alamat request
+      Jika dalam parameter query tidak ditemukan `code` maka dapat dipastikan terdapat error pada proses login Facebook atau alamat request.
  
 Callback
 ========
 
 .. http:get:: /user/auth/facebook/callback
 
-   Endpoint ini melakukan *redirect* callback Facebook untuk diteruskan menggunakan endpoint **Login Callback** melalui frontend. Hal ini diperlukan karena endpoint **Login Callback** hanya dapat digunakan oleh pengguna terotentikasi.
+   Endpoint ini melakukan *redirect* callback Facebook untuk diteruskan menggunakan endpoint **Login Callback** melalui frontend.
+   Hal ini diperlukan karena endpoint **Login Callback** hanya dapat digunakan oleh pengguna terotentikasi.
