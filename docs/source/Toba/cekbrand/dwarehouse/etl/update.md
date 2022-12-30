@@ -1,5 +1,7 @@
 # Menjalankan Program Tanpa DAG
 
+Kita dapat menjalankan program update dan analytics tanpa menggunakan DAG, dengan fungsi sebagai berikut.
+
 ## Update
 
 Update data dijalankan di main.py, dengan parameter yang digunakan adalah sebagai berikut.
