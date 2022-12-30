@@ -9,4 +9,4 @@ Catatan:
 ```
 ssh_start_SA = SSHOperator(task_id = 'Start_SERVICE', ssh_hook= sshHook, command="/home/widyadev/alfath/sentiment-analysis/scripts/start_sa.sh ", dag=dag)
 ```
-- Preprocessing dengan library benchmark, yaitu ``preprocessing``
+- Preprocessing dengan library benchmark, yaitu ``preprocessing``.

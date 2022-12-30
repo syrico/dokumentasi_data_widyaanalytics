@@ -10,8 +10,8 @@ Update data dijalankan di main.py, dengan parameter yang digunakan adalah sebaga
 |-------------|-----------|------------|
 | db_state    | str       | Penggunaan alamat IP address ketika staging (dev, test, prod). |
 | airflow     | boolean   | Penggunaan alamat IP crawler internal (true) atau eksternal (false). |
-| retry_count | int       | Batas berapa kali mengulang ketika request ke facebook timeout atau gagal. |
-| range_data  | int       |            |
+| retry_count | int       | Jumlah max_entries ketika data gagal untuk di-fetch pada proses multithread. |
+| range_data  | int       | Jumlah data dari hari yang diambil dari tanggal sekarang, dengan format since_unix.           |
 
 Untuk menjalankan main.py, terlebih dahulu dilakukan import berikut ini.
 
