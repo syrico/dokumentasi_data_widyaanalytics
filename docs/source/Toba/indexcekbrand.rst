@@ -6,7 +6,7 @@ CekBrand
    
    cekbrand/indexsysdata
    cekbrand/indexthirdparty
-   cekbrand/indexbackend
+   cekbrand/indexendpoint
    cekbrand/indexetl
 
 
