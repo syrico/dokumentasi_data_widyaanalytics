@@ -1,6 +1,6 @@
 # DAG
 
-Ide mendasar di balik Airflow adalah DAG (Directed Acyclic Graph), yang menentukan ketergantungan antar task, dan urutan untuk mengeksekusinya dan menjalankan percobaan ulang. Task itu sendiri menjelaskan apa yang harus dilakukan, baik itu mengambil data, menjalankan analisis, memicu sistem lain, atau lebih.
+Ide mendasar di balik Airflow adalah DAG (Directed Acyclic Graph), yang menentukan ketergantungan antar task, dan urutan untuk mengeksekusinya dan menjalankan percobaan ulang. Task itu sendiri menjelaskan apa yang harus dilakukan, baik itu mengambil data, menjalankan analisis, memicu sistem lain, atau lebih. Dengan kata lain, task inilah yang menjalankan proses ETL pada CekBrand.
 
 Langkah awal yang perlu dilakukan adalah melakukan import yang diperlukan. Kemudian, tetapkan argumen default yang diperlukan seperti sebagai berikut.
 ```
@@ -41,4 +41,5 @@ Langkah terakhir adalah mendefinisikan dependensi task, seperti berikut ini.
 t1 >> t1_1 >> t1_2 >> t1_3 >> t2 >> t2_1 >> t2_2 >> t2_3 >> ...
 ```
 
-
+Urutan dependensi di atas secara garis besar adalah sebagai berikut.
+![Dependensi Task](image/dagtask.png)

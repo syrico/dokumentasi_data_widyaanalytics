@@ -9,7 +9,7 @@ Arsitektur airflow yang digunakan terdiri dari komponen-komponen berikut.
 ![Webserver 1](image/webserver1.jpeg)
 ![Webserver 2](image/webserver2.jpeg)
 ![Webserver 3](image/webserver3.jpeg)
-- **Folder file DAG**, dibaca oleh scheduler dan executor (dan semua pekerja yang dimiliki pelaksana)
+- **Folder file DAG**, dibaca oleh scheduler dan executor (dan semua pekerja yang dimiliki pelaksana) 
 - **Database metadata**, digunakan oleh scheduler, executor, dan webserver untuk menyimpan status.
 
 
