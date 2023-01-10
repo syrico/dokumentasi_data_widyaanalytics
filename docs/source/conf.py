@@ -7,8 +7,8 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'Widya Analytic'
-copyright = '2022, Laura'
-author = 'Laura'
+copyright = '2022, Tech Writer Team'
+author = 'Laura, Gerrit, Manshur, Fathur'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -16,7 +16,8 @@ author = 'Laura'
 extensions = [
     'myst_parser',
     'sphinxcontrib.httpdomain',
-    'sphinxcontrib.contentui'
+    'sphinxcontrib.contentui',
+    'sphinx.ext.autodoc'
 ]
 
 templates_path = ['_templates']
