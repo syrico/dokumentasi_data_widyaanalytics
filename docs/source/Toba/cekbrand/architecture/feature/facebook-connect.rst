@@ -23,14 +23,17 @@ Berikut adalah diagram alur yang mewakili usecase ini disertai penjelasannya.
 11. Backend menggunakan access token yang didapatkan sebelumnya untuk melakukan request data akun Facebook pengguna.
 12. Facebook mengembalikan data akun Facebook pengguna.
 13. Backend menyimpan data akun Facebook pengguna tersebut ke dalam database.
-14. Backend menginfokan ke Frontent bahwa proses connect facebook berhasil.
-15. Frontend mengalihkan pengguna ke halaman **Kelola Akun**.
-16. Pengguna memilih akun Instagram yang akan dihubungkan ke CekBrand Dashboard.
-17. Frontend menggunakan endpoint :ref:`fetch-ig-data` untuk melakuakn request mengambilan data akun Instagram pengguna.
-18. Backend melakuakn request data akun Instagram pengguna ke Facebook API.
-19. Facebook mengembalikan data akun Instagram tersebut.
-20. Backend menyimpan data akun Instagram tersebut ke database.
-21. Backend menjalankan fungsi analitik untuk akun Instagram tersebut.
-22. Backend menyimpan data hasil analitik ke database.
-23. Backend menginformasikan bahwa proses akuisisi data akun Instagram berhasil.
-24. Proses 17-23 dilakukan sebanyak akun Instagram yang dipilih.
+14. Penyimpanan data akun Facebook pengguna di database berhasil.
+15. Backend menginfokan ke Frontent bahwa proses connect facebook berhasil.
+16. Frontend mengalihkan pengguna ke halaman **Kelola Akun**.
+17. Pengguna memilih akun Instagram yang akan dihubungkan ke CekBrand Dashboard.
+18. Frontend menggunakan endpoint :ref:`fetch-ig-data` untuk melakuakn request mengambilan data akun Instagram pengguna.
+19. Backend melakuakn request data akun Instagram pengguna ke Facebook API.
+20. Facebook mengembalikan data akun Instagram tersebut.
+21. Backend menyimpan data akun Instagram tersebut ke database.
+22. Penyimpanan data akun Instagram di database berhasil.
+23. Backend menjalankan fungsi analitik untuk akun Instagram tersebut.
+24. Backend menyimpan data hasil analitik ke database.
+25. Penyimpanan data hasil analitik di database berhasil.
+26. Backend menginformasikan bahwa proses akuisisi data akun Instagram berhasil.
+27. Proses 17-23 dilakukan sebanyak akun Instagram yang dipilih.

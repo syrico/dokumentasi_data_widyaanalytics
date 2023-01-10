@@ -10,7 +10,7 @@ User->Frontend:click connect Facebook
 activate Frontend
 Frontend->Backend:request Facebook auth page URL
 activate Backend
-Backend-->>Frontend:response Facebook auth page URL
+Backend-->Frontend:response Facebook auth page URL
 deactivate Backend
 Frontend->Facebook:open Facebook auth page
 activate Facebook
@@ -31,7 +31,10 @@ activate Facebook
 Facebook-->>Backend:response Facebook acoount data
 deactivate Facebook
 Backend->Database:create/update Faceboo\naccount data
-Backend-->>Frontend:response success connecting Facebook
+activate Database
+Database-->>Backend:create/update successful
+deactivate Database
+Backend-->Frontend:response success connecting Facebook
 deactivate Backend
 Frontend->Frontend:redirect to callback page
 note over Frontend:in callback page the user is shown a list of\nFacebook and their Instagram accounts
@@ -45,8 +48,14 @@ activate Facebook
 Facebook-->>Backend:response Instagram account data
 deactivate Facebook
 Backend->Database:create/update Instagram\naccount data
+activate Database
+Database-->>Backend: create/update successful
+deactivate Database
 Backend->Backend:running analytics function\nfor the Instagram account data
 Backend->Database:create/update Instagram\naccount analytics data
+activate Database
+Database-->>Backend:create/update successful
+deactivate Database
 note right of Backend:functions includes;\nhashtag metrics and\nsentiment analysis
 Backend-->Frontend: response success/fail fetching\nand analyzing Instagram account data
 deactivate Backend
