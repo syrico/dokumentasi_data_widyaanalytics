@@ -8,6 +8,7 @@ pip install -r requirement.txt
 
 To build the project, move to docs directory and run
 ```
+cd docs
 make html
 ```
 
