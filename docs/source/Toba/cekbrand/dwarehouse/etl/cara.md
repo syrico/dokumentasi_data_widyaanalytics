@@ -16,10 +16,3 @@ Selanjutnya, dilakukan transformasi data secara batch (paralel). Pertama-tama, f
 Terakhir, dilakukan pemindahan data yang telah ditransformasi ke destinasi baru, yaitu Schema Instagram dan Schema Toba_Cek_Insta.
 
 
-## Contoh Aplikasi
-
-Misalnya akan diambil data user (static) di Schema Instagram, maka pertama di update_data.py, kita masukkan endpoint untuk mengupdate data. Selanjutnya, update.py akan memanggil fungsi user_info_api_call dari file api_call.py, yang akan membutuhkan user id token argumen true/false. Lalu dari user_info_api_call, fungsi akan memanggil third party yakni fungsi get_user_info. Dari get_user_info, fungsi mengembalikan data berformat JSON dan setelah itu, terjadi proses transformasi dengan memanggil fungsi transform_user_info_static_data yang ada di file transform.py di folder utils. Hasil transformasi itulah yang akan dimasukkan melalui update.py ke Schema Instagram berupa data user. Langkah di atas dapat divisualisasikan sebagai berikut. 
-
-![Contoh Langkah ETL](image/etl.png)
-
-Nama-nama fungsi yang diperlukan dalam proses ETL dapat dilihat lebih lanjut pada [API Call](/Toba/cekbrand/dwarehouse/etl/api).
