@@ -3,6 +3,8 @@ Berisi tentang data yang diambil dari instagram seperti data user, data media, d
 
 ![ER Diagram Instagram](image/instagram.png)
 
+## Schema User
+
 ### ``user``
 Berisi tentang data user yang diambil dari instagram.
 
@@ -128,6 +130,8 @@ Berisi tentang data insight nilai reach dari suatu user.
 | end_time          | -           | timestamp | Datestamp data dihitung dari tanggal berapa (dari facebook) |                     |
 | updated_timestamp | -           | timestamp | Timestamp kapan data di update                              |                     |
 
+## Schema Media
+
 ### ``media``
 Berisi tentang data media (foto/video) setiap user.
 
@@ -191,6 +195,8 @@ Berisi tentang data insight seperti engagement, impressions, reach, dan jumlah s
 | value             | -           | int        | Nilai pada setiap setiap metric                                |                                                              |
 | updated_timestamp | -           | timestampz | Timestamp kapan data di update                                 |                                                              |
 | datestamp         | -           | date       | Date kapan data di update                                      | Unique                                                       |
+
+## Schema Lainnya
 
 ### ``instagram_tokens``
 Berisi tentang data token instagram pada setiap user.

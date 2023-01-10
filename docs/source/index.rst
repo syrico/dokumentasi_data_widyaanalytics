@@ -7,7 +7,7 @@ Welcome to Widya Analytic's documentation!
 ==========================================
 
 .. toctree::
-   :maxdepth: 7
+   :maxdepth: 10
    :caption: Toba
    
    Toba/indexcekbrand
@@ -23,7 +23,7 @@ Welcome to Widya Analytic's documentation!
 
 
 Indices and tables
-------------------
+----------------------------------------
 
 * :ref:`genindex`
 * :ref:`modindex`

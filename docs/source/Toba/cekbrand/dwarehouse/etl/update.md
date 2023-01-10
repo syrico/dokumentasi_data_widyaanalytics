@@ -1,4 +1,8 @@
-# Update
+# Menjalankan Program Tanpa DAG
+
+Kita dapat menjalankan program update dan analytics tanpa menggunakan DAG, dengan fungsi sebagai berikut.
+
+## Update
 
 Update data dijalankan di main.py, dengan parameter yang digunakan adalah sebagai berikut.
 
@@ -6,8 +10,8 @@ Update data dijalankan di main.py, dengan parameter yang digunakan adalah sebaga
 |-------------|-----------|------------|
 | db_state    | str       | Penggunaan alamat IP address ketika staging (dev, test, prod). |
 | airflow     | boolean   | Penggunaan alamat IP crawler internal (true) atau eksternal (false). |
-| retry_count | int       | Batas berapa kali mengulang ketika request ke facebook timeout atau gagal. |
-| range_data  | int       |            |
+| retry_count | int       | Jumlah max_entries ketika data gagal untuk di-fetch pada proses multithread. |
+| range_data  | int       | Jumlah data dari hari yang diambil dari tanggal sekarang, dengan format since_unix.           |
 
 Untuk menjalankan main.py, terlebih dahulu dilakukan import berikut ini.
 
@@ -17,7 +21,7 @@ from cekbrand import update_data as ud
 
 Update data akan dilakukan secara paralel, dengan cara update dan endpoint yang digunakan dijelaskan sebagai berikut.
 
-## User
+### User
 ```
 user = ud.UpdateDataUser(db_state='dev', airflow=False, retry_count=2, range_data=7)
 user.update(end_point = '...')
@@ -35,7 +39,7 @@ user.update(end_point = '...')
 | impressions         | Berisi tentang data insight impression follower dari suatu user.                  |
 | media               | Berisi tentang data media (foto/video) setiap user.                               |
 
-## Competitor
+### Competitor
 ```
 comp = ud.UpdateDataCompetitor(db_state='dev', airflow=False, retry_count=2)
 comp.update(end_point = '...')
@@ -46,7 +50,7 @@ comp.update(end_point = '...')
 | info_dynamic | Berisi tentang informasi yang dinamis, seperti followers_count, media_count_dll. |
 | media        | Berisi tentang data media (foto/video) setiap user. |
 
-## Media
+### Media
 ```
 media = ud.UpdateDataMedia(db_state='dev', airflow=False, retry_count=2)
 media.update(end_point = '...')
@@ -57,7 +61,7 @@ media.update(end_point = '...')
 | media_insights | Berisi   tentang data insight seperti engagement, impressions, reach, dan jumlah saved   pada media (foto/video). |
 | media_comments | Berisi   tentang data komentar pada media (foto/video) setiap user.                                               |
 
-## First Fetch
+### First Fetch
 ```
 firstfetch = ud.single_fetch_update(db_state='dev', airflow=False, retry_count=2)
 firstfetch.update(end_point = '...', user_id=str('17841408671998486'))
@@ -68,3 +72,20 @@ Parameter ``user_id`` merupakan nama id dari user yang akan dilakukan firstfetch
 |--------------------|------------------------------------------------------------------------|
 | media_like_comment | Berisi   tentang data history jumlah like dan komen media setiap user. |
 | media_comments     | Berisi   tentang data komentar pada media (foto/video) setiap user.    |
+
+## Analytic
+
+Run analytics juga dijalankan di main.py, dengan parameter yang analog dengan update.
+
+Untuk menjalankan main.py, terlebih dahulu dilakukan import berikut ini.
+
+```
+from cekbrand.analytics import AnalyticsEngine
+```
+Fungsi untuk menjalankan analytic adalah sebagai berikut.
+```
+analytics_engine = AnalyticsEngine(db_state='dev', airflow=False)
+analytics_engine.single_instagram_user_hashtags_metrics_distribution(total_media=40,
+user_id=str('17841408671998486'))
+```
+Parameter ``total_media`` adalah jumlah media yang akan dilakukan analytic, sedangkan ``user_id`` merupakan nama id dari user yang akan dilakukan analytic, contoh seperti di atas, jumlah media dari id 17841408671998486 yang akan di-analytic adalah sebesar 40. 
