@@ -1,11 +1,15 @@
+
 Facebook Authentication
 +++++++++++++++++++++++
 
 Untuk mendapatkan data Instagram diperlukan akses terhadap akun Facebook pengguna.
 Di bawah ini adalah endpoint yang digunakan dalam proses autentikasi akun Facebook.
 
+.. _fb-auth-login:
+
 Login
 =====
+
 
 .. http:get:: /user/auth/facebook/login/?process=connect
 
@@ -18,6 +22,8 @@ Login
       "https://www.facebook.com/v8.0/dialog/oauth?client_id=390623xxxxxxxxx&redirect_uri=https%3A%2F%apps.toba.ai%3A8081%2Frestapi%2Fuser%2Fauth%2Ffacebook%2Fcallback%2F&scope=pages_show_list+pages_read_engagement+email+instagram_basic+instagram_manage_insights&response_type=code&state=99cSbIHiA4v3&auth_type=reauthenticate"
 
    :query string process: harus bernilai ``connect``
+
+.. _fb-auth-login-callback:
 
 Login Callback
 ==============
@@ -32,7 +38,12 @@ Login Callback
    .. note::
 
       Jika dalam parameter query tidak ditemukan `code` maka dapat dipastikan terdapat error pada proses login Facebook atau alamat request.
- 
+
+   .. figure:: ../images/uml/fb-callback-login.png
+        :alt: fetch ig data diagram
+
+.. _fb-auth-callback:
+
 Callback
 ========
 
