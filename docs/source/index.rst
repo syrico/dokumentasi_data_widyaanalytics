@@ -13,6 +13,7 @@ Welcome to Widya Analytic's documentation!
    Toba/indexcekbrand
    Toba/indexwastore
    Toba/indexcektren
+   Toba/indexfrontend
 
 
 .. toctree::
