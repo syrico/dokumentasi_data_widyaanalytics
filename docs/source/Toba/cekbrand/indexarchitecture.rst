@@ -1,0 +1,6 @@
+Arsitektur
+++++++++++
+
+.. toctree::
+
+   architecture/feature

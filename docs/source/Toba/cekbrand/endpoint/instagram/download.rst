@@ -23,7 +23,7 @@ CSV
 
     **Contoh Hasil**:
 
-    .. image:: images/download-csv.png
+    .. image:: ../images/download-csv.png
 
     |
 
@@ -40,7 +40,7 @@ Excel
 
     **Contoh Hasil**:
 
-    .. image:: images/download-xlsx.png
+    .. image:: ../images/download-xlsx.png
 
     |
     

@@ -8,7 +8,8 @@ CekBrand
    
    cekbrand/indexsysdata
    cekbrand/indexthirdparty
-   cekbrand/indexbackend
+   cekbrand/indexarchitecture
+   cekbrand/indexendpoint
    cekbrand/indexetl
 
 
