@@ -31,6 +31,8 @@ Add
             "username": "string"
         }
 
+.. _fetch-list-ig-competitor-data:
+
 List
 ====
 
@@ -60,6 +62,8 @@ Delete
 
     Menghapus (*disconnecting*) akun Instagram kompetitor pengguna.
 
+.. _fetch-hashtag-ig-competitor-data:
+
 Hashtag Metrics
 ===============
 
@@ -82,6 +86,8 @@ Hashtag Metrics
     :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
     :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
+
+.. _fetch-media-ig-competitor-data:
 
 Media
 =====
@@ -116,6 +122,8 @@ Media
     :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
 
+.. _fetch-media-average-ig-competitor-data:
+
 Media Engagement Average Summary
 ================================
 
@@ -142,6 +150,8 @@ Media Engagement Average Summary
     :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
     :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
+
+.. _fetch-media-summary-ig-competitor-data:
 
 Media Summary
 =============
@@ -212,6 +222,8 @@ Media Summary
     :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
     :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
+
+.. _fetch-user-ig-competitor-data:
 
 User Data
 =========

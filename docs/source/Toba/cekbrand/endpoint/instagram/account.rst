@@ -37,6 +37,8 @@ Add/Fetch Instagram Data
     .. figure:: ../images/uml/fetch-ig-data.png
         :alt: fetch ig data diagram
 
+.. _fetch-list-ig-data:
+
 List
 ====
 
@@ -73,6 +75,8 @@ List
                 }
             }
         ]
+
+.. _fetch-ig-detail-data:
 
 Detail
 ======
@@ -116,6 +120,8 @@ Delete
 
     Mengapus (*disconnecting*) akun Instagram pengguna. Akan tetapi data terkait tidak dihapus.
 
+.. _fetch-user-data:
+
 User Data
 =========
 
@@ -142,6 +148,8 @@ User Data
     :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
     :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
+
+.. _fetch-user-summary-data:
 
 User Data Summary
 =================
