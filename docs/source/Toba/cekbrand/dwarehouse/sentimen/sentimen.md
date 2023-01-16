@@ -1,8 +1,6 @@
 # Sentiment Analysis
 
-
-
-Sentiment analysis adalah proses analisis teks untuk menentukan apakah setiap teks tersebut memiliki sentimen positif, netral, atau negatif. Proses ini akan dilakukan menggunakan data ``media_comment`` (text) dari Schema Instagram, yaitu database yang telah di-load. Selanjutnya, akan dilakukan cleaning data di file analytics.py dengan menggunakan def update_media_sentiment. Setelah itu, barulah akan masuk ke service sentiment analysis dalam file run_server.py. Hasil itulah yang akan masuk ke Schema Toba_Cek_Insta berupa data ``user_media_comment_sentiment``.
+Sentiment analysis adalah proses analisis komentar dari gambar yang di-post di instagram untuk menentukan apakah setiap komentar tersebut memiliki sentimen positif, netral, atau negatif. Proses ini akan dilakukan menggunakan data ``media_comment`` (text) dari Schema Instagram, yaitu database yang telah di-load. Selanjutnya, akan dilakukan cleaning data di file analytics.py dengan menggunakan def update_media_sentiment. Setelah itu, barulah akan masuk ke service sentiment analysis dalam file run_server.py. Hasil itulah yang akan masuk ke Schema Toba_Cek_Insta berupa data ``user_media_comment_sentiment``.
 
 Catatan:
 - Nyalakan service:
