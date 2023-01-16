@@ -33,6 +33,10 @@ Backend<<--Database:Active account data
 deactivate Database
 Backend->Backend:Validate account token
 activate Backend
+Backend->Database:Select Instagram token
+activate Database
+Backend<<--Database: Instagram token
+deactivate Database
 alt Account access token is invalid
 Frontend<#red--Backend:Token error
 Frontend->Frontend:Redirect to re-authorization\nFacebook page

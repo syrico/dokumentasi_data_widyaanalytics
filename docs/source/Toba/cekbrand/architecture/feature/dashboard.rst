@@ -17,13 +17,15 @@ Berikut adalah diagram alur yang mewakili halaman ini disertai penjelasannya.
 6. Backend mengembalikan daftar akun Instagram ke Frontend
 7. Frontend melakukan request ke endpoint :ref:`account-detail`.
 8. Backend mengambil data detail akun Instagram dari database ``instagram.user``, ``instagram.user_data`` dan ``public.socialaccount_socialaccount``.
-9. Database mengembalukan data detail akun Instagram yang dibutuhkan.
+9. Database mengembalikan data detail akun Instagram yang dibutuhkan.
 10. Backend melakukan validasi *access token* akun Instagram terkait.
-11. Jika token tidak valid Backend akan mengembalikan error.
-12. Frontend akan mengalihkan tampilan ke halaman **Re-Authotization Facebook**.
-13. Frontend menampilkan halaman tersebut pada Pengguna.
-14. Jika token valid,
-15. Backend mengembalikan data detail akun.
-16. Frontend berhasil menetapkan *active account* pada dashboard.
-17. Frontend memuat header dan tab-tab dashboard yang terdiri dari Kompetitor, Statistik dan Top Post.
-18. Frontend menampilkan halaman dashboard pada Pengguna.
+11. Backend mengambil Instagram token dari database ``instagram.instagram_tokens`` atau ``public.socialaccount_socialtoken``.
+12. Dashboard mengembalikan Instagram token terkait.
+13. Jika token tidak valid Backend akan mengembalikan error.
+14. Frontend akan mengalihkan tampilan ke halaman **Re-Authotization Facebook**.
+15. Frontend menampilkan halaman tersebut pada Pengguna.
+16. Jika token valid,
+17. Backend mengembalikan data detail akun.
+18. Frontend berhasil menetapkan *active account* pada dashboard.
+19. Frontend memuat header dan tab-tab dashboard yang terdiri dari Kompetitor, Statistik dan Top Post.
+20. Frontend menampilkan halaman dashboard pada Pengguna.
