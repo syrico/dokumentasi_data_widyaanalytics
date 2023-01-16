@@ -7,8 +7,8 @@ Account adalah akun Instagram pengguna yang tersimpan dalam layanan CekBrand.
 **Penjelasan Parameter URL**
 
 .. list-table:: 
-      :widths: 15 80
-      :header-rows: 1
+        :widths: 15 80
+        :header-rows: 1
 
       * - Parameter
         - Deskripsi
@@ -37,10 +37,10 @@ Add/Fetch Instagram Data
     .. figure:: ../images/uml/fetch-ig-data.png
         :alt: fetch ig data diagram
 
-.. _fetch-list-ig-data:
+.. _account-list:
 
-List
-====
+Account List
+============
 
 .. http:get:: /cekbrand/accounts
 
@@ -76,10 +76,10 @@ List
             }
         ]
 
-.. _fetch-ig-detail-data:
+.. _account-detail:
 
-Detail
-======
+Account Detail
+==============
 
 .. http:get:: /cekbrand/accounts/(int:account_id)
 
