@@ -16,6 +16,8 @@ Akun kompetitor adalah akun Instagram yang diklaim merupakan kompetitor dari pen
       * - competitor_account_id
         - ID akun Instagram kompetitor pengguna
 
+.. _add-competitor-accounts:
+
 Add
 ===
 
@@ -55,6 +57,7 @@ List
             }
         ]
 
+.. _remove-competitor-account:
 Delete
 ======
 
