@@ -29,3 +29,7 @@ Berikut adalah diagram alur yang mewakili halaman ini disertai penjelasannya.
 18. Frontend berhasil menetapkan *active account* pada dashboard.
 19. Frontend memuat header dan tab-tab dashboard yang terdiri dari Kompetitor, Statistik dan Top Post.
 20. Frontend menampilkan halaman dashboard pada Pengguna.
+
+.. toctree:: 
+
+    dashboard/statistic
