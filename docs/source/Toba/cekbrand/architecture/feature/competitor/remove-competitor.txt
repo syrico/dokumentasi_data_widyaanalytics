@@ -1,0 +1,27 @@
+title Remove Instagram Competitor Account
+actor User
+
+activate User
+#Feature5
+autonumber 1
+User->Frontend: Remove Instagram Competitor account
+activate Frontend
+
+#Enpoint
+##1./cekbrand/accounts/17841445759078661/competitor-accounts
+autonumber 
+Frontend->Backend: Request remove competitor
+autonumber off
+activate Backend
+autonumber 
+database Database
+
+Backend->Database: Search competitor_id wants to remove 
+activate Database
+Database->Backend: Success/error response
+deactivate Database
+
+autonumber 
+Backend-->Frontend: Response remove competitor
+deactivate Backend
+deactivate Frontend
