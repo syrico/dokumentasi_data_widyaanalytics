@@ -19,6 +19,8 @@ Account adalah akun Instagram pengguna yang tersimpan dalam layanan CekBrand.
       * - username
         - username akun Instagram
 
+.. _fetch-ig-data:
+
 Add/Fetch Instagram Data
 ========================
 
@@ -28,6 +30,12 @@ Add/Fetch Instagram Data
     Akun Instagram yang ingin ditambahkan akan mengupdate data yang sudah ada.
     Data yang di ambil menggunakan Facebook Graph API antara lain profile, insights, media dan comment.
     Selain itu endpoint ini akan menjalankan *triggger* untuk menjalankan fungsi analitik untuk metrik hashtag dan sentimen media.
+    Fungsi-fungsi analitik tersebut didefiniskan sebagai submodule dari repositori berikut_.
+    
+    .. _berikut: https://github.com/Widya-Analytic/cekbrand
+
+    .. figure:: ../images/uml/fetch-ig-data.png
+        :alt: fetch ig data diagram
 
 List
 ====

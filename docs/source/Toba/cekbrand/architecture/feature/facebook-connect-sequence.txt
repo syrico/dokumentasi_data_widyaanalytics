@@ -1,0 +1,63 @@
+actor User
+fontawesome f09a Facebook #4267b2
+participant Frontend
+participant Backend
+database Database
+
+autonumber 1
+activate User
+User->Frontend:click connect Facebook
+activate Frontend
+Frontend->Backend:request Facebook auth page URL
+activate Backend
+Backend-->Frontend:response Facebook auth page URL
+deactivate Backend
+Frontend->Facebook:open Facebook auth page
+activate Facebook
+User->Facebook:sumbit Facebook\ncredentials
+Facebook->>Backend:callback Facebook account authorization code
+deactivate Facebook
+activate Backend
+Backend->Frontend:redirect the callback to\ncallback login page
+deactivate Backend
+Frontend->Backend:connect Facebook account\nusing authorization code
+activate Backend
+Backend->Facebook:request Facebook account (long-life) access_token
+activate Facebook
+Facebook-->>Backend:response Facebook\account access_token
+deactivate Facebook
+Backend->Facebook:request Facebook account data
+activate Facebook
+Facebook-->>Backend:response Facebook acoount data
+deactivate Facebook
+Backend->Database:create/update Faceboo\naccount data
+activate Database
+Database-->>Backend:create/update successful
+deactivate Database
+Backend-->Frontend:response success connecting Facebook
+deactivate Backend
+Frontend->Frontend:redirect to callback page
+note over Frontend:in callback page the user is shown a list of\nFacebook and their Instagram accounts
+User->Frontend:selects the accounts to add
+loop i <= number of selected Instagram accounts
+Frontend->Backend:request the fetching and analysis\nof Instagram account data
+activate Backend
+note over Backend: running first fetch and\nanalysis Instagram accounts data
+Backend->Facebook:request Instagram account data
+activate Facebook
+Facebook-->>Backend:response Instagram account data
+deactivate Facebook
+Backend->Database:create/update Instagram\naccount data
+activate Database
+Database-->>Backend: create/update successful
+deactivate Database
+Backend->Backend:running analytics function\nfor the Instagram account data
+Backend->Database:create/update Instagram\naccount analytics data
+activate Database
+Database-->>Backend:create/update successful
+deactivate Database
+note right of Backend:functions includes;\nhashtag metrics and\nsentiment analysis
+Backend-->Frontend: response success/fail fetching\nand analyzing Instagram account data
+deactivate Backend
+end
+deactivate Frontend

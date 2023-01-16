@@ -3,4 +3,4 @@ Admin
 
 .. toctree:: 
 
-   admin/social_account
+   admin/social-account
