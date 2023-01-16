@@ -1,0 +1,18 @@
+actor User
+
+participant Frontend
+
+autonumber 1
+
+activate User
+User->Frontend:Choise/swith to a\nInstagram account
+
+activate Frontend
+Frontend->Frontend:Set active account
+activate Frontend
+note over Frontend:Accompanied by retrieval\nof account data and or list of\naccounts for initialization
+Frontend-->Frontend:Active account data
+deactivateafter Frontend
+Frontend->Frontend:Load dashboard header and tabs
+User<--Frontend:Display dashboard page
+deactivateafter Frontend
