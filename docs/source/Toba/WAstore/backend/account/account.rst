@@ -3,6 +3,8 @@ Account
 
 Pengguna dapat melakukan pengaturan akun terhadap akun pengguna yang dimiliki. Endpoint berikut digunakan untuk mengelola akun yang dimiliki
 
+.. _account-user:
+
 GET
 =====
 
