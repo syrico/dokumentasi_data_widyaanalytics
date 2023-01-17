@@ -3,7 +3,7 @@ End point
 
 .. toctree::
 
-   endpoint/admin
-   endpoint/instagram
-   endpoint/user
+    endpoint/admin
+    endpoint/instagram
+    endpoint/user
 

@@ -8,17 +8,17 @@ Groups List
 
 .. http:get:: /user-management/subscription-groups
 
-   Mengambil semua daftar data kelompok subscirption yang mencakup hak-hak masing-masing, contohnya batas jumlah akun Instagram, kompetitor, pilihan *data frame*, dsb.
+    Mengambil semua daftar data kelompok subscirption yang mencakup hak-hak masing-masing, contohnya batas jumlah akun Instagram, kompetitor, pilihan *data frame*, dsb.
 
-   **Contoh Response**:
+    **Contoh Response**:
 
-   .. sourcecode:: json
+    .. sourcecode:: json
 
-      [
-         {
-            "group": 0,
-            "limit_ig_account": 2147483647,
-            "limit_ig_competitor": 2147483647,
-            "limit_social_account": 2147483647
-         }
-      ]
+        [
+            {
+                "group": 0,
+                "limit_ig_account": 2147483647,
+                "limit_ig_competitor": 2147483647,
+                "limit_social_account": 2147483647
+            }
+        ]

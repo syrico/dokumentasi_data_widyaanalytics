@@ -1,0 +1,29 @@
+actor User
+
+participant Frontend
+participant Backend
+
+database Database
+
+autonumber 1
+
+activate User
+User->Frontend:Open //Statistik// tab
+
+activate Frontend
+Frontend->Backend:Fetch statistics data
+activate Backend
+
+note over Frontend,Backend:Statistics including user-data, reach,\nimpressions, like-comment,\nand media engagement 
+Backend->Database:Select statistics data
+activate Database
+Backend<<--Database:Statistics data
+deactivate Database
+Frontend<<--Backend:Statistics data
+deactivate Backend
+
+Frontend->Frontend:Load statistics card
+User<--Frontend:Display all statistics card
+deactivate Frontend
+
+deactivate User

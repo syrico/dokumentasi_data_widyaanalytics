@@ -1,0 +1,142 @@
+actor User
+
+entryspacing 0.2
+participant Frontend
+participant Backend
+
+database Database
+
+autoactivation on
+
+autonumber 1
+
+activate User
+User->Frontend:Open //Statistik// tab
+
+autonumber off
+Frontend->Frontend:Get user-data summary
+autonumber 2
+Frontend->Backend:Fetch user-data\nsummary
+Backend->Database:Select list of user-data
+autonumber off
+Backend<<--Database:
+autonumber 4
+Backend->Backend:Calculate user-data\nsummary
+deactivateafter Backend
+Frontend<--Backend:User-data summary
+autoactivation off
+autonumber off
+Frontend<--Frontend:
+autonumber 6
+deactivateafter Frontend
+parallel
+Frontend->>Frontend:Load follower growth\nrate card
+autonumber off
+User<<--Frontend:Display follower growth\nrate card
+parallel off
+
+autoactivation on
+Frontend->Frontend:Get reach average\nsummary
+autonumber 7
+Frontend->Backend:Fetch reach average\nsummary
+Backend->Database:Aggregate insight\nreach average
+autonumber off
+Backend<<--Database:
+autonumber 9
+Backend->Backend:Calculate reach average\nsummary
+deactivateafter Backend
+Frontend<--Backend:Reach average\nsummary
+autonumber off
+Frontend<--Frontend:
+
+Frontend->Frontend:Get reach list
+autonumber 11
+Frontend->Backend:Fetch reach list
+Backend->Database:Select list of insight reach
+autonumber off
+Backend<<--Database:
+autonumber 13
+Frontend<--Backend:Reach list
+autonumber off
+Frontend<--Frontend:
+autoactivation off
+autonumber 14
+parallel
+Frontend->Frontend:Load reach card
+autonumber off
+User<<--Frontend:Display reach card
+parallel off
+
+autoactivation on
+Frontend->Frontend:Get impressions\naverage summary
+autonumber 15
+Frontend->Backend:Fetch impressions\naverage summary
+Backend->Database:Aggregate insight\nimpressions average
+autonumber off
+Backend<<--Database:
+autonumber 17
+Backend->Backend:Calculate impressions\naverage summary
+deactivateafter Backend
+Frontend<--Backend:Impressions average\nsummary
+autonumber off
+Frontend<--Frontend:
+
+Frontend->Frontend:Get impressions list
+autonumber 19
+Frontend->Backend:Fetch impressions list
+Backend->Database:Select list of insight\nimpressions
+autonumber off
+Backend<<--Database:
+autonumber 21
+Frontend<--Backend:Impressions list
+autonumber off
+Frontend<--Frontend:
+autoactivation off
+autonumber 22
+parallel
+Frontend->>Frontend:Load impressions card
+autonumber off
+User<<--Frontend:Display impressions card
+parallel off
+
+autoactivation on
+Frontend->Frontend:Get like-comment list
+autonumber 23
+Frontend->Backend:Fetch like-comment list
+Backend->Database:Select list of like-comment
+autonumber off
+Backend<<--Database:
+autonumber 25
+Frontend<--Backend:Like-comment list
+autonumber off
+Frontend<--Frontend:
+autoactivation off
+autonumber 26
+parallel
+Frontend->>Frontend:Load engagement area card
+autonumber off
+User<<--Frontend:Display engagement area card
+parallel off
+
+autoactivation on
+Frontend->Frontend:Get engagement summary
+autonumber 27
+Frontend->Backend:Fetch engagement summary
+Backend->Database:Aggregate engagement summary
+autonumber off
+Backend<<--Database:
+autonumber 29
+Frontend<--Backend:engagement summary
+autonumber off
+Frontend<--Frontend:
+autoactivation off
+autonumber 30
+parallel
+Frontend->>Frontend:Load engagement rate card
+autonumber off
+User<<--Frontend:Display engagement rate card
+parallel off
+
+deactivateafter Frontend
+
+deactivateafter User

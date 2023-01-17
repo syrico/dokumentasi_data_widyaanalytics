@@ -16,6 +16,8 @@ Akun kompetitor adalah akun Instagram yang diklaim merupakan kompetitor dari pen
       * - competitor_account_id
         - ID akun Instagram kompetitor pengguna
 
+.. _add-competitor-accounts:
+
 Add
 ===
 
@@ -30,6 +32,8 @@ Add
         {
             "username": "string"
         }
+
+.. _fetch-list-ig-competitor-data:
 
 List
 ====
@@ -53,12 +57,16 @@ List
             }
         ]
 
+.. _remove-competitor-account:
+
 Delete
 ======
 
 .. http:delete:: /cekbrand/account/(int:social_account_id)/competitor-accounts/(int:competitor_account_id)
 
     Menghapus (*disconnecting*) akun Instagram kompetitor pengguna.
+
+.. _fetch-hashtag-ig-competitor-data:
 
 Hashtag Metrics
 ===============
@@ -82,6 +90,8 @@ Hashtag Metrics
     :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
     :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
+
+.. _fetch-media-ig-competitor-data:
 
 Media
 =====
@@ -116,6 +126,8 @@ Media
     :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
 
+.. _fetch-media-average-ig-competitor-data:
+
 Media Engagement Average Summary
 ================================
 
@@ -142,6 +154,8 @@ Media Engagement Average Summary
     :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
     :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
+
+.. _fetch-media-summary-ig-competitor-data:
 
 Media Summary
 =============
@@ -212,6 +226,8 @@ Media Summary
     :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
     :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
+
+.. _fetch-user-ig-competitor-data:
 
 User Data
 =========
