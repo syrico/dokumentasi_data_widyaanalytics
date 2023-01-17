@@ -59,7 +59,7 @@ Add Product
 Detail Products
 =====
 
-.. http:get:: /store/products/{int:id}/
+.. http:get:: /store/products/(int:id)/
 
   Mengembalikan data list product yang tersedia di *store* berdasarkan ``id``.
 

@@ -13,7 +13,7 @@ Callback Payments
     .. note::
         *Payment re-callback from Midtrans snap transaction*
 
-Add
+Add Notification
 =====
 
 .. http:post:: /payments/notification/handling/
