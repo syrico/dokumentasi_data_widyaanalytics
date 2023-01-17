@@ -10,7 +10,7 @@ account instagram yang telah dihubungkan dengan aplikasi Toba.ai.
     :align: left
 
 1. Pengguna melakukan penggantian account instagram pada aplikasi Toba.ai
-2. Dari aksi pengguna tersebut, maka frontend akan melakukan request dengan endpoint :ref:`account-detail`, :ref:`fetch-user-summary-data`, :ref:`fetch-user-data`, :ref:`fetch-user-summary-data`, :ref:`fetch-hashtag-ig-user-data`.
+2. Dari aksi pengguna tersebut, maka frontend akan melakukan request dengan endpoint :ref:`account-detail`, :ref:`user-data-summary`, :ref:`fetch-user-data`, :ref:`user-data-summary`, :ref:`fetch-hashtag-ig-user-data`.
 3. Backend akan mencari user instagram account detail di database.
 4. Backend akan mendapatkan response berupa data yang direquest pada tahap ke-4.
 5. Backend mengembalikan response user instagram account detail.

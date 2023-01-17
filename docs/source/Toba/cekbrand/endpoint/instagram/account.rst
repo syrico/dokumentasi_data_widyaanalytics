@@ -190,7 +190,7 @@ User Data
     :>json string updated_timestamp: waktu data terakhir diperbaharui
     :>json string datestamp: tanggal data terakhir diperbaharui
 
-.. _fetch-user-summary-data:
+.. _user-data-summary:
 
 User Data Summary
 =================

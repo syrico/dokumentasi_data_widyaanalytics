@@ -18,7 +18,7 @@ Halaman ini menampilkan resume singkat mengenai performa tiap akun, konten pos t
 7. Backend akan mencari user list instagram account data di database.
 8. Backend akan mendapatkan response berupa data yang direquest pada tahap ke-7.
 9. Backend mengembalikan response user list instagram account ke frontend.
-10. Frontend melakukan request ke backend dengan endpoint :ref:`account-detail`, :ref:`fetch-user-summary-data`, :ref:`fetch-user-data`, :ref:`fetch-user-summary-data`, :ref:`fetch-hashtag-ig-user-data`.
+10. Frontend melakukan request ke backend dengan endpoint :ref:`account-detail`, :ref:`user-data-summary`, :ref:`fetch-user-data`, :ref:`user-data-summary`, :ref:`fetch-hashtag-ig-user-data`.
 11. Backend akan mencari user instagram account detail di database.
 12. Backend akan mendapatkan response berupa data yang direquest pada tahap ke-11.
 13. Backend mengembalikan response user instagram account detail.

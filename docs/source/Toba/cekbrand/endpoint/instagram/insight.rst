@@ -7,8 +7,8 @@ Untuk mendapatkan data insight yang sudah tersimpan dapat menggunakan endpoint b
 **Penjelasan Parameter URL**
 
 .. list-table:: 
-      :widths: 15 80
-      :header-rows: 1
+        :widths: 15 80
+        :header-rows: 1
 
       * - Parameter
         - Deskripsi
@@ -118,8 +118,10 @@ Audience Gender Age
     :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
 
-Impressions
-===========
+.. _impressions-list:
+
+Impressions List
+================
 
 .. http:get:: /cekbrand/accounts/(int:account_id)/insights/impressions
 
@@ -141,6 +143,8 @@ Impressions
     :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
     :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
+
+.. _impressions-average-summary:
 
 Impressions Average Summary
 ===========================
@@ -187,8 +191,10 @@ Online Followers
     :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
 
-Reach
-=====
+.. _reach-list:
+
+Reach List
+==========
 
 .. http:get:: /cekbrand/accounts/(int:account_id)/insights/reach
 
@@ -211,7 +217,7 @@ Reach
     :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
 
-.. _fetch-reach-average-ig-competitor-data:
+.. _reach-average-summary:
 
 Reach Average Summary
 =====================
