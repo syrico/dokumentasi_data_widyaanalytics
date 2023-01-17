@@ -53,7 +53,7 @@ Add/Fetch Instagram Data
         <<instagram account data>>
 
     .. toggle-header::
-        :header: **Diagram Urutan**
+        :header: **Diagram Alur**
 
         .. figure:: ../images/uml/fetch-ig-data.png
             :alt: fetch ig data diagram
