@@ -198,6 +198,8 @@ Summary
     :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
 
+.. _fetch-comment-list:
+
 Comments List
 =============
 
@@ -217,6 +219,8 @@ Comments List
                 "sentiment": "string"
             }
         ]
+
+.. _fetch-sentiment-media:
 
 Sentiment
 =========
