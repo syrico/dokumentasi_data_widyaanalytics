@@ -7,8 +7,8 @@ Untuk mendapatkan data insight yang sudah tersimpan dapat menggunakan endpoint b
 **Penjelasan Parameter URL**
 
 .. list-table:: 
-        :widths: 15 80
-        :header-rows: 1
+      :widths: 15 80
+      :header-rows: 1
 
       * - Parameter
         - Deskripsi

@@ -7,8 +7,8 @@ Account adalah akun Instagram pengguna yang tersimpan dalam layanan CekBrand.
 **Penjelasan Parameter URL**
 
 .. list-table:: 
-        :widths: 15 80
-        :header-rows: 1
+      :widths: 15 80
+      :header-rows: 1
 
       * - Parameter
         - Deskripsi
