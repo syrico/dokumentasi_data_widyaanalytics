@@ -9,43 +9,44 @@ List
 
 .. http:get:: /user/socialaccount
 
-   Mengembalikan semua daftar data akun media sosial pengguna.
-   **Contoh Response**:
+    Mengembalikan semua daftar data akun media sosial pengguna.
 
-   .. sourcecode:: json
+    **Contoh Response**:
 
-      [
-         {
-            "id": 0,
-            "provider": "facebook",
-            "uid": "string",
-            "last_login": "2022-12-19T19:33:23.323Z",
-            "date_joined": "2022-12-19T19:33:23.323Z",
-            "extra_data": "string",
-            "socialtoken": [
-               {
-               "app": "string",
-               "token": "string",
-               "token_secret": "string",
-               "expires_at": "2022-12-19T19:33:23.323Z"
-               }
-            ],
-            "instagram_accounts": [
-               "string"
-            ]
-         }
-      ]
+    .. sourcecode:: json
 
-   :query string provider: adalah vendor media sosial, contoh nya; `facebook`, `twitter`, dsb.
+        [
+            {
+                "id": 0,
+                "provider": "facebook",
+                "uid": "string",
+                "last_login": "2022-12-19T19:33:23.323Z",
+                "date_joined": "2022-12-19T19:33:23.323Z",
+                "extra_data": "string",
+                "socialtoken": [
+                    {
+                        "app": "string",
+                        "token": "string",
+                        "token_secret": "string",
+                        "expires_at": "2022-12-19T19:33:23.323Z"
+                    }
+                ],
+                    "instagram_accounts": [
+                    "string"
+                ]
+            }
+        ]
+
+    :query string provider: adalah vendor media sosial, contoh nya; `facebook`, `twitter`, dsb.
 
 Detail
 ======
 
 .. http:get:: /user/socialaccount/(int:id)
 
-   Mengembalikan detail data akun media sosial pengguna.
+    Mengembalikan detail data akun media sosial pengguna.
 
-   .. list-table:: 
+    .. list-table:: 
       :widths: 15 80
       :header-rows: 1
 
@@ -55,29 +56,29 @@ Detail
         - ID social account
 
 
-   **Contoh Response**:
+    **Contoh Response**:
 
-   .. sourcecode:: json
+    .. sourcecode:: json
 
-      {
-         "id": 0,
-         "provider": "facebook",
-         "uid": "string",
-         "last_login": "2022-12-19T19:39:59.473Z",
-         "date_joined": "2022-12-19T19:39:59.473Z",
-         "extra_data": "string",
-         "socialtoken": [
-            {
-               "app": "string",
-               "token": "string",
-               "token_secret": "string",
-               "expires_at": "2022-12-19T19:39:59.473Z"
-            }
-         ],
-         "instagram_accounts": [
-            "string"
-         ]
-      }
+        {
+            "id": 0,
+            "provider": "facebook",
+            "uid": "string",
+            "last_login": "2022-12-19T19:39:59.473Z",
+            "date_joined": "2022-12-19T19:39:59.473Z",
+            "extra_data": "string",
+            "socialtoken": [
+                {
+                    "app": "string",
+                    "token": "string",
+                    "token_secret": "string",
+                    "expires_at": "2022-12-19T19:39:59.473Z"
+                }
+            ],
+            "instagram_accounts": [
+                "string"
+            ]
+        }
 
 
 Update
@@ -85,9 +86,9 @@ Update
 
 .. http:put:: /user/socialaccount/(int:id)
 
-   Mengubah detail data akun media sosial pengguna.
+    Mengubah detail data akun media sosial pengguna.
 
-   .. list-table:: 
+    .. list-table:: 
       :widths: 15 80
       :header-rows: 1
 
@@ -96,48 +97,48 @@ Update
       * - id
         - ID social account
 
-   **Contoh Request**:abbr:
+    **Contoh Request**:abbr:
 
-   .. sourcecode:: json
+    .. sourcecode:: json
 
-      {
-         "provider": "facebook",
-         "uid": "string",
-         "extra_data": "string"
-      }
+        {
+            "provider": "facebook",
+            "uid": "string",
+            "extra_data": "string"
+        }
 
-   **Contoh Response**:
+    **Contoh Response**:
 
-   .. sourcecode:: json
+    .. sourcecode:: json
 
-      {
-         "id": 0,
-         "provider": "facebook",
-         "uid": "string",
-         "last_login": "2022-12-19T19:39:59.476Z",
-         "date_joined": "2022-12-19T19:39:59.476Z",
-         "extra_data": "string",
-         "socialtoken": [
-            {
-               "app": "string",
-               "token": "string",
-               "token_secret": "string",
-               "expires_at": "2022-12-19T19:39:59.477Z"
-            }
-         ],
-         "instagram_accounts": [
-            "string"
-         ]
-      }
+        {
+            "id": 0,
+            "provider": "facebook",
+            "uid": "string",
+            "last_login": "2022-12-19T19:39:59.476Z",
+            "date_joined": "2022-12-19T19:39:59.476Z",
+            "extra_data": "string",
+            "socialtoken": [
+                {
+                    "app": "string",
+                    "token": "string",
+                    "token_secret": "string",
+                    "expires_at": "2022-12-19T19:39:59.477Z"
+                }
+            ],
+            "instagram_accounts": [
+                "string"
+            ]
+        }
 
 Delete
 ======
 
 .. http:delete:: /user/socialaccount/(int:id)
 
-   Menghapus data akun media sosial pengguna.
+    Menghapus data akun media sosial pengguna.
 
-   .. list-table:: 
+    .. list-table:: 
       :widths: 15 80
       :header-rows: 1
 

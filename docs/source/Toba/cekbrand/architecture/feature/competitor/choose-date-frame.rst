@@ -1,5 +1,5 @@
 Choose Date Frame
-++++++++++++++
++++++++++++++++++
 
 Choose Date Frame merupakan feature saat halaman dashboard aplikasi Toba.ai Cekbrand terbuka 
 dan memiliki fungsi untuk memilih date frame account instagram data load sesuai user inginkan.
@@ -9,7 +9,7 @@ dan memiliki fungsi untuk memilih date frame account instagram data load sesuai 
     :align: left
 
 1. Pengguna memilih dateframe sesuai user inginkan
-2. Dari aksi pengguna tersebut, maka frontend melakukan request ke backend dengan endpoint :ref:`fetch-ig-detail-data`, :ref:`fetch-user-summary-data`, :ref:`fetch-user-data`, :ref:`fetch-user-summary-data`, :ref:`fetch-hashtag-ig-user-data` dengan mengirimkan params berupa *start-date dan end-date* atau *date_frame*.
+2. Dari aksi pengguna tersebut, maka frontend melakukan request ke backend dengan endpoint :ref:`account-detail`, :ref:`user-data-summary`, :ref:`fetch-user-data`, :ref:`fetch-hashtag-ig-user-data` dengan mengirimkan params berupa *start-date dan end-date* atau *date_frame*.
 3. Backend akan mencari data sesuai request dari frontend di dalam database
 4. Backend akan mendapatkan response sesuai request yang
 5. Backend mengembalikan response user instagram account detail ke frontend

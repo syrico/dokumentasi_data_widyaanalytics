@@ -1,5 +1,5 @@
 Remove Competitor
-++++++++++++++
++++++++++++++++++
 
 Remove competitor merupakan feature saat halaman dashboard aplikasi Toba.ai Cekbrand terbuka 
 dan memiliki fungsi untuk menghapus account competitor yang dari dashboard aplikasi Toba.ai.
