@@ -1,10 +1,10 @@
 Login
-+++++++
++++++
 
 Pengguna dapat melakukan login pengguna. Endpoint berikut digunakan untuk mengelola akun yang dimiliki
 
 POST
-=====
+====
 
 .. http:get:: /auth/login/
 
@@ -16,18 +16,19 @@ POST
     Accept the following POST parameters: username, password
     Return the REST Framework Token Object's key.
 
-   **Parameter**:
+    **Parameter**:
 
-   .. sourcecode:: json
+    .. sourcecode:: json
+
         {
             "email": "user@example.com",
             "password": "string"
         }
 
 
-   **Contoh Response**:
+    **Contoh Response**:
 
-   .. sourcecode:: json
+    .. sourcecode:: json
 
         {
             "email": "user@example.com",
@@ -35,23 +36,25 @@ POST
         }
 
 Facebook Login
-======
+==============
+
 .. http:put:: /auth/facebook/login/
 
-   Login facebook account.
+    Login facebook account.
 
     **Parameter**:
 
-   .. sourcecode:: json
+    .. sourcecode:: json
+
         {
             "access_token": "string",
             "code": "string"
         }
 
 
-   **Contoh Response**:
+    **Contoh Response**:
 
-   .. sourcecode:: json
+    .. sourcecode:: json
 
         {
             "access_token": "string",
