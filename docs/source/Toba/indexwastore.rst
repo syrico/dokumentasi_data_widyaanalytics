@@ -7,6 +7,7 @@ Widya Analytic Store
    
    WAstore/indexsysdata
    WAstore/indexbackend
+   WAstore/indexarsitektur
 
 
 
