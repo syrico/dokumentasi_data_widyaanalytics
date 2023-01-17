@@ -4,19 +4,13 @@ Halaman Statistik
 Halaman kedua pada aplikasi Toba.ai Cekbrand yang memiliki fungsi untuk menampilkan analisis data performa akun Instagram berbanding waktu.
 Statistik yang ditampilkan dalam halaman ini adalah statistik wawasan akun, wawasan konten, keterikatan dengan pengikut Instagram, serta data sebaran pengikut Instagram.
 Terdapat pula saran-saran singkat pada setiap data grafik yang ditampilkan.
-Berikut adalah diagram alur yang mewakili halaman ini disertai penjelasannya.
+Berikut adalah diagram alur yang mewakili halaman ini.
 
 .. figure:: ./statistic-sequence.png
     :scale: 80
     :align: center
 
-1. Pengguna membuka tab **Halaman Statistik**.
-2. Frontend melakukan request ke Backend untuk mendapatkan data statistik.
-3. Backend mengambil data statistik yang dibutuhkan dari Database.
-4. Database mengembalikan data statistik yang dibutuhkan.
-5. Backend mengembalikan data statistik.
-6. Frontend memuat kolom-kolom statistik pada halaman.
-7. Frontend menampilkan kolom-kolom statistik pada halaman.
+|
 
 Halaman Statistik terdiri dari dua bagian **Performa Akun** dan **Followers**.
 Berikut adalah diagram alur yang mewakili dua bagian tersebut dan disertai dengan penjelasannya.
@@ -67,11 +61,27 @@ Berikut adalah diagram alur yang mewakili dua bagian tersebut dan disertai denga
             :align: left
 
         1. Pengguna membuka tab **Halaman Statistik**.
-        2. Frontend melakukan request ke Backend untuk mendapatkan data statistik.
-        3. Backend mengambil data statistik yang dibutuhkan dari Database.
-        4. Database mengembalikan data statistik yang dibutuhkan.
-        5. Backend mengembalikan data statistik.
-        6. Frontend memuat kolom-kolom statistik pada halaman.
-        7. Frontend menampilkan kolom-kolom statistik pada halaman.
+        2. Frontend melakukan request ke endpoint :ref:`online-followers`.
+        3. Backend mengambil data insight online followers dari tabel ``instagram.user_insight_online_follower``.
+        4. Backend mengembalikan daftar insight online followers.
+        5. Frontend memuat dan menampilkan data online followers dalam bentuk *heatmap*.
+        6. Frontend memuat dan menampilkan data top online followers dalam bentuk jadwal.
+        7. Frontend melakukan request ke endpoint :ref:`audience-gender-age`.
+        8. Backend mengambil daftar insight gender-age dari tabel ``instagram.user_insight_audience_gender_age``.
+        9. Backend mengembalikan daftar insight gender-age.
+        10. Frontend memuat dan menampilkan data persentase dan grafik gender-age.
+        11. Frontend melakukan request ke endpoint :ref:`audience-country`.
+        12. Backend mengambil data insight audience country dari tabel ``instagram.user_insight_audience_country``.
+        13. Backend mengembalikan daftar insight audience country.
+        14. Frontend melakukan pemetaan data top follower country dengan koordinat peta masing-masing.
+        15. Frontend memuat dan menampilkan top follower country dalam bentuk peta dan tabel.
+        16. Frontend melakukan request ke endpoint :ref:`audience-city`.
+        17. Backend mengambil data insight audience city dari tabel ``instagram.user_insight_audience_city``.
+        18. Backend mengembalikan data insight audience city.
+        19. Frontend melakukan request data koordinat top city ke endpoint :ref:`city-coordinate`.
+        20. Backend mengambil data koordinate dari file JSON.
+        21. Backend mengembalikan data koordinat kota. (Proses 19-21 dilakukan sebanyak jumlah top city secara *async*).
+        22. Frontend memetakan data top city dengan data koordinat masing-masing.
+        23. Frontend menampilkan top follower city dalam bentuk peta dan tabel.
 
 |

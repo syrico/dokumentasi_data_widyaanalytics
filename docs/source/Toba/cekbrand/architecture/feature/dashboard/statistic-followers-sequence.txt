@@ -78,13 +78,15 @@ autonumber 15
 User<<--Frontend:Display top follower country map
 parallel off
 
+autonumber off
 autoactivation on
 Frontend->Frontend:Get follower city list
+autonumber 16
 Frontend->Backend:Fetch follower city list
 Backend->Database:Select list of follower city
 autonumber off
 Backend<<--Database:
-autonumber 19
+autonumber 18
 Frontend<--Backend:Follower city list
 loop i <= count of top city
 Frontend->>Backend:Fetch top follower city coordinate
@@ -98,7 +100,7 @@ parallel
 autonumber off
 Frontend<<--Frontend:
 deactivateafter Frontend
-autonumber 24
+autonumber 23
 User<<--Frontend:Display top follower city table
 parallel off
 

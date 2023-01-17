@@ -19,6 +19,8 @@ Untuk mendapatkan data insight yang sudah tersimpan dapat menggunakan endpoint b
       * - city
         - Nama kota
 
+.. _audience-city:
+
 Audience City
 =============
 
@@ -44,7 +46,9 @@ Audience City
     :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
 
-Retrieve City Coordinate
+.. _city-coordinate:
+
+City Coordinate
 ========================
 
 .. http:get:: /cekbrand/cities-coordinate/(string:country)/(string:city)
@@ -69,6 +73,8 @@ Retrieve City Coordinate
             "id": 1360006015
         }
 
+.. _audience-country:
+
 Audience Country
 ================
 
@@ -92,6 +98,8 @@ Audience Country
     :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
     :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
+
+.. _audience-gender-age:
 
 Audience Gender Age
 ===================
@@ -166,6 +174,8 @@ Impressions Average Summary
     :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
     :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
+
+.. _online-followers:
 
 Online Followers
 ================
