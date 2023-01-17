@@ -1,5 +1,5 @@
 Widya Analytic Store
-+++++++++
+++++++++++++++++++++
 
 .. toctree::
    :maxdepth: 5
