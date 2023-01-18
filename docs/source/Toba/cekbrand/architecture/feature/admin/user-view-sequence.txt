@@ -1,0 +1,19 @@
+actor Admin
+
+participant Frontend
+participant WAS Backend
+
+autoactivation on
+
+autonumber 1
+
+activate Admin
+
+Admin->Frontend:Open user detail
+Frontend->WAS Backend:fetch user detail data, including\nuser social (Facebook and Instagram) data
+autonumber off
+Frontend<--WAS Backend:
+autonumber 3
+Admin<--Frontend:Display user view page
+
+deactivateafter Admin

@@ -1,0 +1,17 @@
+actor Admin
+
+participant Frontend
+participant WAS Backend
+
+autoactivation on
+
+autonumber 1
+
+activate Admin
+
+Admin->Frontend:Create new user invoice
+Frontend->WAS Backend:Post new user subscription data
+Frontend<--WAS Backend:Updated user subscirption data
+Admin<--Frontend:Display updated table
+
+deactivateafter Admin
