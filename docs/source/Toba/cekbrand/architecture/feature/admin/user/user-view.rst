@@ -1,8 +1,6 @@
 Detail Pengguna
 +++++++++++++++
 
-*deskripsi*
-
 .. figure:: ./user-view-sequence.png
     :scale: 50
     :align: left

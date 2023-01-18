@@ -1,8 +1,6 @@
 Buat Invoice Baru
 +++++++++++++++++
 
-*deskripsi*
-
 .. figure:: ./user-update-sequence.png
     :scale: 50
     :align: left
