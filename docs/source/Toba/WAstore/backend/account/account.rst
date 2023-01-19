@@ -5,8 +5,8 @@ Pengguna dapat melakukan pengaturan akun terhadap akun pengguna yang dimiliki. E
 
 .. _account-user:
 
-GET
-===
+User List
+=========
 
 .. http:get:: /account
 
@@ -55,8 +55,9 @@ GET
             }
         ]
 
-UPDATE
-======
+User Update
+===========
+
 .. http:put:: /account
 
     Mengupdate data akun.
@@ -119,8 +120,8 @@ UPDATE
         }
 
 
-Patch
-=====
+User Patch
+==========
 
 .. http:patch:: /account
 
