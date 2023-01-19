@@ -1,0 +1,20 @@
+title Top Post Tab
+actor User
+
+activate User
+#Feature1
+autonumber 1
+User->Frontend: Click top post tab
+autonumber 
+activate Frontend
+database `State Management`
+Frontend->`State Management`: Get active account data
+`State Management`-->Frontend: Response active account data
+aboxleft over `State Management`,Frontend: in the active account data response there are userData, medias
+
+Frontend->Frontend: Get default category value
+activate Frontend
+Frontend -> Frontend: Sorted media by categories default value and add engagement_rate key
+deactivate Frontend
+note over Frontend: Added engagement_rate key on medias using getMediagetMediaEngagementRate
+Frontend-->User: Display card media

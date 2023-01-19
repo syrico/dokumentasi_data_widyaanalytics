@@ -1,6 +1,8 @@
 Detail Post
 +++++++++++
 
+.. _detail-post:
+
 Fitur detail post ini merupakan fitur yang dapat 
 ditemukan di aplikasi Toba.ai pada bagian tab kompetitor dan tab post. 
 Fitur ini memiliki fungsi untuk melihat data sentiment dan comment pada media yang telah diposting oleh user.
