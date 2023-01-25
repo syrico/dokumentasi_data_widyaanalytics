@@ -1,0 +1,76 @@
+actor Admin
+
+participant Frontend
+participant WAS Backend
+
+database WAS Database
+
+entryspacing 0.3
+
+autoactivation on
+
+autonumber 1
+
+activate Admin
+
+Admin->Frontend:Open user detail
+
+autonumber off
+Frontend->>Frontend:
+autonumber
+Frontend->WAS Backend:Fetch user\ndetail data
+WAS Backend->WAS Database:Select CekBrand user data
+autonumber off
+WAS Backend<<--WAS Database:
+autonumber
+Frontend<--WAS Backend:User data
+autoactivation off
+autonumber off
+parallel 
+Frontend<--Frontend:
+deactivateafter Frontend
+autonumber
+Admin<--Frontend:Display user\ndata card
+parallel off
+
+autoactivation on
+autonumber off
+Frontend->>Frontend:
+autonumber
+Frontend->WAS Backend:Fetch user Facebook\naccounts list
+WAS Backend->WAS Database:Select user Facebook\naccounts
+autonumber off
+WAS Backend<<--WAS Database:
+autonumber
+Frontend<--WAS Backend:User Facebook\naccounts list
+autoactivation off
+autonumber off
+parallel 
+Frontend<--Frontend:
+deactivateafter Frontend
+autonumber
+Admin<--Frontend:Display user Facebook\naccounts table
+parallel off
+
+autoactivation on
+autonumber off
+Frontend->>Frontend:
+autonumber
+Frontend->WAS Backend:Fetch user Instagram\naccounts list
+WAS Backend->WAS Database:Select user Instagram\naccounts
+autonumber off
+WAS Backend<<--WAS Database:
+autonumber
+Frontend<--WAS Backend:User Instagram\naccounts list
+autoactivation off
+autonumber off
+parallel 
+Frontend<--Frontend:
+deactivateafter Frontend
+autonumber
+Admin<--Frontend:Display user Instagram\naccounts table
+parallel off
+
+deactivate Frontend
+
+deactivateafter Admin

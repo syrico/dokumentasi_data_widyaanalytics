@@ -1,0 +1,74 @@
+actor Admin
+
+participant Frontend
+participant Backend
+participant WAS Backend
+
+database Database
+database WAS Database
+
+entryspacing 0.3
+
+autoactivation on
+
+autonumber 1
+
+activate Admin
+
+Admin->Frontend:Open //Daftar Pengguna//\npage
+autonumber off
+Frontend->Frontend:
+autonumber
+Frontend->Backend:Fetch subscription\ngroups list
+Backend->Database:Select groups
+autonumber off
+Backend<<--Database:
+autonumber
+Frontend<--Backend:Subscription\ngroups list
+autonumber off
+Frontend<--Frontend:
+
+Frontend->Frontend:
+autonumber
+Frontend->WAS Backend:Fetch subscription\nplans list
+WAS Backend->WAS Database:Select CekBrand subscription plans
+autonumber off
+WAS Backend<<--WAS Database:
+autonumber
+Frontend<--WAS Backend:Subscription plans list
+autonumber off
+Frontend<--Frontend:
+
+Frontend->Frontend:
+autonumber
+Frontend->WAS Backend:Fetch user categories list
+WAS Backend->WAS Database:Select user\ncategoriess
+autonumber off
+WAS Backend<<--WAS Database:
+autonumber
+Frontend<--WAS Backend:User categories list
+autonumber off
+Frontend<--Frontend:
+
+Frontend->Frontend:
+autonumber
+Frontend->WAS Backend:Fetch user subscriptions list
+WAS Backend->WAS Database:Select CekBrand user\nsubscriptions
+autonumber off
+WAS Backend<<--WAS Database:
+autonumber
+Frontend<--WAS Backend:User subscriptions list
+autonumber off
+Frontend<--Frontend:
+
+space
+note over Frontend,WAS Database:When the size of data and table pages is changed,\as well as when a search is performed,\nuser subscriptions data is retrieved.
+
+autoactivation off
+parallel
+Frontend->Frontend:Load users table
+autonumber
+Admin<--Frontend:Display users list
+deactivate Frontend
+
+deactivateafter Admin

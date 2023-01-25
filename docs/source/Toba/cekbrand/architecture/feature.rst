@@ -11,3 +11,4 @@ Fitur
     feature/competitor/switch-instagram-competitor-account
     feature/competitor/choose-date-frame
     feature/dashboard
+    feature/admin
