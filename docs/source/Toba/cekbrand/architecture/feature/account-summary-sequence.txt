@@ -10,12 +10,21 @@ activate User
 
 User->Frontend:Open //Pilih Akun// page
 
-Frontend->Frontend:Load user accounts data,\nincluding statistic summary data
-parallel
+Frontend->Frontend:Load user accounts list
 autonumber off
 Frontend<--Frontend:
+loop i < number of accounts
 autonumber 
-User<--Frontend:Display accounts card
+Frontend->Frontend:Load user account data,\nincluding statistic summary data
+parallel
+autoactivation off
+autonumber off
+Frontend<<--Frontend:
+deactivateafter Frontend
+autonumber 
+User<<--Frontend:Display account card
 parallel off
+end
+deactivateafter Frontend
 
 deactivateafter User
