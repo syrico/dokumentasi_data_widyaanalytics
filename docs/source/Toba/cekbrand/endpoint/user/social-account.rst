@@ -20,7 +20,7 @@ Endpoint berikut digunakan untuk mengelola akun-akun tersebut.
 Social Account List
 ===================
 
-.. http:get:: /user/socialaccount
+.. http:get:: /user/socialaccounts
 
     Mengembalikan semua daftar data akun media sosial pengguna.
 
@@ -55,10 +55,12 @@ Social Account List
             }
         ]
 
+.. _social-account-detail:
+
 Social Account Detail
 =====================
 
-.. http:get:: /user/socialaccount/(int:id)
+.. http:get:: /user/socialaccounts/(int:id)
 
     Mengembalikan detail data akun media sosial pengguna.
 
@@ -89,11 +91,12 @@ Social Account Detail
             ]
         }
 
+.. _social-account-update:
 
 Social Account Update
 =====================
 
-.. http:put:: /user/socialaccount/(int:id)
+.. http:put:: /user/socialaccounts/(int:id)
 
     Mengubah detail data akun media sosial pengguna.
 
@@ -134,10 +137,12 @@ Social Account Update
             ]
         }
 
+.. _social-account-delete:
+
 Social Account Delete
 =====================
 
-.. http:delete:: /user/socialaccount/(int:id)
+.. http:delete:: /user/socialaccounts/(int:id)
 
     Menghapus data akun media sosial pengguna.
 
