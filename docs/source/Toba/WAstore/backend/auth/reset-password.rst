@@ -1,10 +1,10 @@
 Reset Password
-+++++++
+++++++++++++++
 
 Pengguna dapat melakukan reset password akun pengguna. Endpoint berikut digunakan untuk mengelola akun yang dimiliki
 
 POST
-=====
+====
 
 .. http:post:: /auth/password/reset/
 
@@ -15,25 +15,25 @@ POST
     Accepts the following POST parameters: email
     Returns the success/fail message.
 
-   **Parameter**:
+    **Parameter**:
 
-   .. sourcecode:: json
-        	
+    .. sourcecode:: json
+                
         {
             "email": "user@example.com"
         }
 
 
-   **Contoh Response**:
+    **Contoh Response**:
 
-   .. sourcecode:: json
+    .. sourcecode:: json
 
         {
             "email": "user@example.com"
         }
 
 POST
-=====
+====
 
 .. http:post:: /auth/password/reset/confirm/
 
@@ -45,10 +45,10 @@ POST
     new_password1, new_password2
     Returns the success/fail message.
 
-   **Parameter**:
+    **Parameter**:
 
-   .. sourcecode:: json
-        	
+    .. sourcecode:: json
+
         {
             "new_password1": "string",
             "new_password2": "string",
@@ -57,9 +57,9 @@ POST
         }
 
 
-   **Contoh Response**:
+    **Contoh Response**:
 
-   .. sourcecode:: json
+    .. sourcecode:: json
 
         {
             "new_password1": "string",
@@ -69,7 +69,7 @@ POST
         }
 
 POST
-=====
+====
 
 .. http:post:: /auth/obtain-authorization-token/
 
@@ -77,18 +77,18 @@ POST
     
     Returns a JSON Web Token that can be used for authenticated requests.
 
-   **Parameter**:
+    **Parameter**:
 
-   .. sourcecode:: json
-        	
+    .. sourcecode:: json
+
         {
             
         }
 
 
-   **Contoh Response**:
+    **Contoh Response**:
 
-   .. sourcecode:: json
+    .. sourcecode:: json
 
         {
             

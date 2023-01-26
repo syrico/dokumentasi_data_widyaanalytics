@@ -3,6 +3,6 @@ User
 
 .. toctree:: 
 
-   user/facebook-auth
-   user/social-account
-   user/subscription
+    user/facebook-auth
+    user/social-account
+    user/subscription

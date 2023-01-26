@@ -3,4 +3,4 @@ Arsitektur
 
 .. toctree::
 
-   architecture/feature
+    architecture/feature

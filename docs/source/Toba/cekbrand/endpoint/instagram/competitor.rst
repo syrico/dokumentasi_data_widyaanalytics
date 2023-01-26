@@ -58,6 +58,7 @@ List
         ]
 
 .. _remove-competitor-account:
+
 Delete
 ======
 

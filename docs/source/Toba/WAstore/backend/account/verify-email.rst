@@ -1,5 +1,5 @@
 Verify Email
-+++++++
+++++++++++++
 
 Pengguna dapat melakukan pengaturan untuk dilakukan verifikasi email. Endpoint berikut digunakan untuk mengelola akun yang dimiliki sebagai berikut.
 
@@ -8,19 +8,20 @@ POST
 
 .. http:post:: /account/verify-email/
 
-   Untuk mengirimkan key verifikasi email ke pengguna
+    Untuk mengirimkan key verifikasi email ke pengguna
 
-   **Parameter**:
+    **Parameter**:
 
-   .. sourcecode:: json
+    .. sourcecode:: json
+
         {
             "key": "string"
         }
 
 
-   **Contoh Response**:
+    **Contoh Response**:
 
-   .. sourcecode:: json
+    .. sourcecode:: json
 
         {
             "key": "string"
@@ -29,8 +30,7 @@ POST
 
 RESEND
 ======
+
 .. http:patch:: /account/verify-email/resend/
 
-   Resend email confirmation to user up to three times
-
-    
+    Resend email confirmation to user up to three times

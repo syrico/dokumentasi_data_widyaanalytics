@@ -14,11 +14,11 @@ Halaman ini menampilkan resume singkat mengenai performa tiap akun, konten pos t
 3. Backend akan mencari data pengguna berdasarkan token data user active current login.
 4. Backend akan mendapatkan response berupa data yang direquest pada tahap ke-3.
 5. Backend akan mengembalikan response user account toba.ai tahap ke-4 ke frontend.
-6. Frontend akan melakukan request user list instagram account dengan endpoint :ref:`fetch-list-ig-data`.
+6. Frontend akan melakukan request user list instagram account dengan endpoint :ref:`account-list`.
 7. Backend akan mencari user list instagram account data di database.
 8. Backend akan mendapatkan response berupa data yang direquest pada tahap ke-7.
 9. Backend mengembalikan response user list instagram account ke frontend.
-10. Frontend melakukan request ke backend dengan endpoint :ref:`fetch-ig-detail-data`, :ref:`fetch-user-summary-data`, :ref:`fetch-user-data`, :ref:`fetch-user-summary-data`, :ref:`fetch-hashtag-ig-user-data`.
+10. Frontend melakukan request ke backend dengan endpoint :ref:`account-detail`, :ref:`user-data-summary`, :ref:`fetch-user-data`, :ref:`fetch-hashtag-ig-user-data`.
 11. Backend akan mencari user instagram account detail di database.
 12. Backend akan mendapatkan response berupa data yang direquest pada tahap ke-11.
 13. Backend mengembalikan response user instagram account detail.
