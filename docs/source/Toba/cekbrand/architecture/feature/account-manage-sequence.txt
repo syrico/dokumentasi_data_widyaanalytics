@@ -5,7 +5,7 @@ participant Backend
 
 database Database
 
-entryspacing 0.5
+entryspacing 0.7
 
 autoactivation 
 
@@ -18,20 +18,43 @@ User->Frontend:Open //Kelola Akun// page
 autonumber off
 Frontend->Frontend:Get user Facebook accounts\ndata, including their related\nInstagram account
 autonumber 
-Frontend->Backend:Fetch user Facebook accounts list
+Frontend->Backend:Fetch user Facebook\naccounts list
 Backend->Database:Select Facebook\naccounts
 autonumber off
 Backend<<--Database:
 autonumber 
 Frontend<--Backend:Facebook accounts list
-parallel
+
 autonumber off
 Frontend<--Frontend:
+
+autoactivation
+
+alt For re-authorization flow
+
+Frontend->Frontend:
+autonumber 
+Frontend->Backend:Re-authorization user\nFacebook account
+Backend->Database:Save Facebook as\nInstagram token
+autonumber off
+Backend<<--Database:
+
+autonumber 
+Frontend<--Backend: Success
+autonumber off
+Frontend<--Frontend:
+parallel 
 autoactivation off
 autonumber 
-User<<--Frontend:Display account manage page
+Frontend<-Frontend:Redirect to //Pilih Akun// page
+autonumber off
+User<--Frontend:Display //Pilih Akun// page
 parallel off
 
+else
+
+autonumber 
+User<<--Frontend:Display account\nmanage page
 autoactivation 
 autonumber off
 Frontend->Frontend:Get user Instagram accounts\nand subscription groups
@@ -54,7 +77,9 @@ autonumber off
 Frontend<--Frontend:
 autoactivation off
 autonumber 
-User<<--Frontend:Display account manage limit
+User<<--Frontend:Display account\nmanage limit
 parallel off
+
+end
 
 deactivateafter User
