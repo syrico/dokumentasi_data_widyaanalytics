@@ -1,0 +1,14 @@
+actor User
+
+participant Frontend
+
+autoactivation 
+
+autonumber 
+
+activate User
+
+User->Frontend:Delete Facebook account
+User<--Frontend:Load updated user Facebook accounts list
+
+deactivateafter User

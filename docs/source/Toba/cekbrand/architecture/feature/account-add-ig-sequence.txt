@@ -1,0 +1,18 @@
+actor User
+
+participant Frontend
+
+autoactivation 
+
+autonumber 
+
+activate User
+
+User->Frontend:Select Instagram accounts\nto connect
+Frontend->Frontend:Load Instagram accouts data and\nupdated Instagram accounts list
+autonumber off
+Frontend<--Frontend:
+autonumber 
+User<--Frontend:Display updated user Instagram\naccounts list
+
+deactivateafter User
