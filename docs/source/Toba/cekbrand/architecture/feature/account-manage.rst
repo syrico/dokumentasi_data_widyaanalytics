@@ -33,7 +33,7 @@ Hapus akun Facebook
 -------------------
 
 .. figure:: ./account-delete-fb-sequence.png
-    :scale: 80
+    :scale: 60
     :align: center
 
 1. Pengguna menekan tombol *Lepas Tautan Facebook*.
@@ -45,7 +45,7 @@ Hapus akun Instagram
 ====================
 
 .. figure:: ./account-delete-ig-sequence.png
-    :scale: 80
+    :scale: 60
     :align: center
 
 1. Pengguna menekan tombol *Lepas Koneksi* pada kolom akun Instagram.
@@ -57,10 +57,12 @@ Menghubungkan akun Instagram
 ============================
 
 .. figure:: ./account-add-ig-sequence.png
-    :scale: 80
+    :scale: 60
     :align: center
 
 1. Pengguna memilih akun-akun Instagram yang akan dihubungkan kemudian menekan tombol *Hubungkan*.
-2. Frontend memuat data akun Instagram yang dipilih, kemudian memperbaharui daftar akun Instagram pengguna.
-3. Frontend menampilkan daftar terbaru akun Instagram pengguna.
+2. Frontend melakukan request ke endpoint :ref:`fetch-ig-data`.
+3. Frontend menginfokan proses akuisisi data akun Instagram berhasil.
+4. Frontend melakukan request ke endpoint :ref:`account-list`.
+5. Frontend memuat dan menampilkan daftar terbaru akun Instagram pengguna.
 
