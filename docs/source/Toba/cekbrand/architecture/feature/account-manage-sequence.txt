@@ -1,6 +1,7 @@
 actor User
 
 participant Frontend
+participant Backend
 
 autoactivation 
 
@@ -10,9 +11,13 @@ activate User
 
 User->Frontend:Open //Kelola Akun// page
 
-Frontend->Frontend:Load user Facebook accounts data,\nincluding their related Instagram account
-parallel
 autonumber off
+Frontend->Frontend:Get user Facebook accounts data,\nincluding their related Instagram account
+autonumber 
+Frontend->Backend:Fetch user Facebook accounts list
+autonumber off
+Frontend<--Backend:
+parallel
 Frontend<--Frontend:
 autoactivation off
 autonumber 
@@ -20,9 +25,17 @@ User<<--Frontend:Display account manage page
 parallel off
 
 autoactivation 
-Frontend->Frontend:Load user Instagram accounts\nand subscription groups
-parallel
 autonumber off
+Frontend->Frontend:Get user Instagram accounts\nand subscription groups
+autonumber 
+Frontend->Backend:Fetch user Instagram accounts list
+autonumber off
+Frontend<--Backend:
+autonumber 
+Frontend->Backend:Fetch subscription groups list
+autonumber off
+Frontend<--Backend:
+parallel
 Frontend<--Frontend:
 autoactivation off
 autonumber 
