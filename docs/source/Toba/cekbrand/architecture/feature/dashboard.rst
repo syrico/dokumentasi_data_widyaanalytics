@@ -9,7 +9,7 @@ Halaman dashboard terdiri dari Kompetitor, Statistik dan Top Post.
     dashboard/competitor
     dashboard/post
 
-Selain itu fitur yang melengkapi setiap halaman dashboard antara lain pindah akun, filter tanggal dan export/download data. 
+Selain itu fitur yang melengkapi setiap halaman dashboard antara lain :ref:`switch-instagram-account`, :ref:`choose-date-frame` dan :ref:`download-export`. 
 Berikut adalah diagram alur yang mewakili halaman ini disertai penjelasannya.
 
 .. figure:: ./dashboard-sequence-v2.png
