@@ -3,7 +3,6 @@ Account
 
 Account adalah akun Instagram pengguna yang tersimpan dalam layanan CekBrand.
 
-
 **Penjelasan Parameter URL**
 
 .. list-table:: 
