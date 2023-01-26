@@ -4,6 +4,17 @@ Social Account
 Pengguna dapat menambahkan koneksi terhadap akun media sosial terkait, misalkan Facebook, Instagram, Twitter, dsb.
 Endpoint berikut digunakan untuk mengelola akun-akun tersebut.
 
+**Penjelasan Parameter URL**
+
+.. list-table:: 
+      :widths: 15 80
+      :header-rows: 1
+
+      * - Parameter
+        - Deskripsi
+      * - id
+        - ID social account
+
 .. _social-account-list:
 
 Social Account List
@@ -13,9 +24,14 @@ Social Account List
 
     Mengembalikan semua daftar data akun media sosial pengguna.
 
+    :query string provider: adalah vendor media sosial, contoh nya; `facebook`, `twitter`, dsb.
+
     **Contoh Response**:
 
-    .. sourcecode:: json
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
         [
             {
@@ -39,8 +55,6 @@ Social Account List
             }
         ]
 
-    :query string provider: adalah vendor media sosial, contoh nya; `facebook`, `twitter`, dsb.
-
 Social Account Detail
 =====================
 
@@ -48,19 +62,12 @@ Social Account Detail
 
     Mengembalikan detail data akun media sosial pengguna.
 
-    .. list-table:: 
-      :widths: 15 80
-      :header-rows: 1
-
-      * - Parameter
-        - Deskripsi
-      * - id
-        - ID social account
-
-
     **Contoh Response**:
 
-    .. sourcecode:: json
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
         {
             "id": 0,
@@ -90,16 +97,7 @@ Social Account Update
 
     Mengubah detail data akun media sosial pengguna.
 
-    .. list-table:: 
-      :widths: 15 80
-      :header-rows: 1
-
-      * - Parameter
-        - Deskripsi
-      * - id
-        - ID social account
-
-    **Contoh Request**:abbr:
+    **Contoh Request Body**:
 
     .. sourcecode:: json
 
@@ -111,7 +109,10 @@ Social Account Update
 
     **Contoh Response**:
 
-    .. sourcecode:: json
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
         {
             "id": 0,
@@ -140,12 +141,9 @@ Social Account Delete
 
     Menghapus data akun media sosial pengguna.
 
-    .. list-table:: 
-      :widths: 15 80
-      :header-rows: 1
+    **Contoh Response**:
 
-      * - Parameter
-        - Deskripsi
-      * - id
-        - ID social account
+    .. sourcecode:: http
+    
+        HTTP/1.1 204 NO CONTENT
 

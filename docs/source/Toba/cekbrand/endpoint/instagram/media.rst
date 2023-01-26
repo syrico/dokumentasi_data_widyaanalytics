@@ -23,9 +23,16 @@ List
 
     Mengembalikan daftar data media akun Instagram pengguna.
 
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
+    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
+
     **Contoh Response**:
 
-    .. sourcecode:: json
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
         [
             {
@@ -45,10 +52,6 @@ List
             }
         ]
 
-    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
-    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
-
 Detail
 ======
 
@@ -58,7 +61,10 @@ Detail
 
     **Contoh Response**:
 
-    .. sourcecode:: json
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
         {
             "id": "string",
@@ -83,10 +89,17 @@ Summary
 
     Mengembalikan data *summary* media akun Instagram pengguna.
 
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
+    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
+
     .. toggle-header::
         :header: **Contoh Response**:
 
-        .. sourcecode:: json
+        .. sourcecode:: http
+
+            HTTP/1.1 200 OK
+            Content-Type: application/json
 
             {
                 "earliest_media": {
@@ -194,10 +207,6 @@ Summary
                 "highest_reach_media_before": null
             }
 
-    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
-    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
-
 .. _fetch-comment-list:
 
 Comments List
@@ -209,7 +218,10 @@ Comments List
 
     **Contoh Response**:
 
-    .. sourcecode:: json
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
         [
             {
@@ -231,7 +243,10 @@ Sentiment
 
     **Contoh Response**:
 
-    .. sourcecode:: json
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
         {
             "neg": 0,
@@ -248,9 +263,16 @@ Engagement List
 
     Mengembalikan daftar data engagement media akun Instagram pengguna.
 
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
+    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
+
     **Contoh Response**:
 
-    .. sourcecode:: json
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
         [
             {
@@ -263,10 +285,6 @@ Engagement List
             }
         ]
 
-    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
-    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
-
 Engagement Rate Standard Value
 ==============================
 
@@ -274,9 +292,16 @@ Engagement Rate Standard Value
 
     Mengembalikan data standar engagament rate akun Instagram pengguna berdasarkan kelompok jumlah followers.
 
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
+    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
+
     **Contoh Response**:
 
-    .. sourcecode:: json
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
         {
             "followers_range": "string",
@@ -291,11 +316,6 @@ Engagement Rate Standard Value
             "max_followers": 2147483647
         }
 
-    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
-    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
-
-
 Engagement Average Summary
 ===============================
 
@@ -303,9 +323,16 @@ Engagement Average Summary
 
     Mengembalikan data *summary* rerata engagament media akun Instagram pengguna.
 
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
+    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
+
     **Contoh Response**:
 
-    .. sourcecode:: json
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
         {
             "engagement_average_rate": "0.19783231593372372%",
@@ -319,10 +346,6 @@ Engagement Average Summary
             "like_average_growth": -4.158333333333331
         }
 
-    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
-    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
-
 .. _engagement-summary:
 
 Engagement Summary
@@ -332,16 +355,19 @@ Engagement Summary
 
     Mengembalikan data *summary* engagement media akun Instagram pengguna.
 
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
+    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
+
     **Contoh Response**:
 
-    .. sourcecode:: json
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
         {
             "engagement_growth_rate": "5.618537436152984%",
             "engagement_growth_rate_before": "6.55383049121914%",
             "engagement_growth_rate_growth": "-0.9352930550661558%"
         }
-
-    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
-    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90

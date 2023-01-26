@@ -1,0 +1,73 @@
+actor User
+
+participant Frontend
+participant Backend
+
+database Database
+
+entryspacing 0.7
+
+autoactivation on
+
+autonumber
+
+activate User
+
+User->Frontend:Open //Pilih Akun// page
+
+autonumber off
+Frontend->Frontend:Get user accounts list
+autonumber 
+Frontend->Backend:Fetch user accounts list
+Backend->Database:Select user accounts
+autonumber off
+Backend<<--Database:
+autonumber 
+Frontend<--Backend:User accounts list
+autonumber off
+Frontend<--Frontend:
+
+loop i < number of accounts
+
+Frontend->Frontend:Get user account data,\nincluding statistic\nsummary data
+autonumber 
+Frontend->Backend:Fetch account\nuser-data list
+Backend->Database:Select account\nuser-data list
+autonumber off
+Backend<<--Database:
+autonumber 
+Frontend<--Backend:Account user-data list
+
+Frontend->>Backend:Fetch account media\nengagement list
+Backend->Database:Select account media\nengagaments
+autonumber off
+Backend<<--Database:
+autonumber 
+Frontend<--Backend:Account media\nengagement list
+
+Frontend->>Backend:Fetch account reach\ninsight list
+Backend->Database:Select reach\ninsights
+autonumber off
+Backend<<--Database:
+autonumber 
+Frontend<--Backend:Account reach\ninsight list
+
+Frontend->>Backend:Fetch account insight\nimpressions list
+Backend->Database:Select insight\nimpressions
+autonumber off
+Backend<<--Database:
+autonumber 
+Frontend<--Backend:  account insight\nimpressions list
+
+parallel
+autoactivation off
+autonumber off
+Frontend<<--Frontend:
+deactivateafter Frontend
+autonumber 
+User<<--Frontend:Display account card
+parallel off
+end
+deactivateafter Frontend
+
+deactivateafter User

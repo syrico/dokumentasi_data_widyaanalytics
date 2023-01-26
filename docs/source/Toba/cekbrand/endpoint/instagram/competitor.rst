@@ -25,7 +25,7 @@ Add
 
     Menambahkan akun Instagram kompetitor pengguna.
 
-    **Contoh Request**:
+    **Contoh Request Body**:
 
     .. sourcecode:: json
 
@@ -44,7 +44,10 @@ List
 
     **Contoh Response**:
 
-    .. sourcecode:: json
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
         [
             {
@@ -75,9 +78,16 @@ Hashtag Metrics
 
     Mengembalikan daftar data metrik hashtag akun Instagram pengguna.
 
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
+    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
+
     **Contoh Response**:
 
-    .. sourcecode:: json
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
         [
             {
@@ -86,10 +96,6 @@ Hashtag Metrics
                 "comments_count": 0
             }
         ]
-
-    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
-    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
 
 .. _fetch-media-ig-competitor-data:
 
@@ -100,9 +106,16 @@ Media
 
     Mengembalikan daftar data media akun Instagram pengguna.
 
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
+    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
+
     **Contoh Response**:
 
-    .. sourcecode:: json
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
         [
             {
@@ -122,10 +135,6 @@ Media
             }
         ]
 
-    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
-    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
-
 .. _fetch-media-average-ig-competitor-data:
 
 Media Engagement Average Summary
@@ -135,9 +144,16 @@ Media Engagement Average Summary
 
     Mengembalikan data *summary* rerata engagement media akun Instagram kompetitor pengguna.
 
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
+    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
+
     **Contoh Response**:
 
-    .. sourcecode:: json
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
         {
             "engagement_average_rate": "0.300257343514107356%",
@@ -150,10 +166,6 @@ Media Engagement Average Summary
             "like_average_before": 113.0,
             "like_average_growth": -49.0
         }
-    
-    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
-    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
 
 .. _fetch-media-summary-ig-competitor-data:
 
@@ -164,10 +176,17 @@ Media Summary
 
     Mengembalikan data *summary* media akun Instagram kompetitor pengguna.
 
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
+    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
+
     .. toggle-header::
         :header: **Contoh Response**:
 
-        .. sourcecode:: json
+        .. sourcecode:: http
+
+            HTTP/1.1 200 OK
+            Content-Type: application/json
 
             {
                 "best_media": {
@@ -223,10 +242,6 @@ Media Summary
                 }
             }
 
-    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
-    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
-
 .. _fetch-user-ig-competitor-data:
 
 User Data
@@ -236,9 +251,16 @@ User Data
 
     Mengembalikan data akun Instagram kompetitor pengguna.
 
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
+    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
+
     **Contoh Response**:
 
-    .. sourcecode:: json
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
         [
             {
@@ -251,7 +273,3 @@ User Data
                 "datestamp": "2022-12-26"
             }
         ]
-
-    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
-    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90

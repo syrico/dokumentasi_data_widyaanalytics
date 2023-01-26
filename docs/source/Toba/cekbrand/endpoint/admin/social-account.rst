@@ -3,6 +3,8 @@ Social Account
 
 Berikut adalah beberapa endpoint yang digunakan pada halaman **Daftar Pengguna** yang hanya dapat digunakan oleh `admin`.
 
+.. _facebook-list:
+
 Facebook List
 =============
 
@@ -19,9 +21,12 @@ Facebook List
       * - user_id
         - ID pengguna
 
-   **Contoh Response**:
+    **Contoh Response**:
 
-    .. sourcecode:: json
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
         [
             {
@@ -45,6 +50,8 @@ Facebook List
             }
         ]
 
+.. _instagram-list:
+
 Instagram List
 ==============
 
@@ -63,7 +70,10 @@ Instagram List
 
     **Contoh Response**:
 
-    .. sourcecode:: json
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
         [
             {

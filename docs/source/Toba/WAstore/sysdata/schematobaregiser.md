@@ -1,11 +1,11 @@
-### Schema Toba Register
+# Schema Toba Register
 Merupakan Schema data yang menjadi main data dari Toba.ai Widay Analytic Store.
 
 ![ER Diagram Instagram](image/toba_register.png)
 
-#### **Akun**
+## **Akun**
 Kelompok tabel yang mengatur data akun pengguna
-##### **AKUN ALAMAT EMAIL**
+### **AKUN ALAMAT EMAIL**
 
 Berisi data akun berupa email dan user id pengguna. \
 Nama Tabel : ``account_emailaddress`` 
@@ -18,7 +18,7 @@ Nama Tabel : ``account_emailaddress``
 | **primary**    | \-          | BOOL          | 111                                          |             |
 | **user\_id**   | Foreign Key | INT           | Nomor ID yang merujuk pada table users\_user |             |
 
-##### **KONFIRMASI AKUN**
+### **KONFIRMASI AKUN**
 Berisi data akun yang harus dilakukan konfirmasi.\
 Nama Tabel : ``account_emailconfirmation``
 
@@ -30,9 +30,9 @@ Nama Tabel : ``account_emailconfirmation``
 | **key**                |             | VARCHAR(64)   |                                                              |             |
 | **email\_address\_id** | FOREIGN KEY | INT4          | Nomor ID email yang merujuk dari tabel account\_emailaddress |             | 
 
-#### **Auth**
+## **Auth**
 Kelompok tabel yang mengatur autentikasi pengguna
-##### **PENGELOMPOKAN AUTENTIKASI PENGGUNA**
+### **PENGELOMPOKAN AUTENTIKASI PENGGUNA**
 Berisi field data untuk mendefinisikan user menjadi admin, trial, atau paid. \
 Nama Tabel : ``auth_group``
 
@@ -41,7 +41,7 @@ Nama Tabel : ``auth_group``
 | **id**         | Primary Key | SERIAL        | Nomor ID                                                                               |             |
 | **name**       |             | VARCHAR(150)  | Nama yang memuat _role_ autentikasi, seperti admin, _trial_, dan _paid_. | UNIQUE KEY |
 
-##### **PENGELOMPOKAN AKSI AKSES TERHADAP PENGGUNA**
+### **PENGELOMPOKAN AKSI AKSES TERHADAP PENGGUNA**
 Berisi field data yang mengelompokkan kelompok user untuk dapat melakukan aksi tertentu berdasarkan permission_id dalam lingkup django dashboard (masih digunakan hanya oleh engineer).
 Nama Tabel: ``auth_group_permissions``
 
@@ -51,7 +51,7 @@ Nama Tabel: ``auth_group_permissions``
 | **group\_id**      | UNIQUE KEY  | INT           | Nomor ID yang merujuk pada tabel auth\_group.     |             |
 | **permission\_id** | UNIQUE KEY  | INT           | Nomor ID yang merujuk pada tabel auth\_permission |             |
 
-##### **PENGELOMPOKAN AKSI AKSES PENGGUNA**
+### **PENGELOMPOKAN AKSI AKSES PENGGUNA**
 Berisi field data yang mengelompokkan aksi akses yang dapat dilakukan oleh pengguna. \
 Nama Tabel: ``auth_permission``
 
@@ -62,9 +62,9 @@ Nama Tabel: ``auth_permission``
 | **content\_type\_id** |             | INT           | Nomor ID yang merujuk pada tabel django\_content\_type   | Unique Key  |
 | **codename**          |             | VARCHAR(100)  | Berisi aksi-aksi yang dapat dilakukan dalam bentuk kode. | Unique Key  |
 
-#### **Django**
+## **Django**
 Kelompok tabel yang menjadi bawaan dari *framework* Django
-##### **DJANGO ADMIN LOG**
+### **DJANGO ADMIN LOG**
 Berisi terkait aktivitas dashboard admin. \
 Nama Tabel: ``django_admin_log``
 | **Nama Kolom**        | **Tipe**    | **Tipe Data** | **Isi**                                                   | **Catatan** |
@@ -78,7 +78,7 @@ Nama Tabel: ``django_admin_log``
 | **content\_type\_id** | Foreign Key | INT           | Nomor ID yang merujuk pada tabel django\_content\_type    |             |
 | **user\_id**          | Foreign Key | INT           | Nomor ID yang merujuk pada tabel user\_users              |             |
 
-##### **DJANGO CONTENT TYPE**
+### **DJANGO CONTENT TYPE**
 Mendifiniskan permission melalui representasi model. \
 Nama Tabel: ``django_content_type``
 
@@ -88,7 +88,7 @@ Nama Tabel: ``django_content_type``
 | **app\_label** |             | VARCHAR(100)  | Memuat informasi/label _permission_ | Unique Key  |
 | **model**      |             | VARCHAR(100)  | Mengkategorikan _permission_        | Unique Key  |
 
-##### **DJANGO MIGRATION**
+### **DJANGO MIGRATION**
 Berisi riwayat perubahan data yang terjadi pada schema (*migrate*). \
 Nama Tabel: ``django_migration``
 
@@ -99,7 +99,7 @@ Nama Tabel: ``django_migration``
 | **name**       | \-          | VARCHAR(255)  | 1111Cari di Dokumentasi Token       |             |
 | **applied**    | \-          | TIMESTAMTZ    | Timestamp kapan perubahan dilakukan |             |
 
-##### **DJANGO SESSION**
+### **DJANGO SESSION**
 Tabel yang berfungsi untuk menyimpan aktivitas session user. \
 Nama Tabel: ``django_session``
 
@@ -109,7 +109,7 @@ Nama Tabel: ``django_session``
 | **session\_data** | \-          | TEXT          | Data _session_                     |             |
 | **expire\_date**  | \-          | TIMESTAMPTZ   | Timestamp kapan _session_ berakhir |             |
 
-##### **DJANGO SITE**
+### **DJANGO SITE**
 Menyimpan alamat aplikasi. \
 Nama Tabel: ``django_site``
 
@@ -119,7 +119,7 @@ Nama Tabel: ``django_site``
 | **domain**     |             | VARCHAR(100)  | Domain aplikasi | Unique Key  |
 | **name**       |             | VARCHAR(50)   | Nama domain     |             |
 
-##### **SSO SESSION TOKEN**
+### **SSO SESSION TOKEN**
 Berisi data untuk SSO Session Token dengan menggunakan Framework Django. \
 Nama Tabel: ``rest_framework_sso_sessiontoken``
 | **Nama Kolom**     | **Tipe**    | **Tipe Data** | **Isi**                                        | **Catatan** |
@@ -133,9 +133,9 @@ Nama Tabel: ``rest_framework_sso_sessiontoken``
 | **Last\_used\_at** |             | TIMESTAMPTZ   | Timestamp kapan terakhir kali session digunkan |             |
 | **Client\_id**     |             | VARCHAR(1000) | Nomor ID klien yang terhubung ke layanan       |             |
 
-#### **Feedback**
+## **Feedback**
 Kelompok tabel dalam menyimpan data *feedback* dari pengguna
-##### **FEEDBACK**
+### **FEEDBACK**
 Berisi data feedback yang diberikan oleh pengguna. \
 Nama Tabel: ``feedback_feedback``
 | **Nama Kolom**   | **Tipe**    | **Tipe Data** | **Isi**                                                                   | **Catatan** |
@@ -149,9 +149,9 @@ Nama Tabel: ``feedback_feedback``
 | **created\_at**  |             | TIMESTAMPTZ   | Timestamp kapan data dibuat                                               |             |
 | **user\_id**     | Foreign Key | INT4          | Nomor ID yang merujuk pada tabel user\_users                              |             |
 
-#### **Landing Slide**
+## **Landing Slide**
 Kelompok tabel dalam mengatur *landing slide* pada tampilan awal
-##### **LANDING SWIPER**
+### **LANDING SWIPER**
 Berisi data landing page yang ditampilkan. \
 Nama Tabel: ``landing_swiper``
 | **Nama Kolom** | **Tipe**    | **Tipe Data** | **Isi**                                               | **Catatan** |
@@ -160,7 +160,7 @@ Nama Tabel: ``landing_swiper``
 | **is\_show**   |             | BOOL          | Ceklis dSata apakah akan ditampilkan atau tidak       |             |
 | **Slide\_id**  | Foreign Key | UUID          | Nomor ID yang merujuk pada tabel landing\_swiperslide |             |
 
-##### **LANDING SWIPERSLIDE**
+### **LANDING SWIPERSLIDE**
 Berisi detail data dari swiper slide pada landing page. \
 Nama Tabel: ``landing_swiperslide``
 | **Nama Kolom**                | **Tipe**    | **Tipe Data** | **Isi**                                                  | **Catatan** |
@@ -187,9 +187,9 @@ Nama Tabel: ``landing_swiperslide``
 | **Updated\_at**               |             | TIMESTAMPTZ   | Timestamp kapan event diperbarui                         |             |
 | **image**                     |             | VARCHAR(100)  | Gambar yang akan ditampilkan                             |             |
 
-#### **Payment and Store Product**
+## **Payment and Store Product**
 Kelompok tabel dalam menyimpan data transaksi dan data layanan yang tersedia
-##### **PAYMENTS PRODUCT**
+### **PAYMENTS PRODUCT**
 Berisi data transaksi produk yang sudah dilakukan pengguna. \
 Nama Tabel: ``payments_product``
 | **Nama Kolom**             | **Tipe**    | **Tipe Data** | **Isi**                                              | **Catatan** |
@@ -203,7 +203,7 @@ Nama Tabel: ``payments_product``
 | **User\_id**               | Foreign Key | INT4          | Nomor ID yang merujuk pada tabel users\_user         |             |
 | **Deleted\_at**            |             | TIMESTAMPTZ   | Timestamp kapan transaksi diperbarui                 |             |
 
-##### **STORE PRODUCT**
+### **STORE PRODUCT**
 Berisi field data yang berisi produk yang tersedia. \
 Nama Tabel: ``store_product``
 
@@ -218,9 +218,9 @@ Nama Tabel: ``store_product``
 | **Is\_active**    |             | BOOL          | Ceklis data yang akitf           |             |
 | **nickname**      |             | VARCHAR(40)   | Singkatan produk                 |             |
 
-#### **Push Notification**
+## **Push Notification**
 Kelompok tabel bawan yang mengatur *push notification* pada aplikasi
-##### **PUSH NOTIFICATIONS APNS DEVICE**
+### **PUSH NOTIFICATIONS APNS DEVICE**
 Berisi notifiaksi data untuk perangkat APNs atau (Apple Push Notification service). \
 Nama Tabel: ``push_notifications_apnsdevice``
 | **Nama Kolom**       | **Tipe**    | **Tipe Data** | **Isi**                                      | **Catatan** |
@@ -234,7 +234,7 @@ Nama Tabel: ``push_notifications_apnsdevice``
 | **user\_id**         | Foreign Key | INT4          | Nomor ID yang merujuk pada tabel users\_user | Unique Key  |
 | **application\_id**  |             | VARCHAR(64)   | ID aplikasi                                  |             |
 
-##### **PUSH NOTIFICATIONS GCM DEVICE**
+### **PUSH NOTIFICATIONS GCM DEVICE**
 Berisi notifiaksi data untuk perangkat GCM atau (Google Cloud Messaging). \
 Nama Tabel: ``push_notifications_gcmdevice``
 
@@ -250,7 +250,7 @@ Nama Tabel: ``push_notifications_gcmdevice``
 | **Cloud\_message\_type** |             | VARCHAR(3)    | Tipe _Cloude Message_                        |             |
 | **application\_id**      |             | VARCHAR(64)   | ID aplikasi                                  |             |
 
-##### **PUSH NOTIFICATIONS WEB PUSH DEVICE**
+### **PUSH NOTIFICATIONS WEB PUSH DEVICE**
 Berisi notifiaksi data pada Website. \
 Nama Tabel: ``push_notifications_webpushdevice``
 | **Nama Kolom**       | **Tipe**    | **Tipe Data** | **Isi**                                                                | **Catatan** |
@@ -267,7 +267,7 @@ Nama Tabel: ``push_notifications_webpushdevice``
 | **user\_id**         | Foreign Key | INT4          | Nomor ID yang merujuk pada tabel users\_user                           |             |
 
 
-##### **PUSH NOTIFICATIONS WNS DEVICE**
+### **PUSH NOTIFICATIONS WNS DEVICE**
 Berisi notifiaksi data untuk perangkat WNS atau Windows Notification Service. \
 Nama Tabel: ``push_notifications_wnsdevice``
 | **Nama Kolom**       | **Tipe**    | **Tipe Data** | **Isi**                                      | **Catatan** |
@@ -281,9 +281,9 @@ Nama Tabel: ``push_notifications_wnsdevice``
 | **user\_id**         | Foreign Key | INT4          | Nomor ID yang merujuk pada tabel users\_user | Unique Key  |
 | **application\_id**  |             | VARCHAR(64)   | ID aplikasi                                  |             |
 
-#### **Social Account**
+## **Social Account**
 Kelompok tabel yang mengatur pengaturan *Social Account* yang dimiliki pengguna.
-##### **SOCIAL ACCOUNT**
+### **SOCIAL ACCOUNT**
 Berisi data akun Widya Analytics Store dari pengguna. \
 Nama Tabel: ``socialaccount_socialaccount``
 
@@ -297,7 +297,7 @@ Nama Tabel: ``socialaccount_socialaccount``
 | **extra\_data**  |             | TEXT          | Berisi keterangan data lain                  |             |
 | **user\_id**     | Foreign Key | INT           | Nomor ID yang merujuk pada tabel user\_users |             |
 
-##### **APLIKASI AKUN SOSIAL**
+### **APLIKASI AKUN SOSIAL**
 Berisi data sosial media yang digunakan. \
 Nama Tabel: ``socialaccount_socialapp``
 
@@ -310,7 +310,7 @@ Nama Tabel: ``socialaccount_socialapp``
 | **secret**     |             | VARCHAR(191)  | Token yang bersifat rahasia  |             |
 | **key**        |             | VARCHAR(191)  | 111                          |             |
 
-##### ***SITES* APLIKASI AKUN SOSIAL**
+### ***SITES* APLIKASI AKUN SOSIAL**
 Merupakan tabel yang mengintegrasikan atau mengelompokkan aplikasi akun sosial dengan sites Toba.ai. \
 Nama Tabel: ``socialaccount_socialapp_sites``
 
@@ -320,7 +320,7 @@ Nama Tabel: ``socialaccount_socialapp_sites``
 | **socialapp\_id** |             | INT           | Nomor ID yang merujuk pada tabel socialaccount\_socialapp | UNIQUE KEY  |
 | **site\_id**      |             | INT           | Nomor ID yang merujuk pada tabel django\_site             | UNIQUE KEY  |
 
-##### **TOKEN APLIKASI**
+### **TOKEN APLIKASI**
  Berisi field data yang memberikan Token pada setiap akun dan aplikasi. \
  Nama Tabel: ``socialaccount_socialtoken``
 
@@ -333,9 +333,9 @@ Nama Tabel: ``socialaccount_socialapp_sites``
 | **account\_id**   | FOREIGN KEY | INT           | Nomor ID yang merujuk pada tabel socialaccount\_socialaccount |             |
 | **app\_id**       | FOREIGN KEY | INT           | Nomor ID yang merujuk pada tabel socialaccount\_socialapp     |             |
 
-#### **Subscription**
+## **Subscription**
 Kelompok tabel yang menyimpan data pengguna untuk melakukan langganan
-##### **SUBSCRIPTION HISTORY**
+### **SUBSCRIPTION HISTORY**
 Berisi field data yang memberikan informasi terkait batasan akun ig, kompetitor ig, dan social account. \
 Nama Tabel: ``subscriptions_history``
 | **Nama Kolom**                       | **Tipe**    | **Tipe Data** | **Isi**                                      | **Catatan** |
@@ -349,7 +349,7 @@ Nama Tabel: ``subscriptions_history``
 | **Updated\_subscription\_group\_id** | Foreign Key | INT4          | Nomor ID yang diperbarui dari tabel auth     |             |
 | **User\_id**                         | Foreign Key | INT4          | Nomor ID yang merujuk pada tabel users\_user |             |
 
-##### **SUBSCRIPTION PLAN**
+### **SUBSCRIPTION PLAN**
 Berisi field data yang men-define plan atau paket langganan apa saja yang disediakan Toba.ai WA Store. \
 Nama Tabel: ``subscriptions_plan``
 
@@ -363,7 +363,7 @@ Nama Tabel: ``subscriptions_plan``
 | **extra\_data**  |             | JSONB         | Informasi tambahan berbentuk jsonb              |             |
 | **product\_id**  | Foreign Key | INT           | Nomor ID yang merujuk pada tabel store\_product |             |
 
-##### **AKUN PELANGGAN SUBSCRIPTION**
+### **AKUN PELANGGAN SUBSCRIPTION**
 Berisi field data yang berisi user yang telah melakukan langganan. \
 Nama Tabel: ``subscriptions_subscription``
 
@@ -380,9 +380,9 @@ Nama Tabel: ``subscriptions_subscription``
 | **updated\_at**   |             | TIMESTAMPTZ   | Timestamp kapan terakhir kali status langganan diperbarui |             |
 | **plan\_id**      | Foreign Key | INT           | Nomor ID yang merujuk pada tabel subscriptions\_plan      |             |
 
-#### **User**
+## **User**
 Kelompok tabel yang mengatur akun *user* WAStore
-##### **KATEGORI AKUN PENGGUNA**
+### **KATEGORI AKUN PENGGUNA**
 Berisi field kategori data pengguna. \
 Nama Tabel: ``users_category``
 | **Nama Kolom** | **Tipe**    | **Tipe Data** | **Isi**                                                                 | **Catatan** |
@@ -390,7 +390,7 @@ Nama Tabel: ``users_category``
 | **Id**         | PRIMARY KEY | SERIAL        | Nomor ID                                                                |             |
 | **nama**       |             | VARCHAR(225)  | Nama Kategori Pengguna, seperi UMKM, Digital Agency, Umum, atau Pelajar |             |
 
-##### **AKUN PENGGUNA**
+### **AKUN PENGGUNA**
 Berisi field data pengguna. \
 Nama Tabel: ``users_user``
 
@@ -407,7 +407,7 @@ Nama Tabel: ``users_user``
 | **date\_joined**  |             | TIMESTAMPTZ   | Timestamp kapan _user_ bergabung                     |             |
 | **email**         | UNIQUE KEY  | VARCHAR(254)  | Email _user_ yang didaftarkan                        |             |
 
-##### **USER GROUP**
+### **USER GROUP**
 Berisi field data terkait data pengguna dan pelanggan. \
 Nama Tabel: ``users_user_groups``
 
@@ -417,7 +417,7 @@ Nama Tabel: ``users_user_groups``
 | **user\_id**   | Foreign Key | INT           | Nomor ID yang merujuk pada tabel users\_user          | Unique Key  |
 | **group\_id**  | Foreign Key | INT           | Nomor ID yang merujuk pada tabel subscriptions\_group | Unique Key  |
 
-##### **PROFIL PENGGUNA**
+### **PROFIL PENGGUNA**
 Berisi field data terkait profil data pengguna. \
 Nama Tabel: ``users_user_profile``
 | **Nama Kolom**   | **Tipe**    | **Tipe Data** | **Isi**                                          | **Catatan** |
@@ -428,7 +428,7 @@ Nama Tabel: ``users_user_profile``
 | **extra\_data**  |             | JSONB         |                                                  |             |
 | **category\_id** | FOREIGN KEY | INT4          | Nomor ID yang merujuk pada tabel users\_category |             |
 
-##### ***Permissions* *User***
+### ***Permissions* *User***
 Berisi field data yang mengelompokkan pengguna degan permission yang dapat dilakukan. \
 Nama Tabel: ``users_user_user_permissions``
 
@@ -438,9 +438,9 @@ Nama Tabel: ``users_user_user_permissions``
 | **user\_id**       | FOREIGN KEY | INT           | Nomor ID yang merujuk pada tabel users\_user      |             |
 | **permission\_id** | FOREIGN KEY | INT           | Nomor ID yang merujuk pada tabel auth\_permission |             |
 
-#### **Vouchers**
+## **Vouchers**
 Kelompok tabel yang menyimpan dan mengatur data *vouchers* pada layanan WA Store.
-##### **VOUCHERS INVITATION**
+### **VOUCHERS INVITATION**
 Berisi field data terkait data undangan voucher. \
 Nama Tabel: ``vouchers_invitation``
 | **Nama Kolom**  | **Tipe**    | **Tipe Data** | **Isi**                                      | **Catatan** |
@@ -458,7 +458,7 @@ Nama Tabel: ``vouchers_invitation``
 | **name**        |             | VARCHAR(225)  | Nama Pembuat Voucher                         | Unique Key  |
 | **User\_id**    | Foreign Key | INT4          | Nomor ID yang merujuk pada tabel users\_user |             |
 
-##### **KLAIM UNDANGAN VOUCHER**
+### **KLAIM UNDANGAN VOUCHER**
 Berisi field data yang berisi data pengguna yang melakukan klaim voucher. \
 Nama Tabel: ``vouchers_invitation_claimed``
 | **Nama Kolom**  | **Tipe**    | **Tipe Data** | **Isi**                                               | **Catatan** |
