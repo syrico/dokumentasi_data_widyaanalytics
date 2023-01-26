@@ -19,9 +19,12 @@ Facebook List
       * - user_id
         - ID pengguna
 
-   **Contoh Response**:
+    **Contoh Response**:
 
-    .. sourcecode:: json
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
         [
             {
@@ -63,7 +66,10 @@ Instagram List
 
     **Contoh Response**:
 
-    .. sourcecode:: json
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
         [
             {
