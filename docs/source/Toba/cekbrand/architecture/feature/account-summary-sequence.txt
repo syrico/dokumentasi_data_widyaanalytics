@@ -1,0 +1,21 @@
+actor User
+
+participant Frontend
+
+autoactivation on
+
+autonumber
+
+activate User
+
+User->Frontend:Open //Pilih Akun// page
+
+Frontend->Frontend:Load user accounts data,\nincluding statistic summary data
+parallel
+autonumber off
+Frontend<--Frontend:
+autonumber 
+User<--Frontend:Display accounts card
+parallel off
+
+deactivateafter User

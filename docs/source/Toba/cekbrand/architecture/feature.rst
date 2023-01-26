@@ -7,3 +7,4 @@ Fitur
     feature/dashboard
     feature/detail-post
     feature/admin
+    feature/account-summary
