@@ -142,6 +142,8 @@ Account Detail
                 }
             }
 
+.. _account-delete:
+
 Account Delete
 ==============
 
