@@ -9,6 +9,24 @@ autonumber
 activate User
 
 User->Frontend:Open //Kelola Akun// page
-User<--Frontend:Display account manage page
+
+Frontend->Frontend:Load user Facebook accounts data,\nincluding their related Instagram account
+parallel
+autonumber off
+Frontend<--Frontend:
+autoactivation off
+autonumber 
+User<<--Frontend:Display account manage page
+parallel off
+
+autoactivation 
+Frontend->Frontend:Load user Instagram accounts\nand subscription groups
+parallel
+autonumber off
+Frontend<--Frontend:
+autoactivation off
+autonumber 
+User<<--Frontend:Display account manage limit
+parallel off
 
 deactivateafter User

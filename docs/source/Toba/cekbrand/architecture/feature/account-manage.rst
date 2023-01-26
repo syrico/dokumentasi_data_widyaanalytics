@@ -8,4 +8,7 @@ Fitur yang berperan sebagai pengelola akun Instagram-Facebook yang memungkinkan 
     :align: left
 
 1. Pengguna membuka halaman **Kelola Akun**.
-2. Frontend memuat dan menampilkan halaman **Kelola Akun**.
+2. Frontend memuat daftar akun Facebook pengguna, disertai dengan data masing-masing akun Instagram yang terkoneksi.
+3. Frontend menampilkan kolom daftar akun Facebook and Instagram pengguna.
+4. Frontend memuat data akun Instagram pengguna.
+5. Frontend menampilkan keterangan jumlah akun Instagram yang telah terkoneksi dengan CekBrand.
