@@ -21,15 +21,13 @@ CSV
 
     Mengunduh data akun Instagram pengguna dengan format `csv`.
 
-    **Contoh Hasil**:
-
-    .. image:: ../images/download-csv.png
-
-    |
-
     :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
     :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
+
+    **Contoh Hasil**:
+
+    .. image:: ../images/download-csv.png
 
 Excel
 =====
@@ -38,12 +36,10 @@ Excel
 
     Mengunduh data akun Instagram pengguna dengan format `xlsx`.
 
-    **Contoh Hasil**:
-
-    .. image:: ../images/download-xlsx.png
-
-    |
-    
     :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
     :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
     :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
+
+    **Contoh Hasil**:
+
+    .. image:: ../images/download-xlsx.png

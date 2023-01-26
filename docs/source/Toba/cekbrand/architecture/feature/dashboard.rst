@@ -2,6 +2,13 @@ Dashboard
 +++++++++
 
 Halaman dashboard terdiri dari Kompetitor, Statistik dan Top Post.
+
+.. toctree:: 
+
+    dashboard/statistic
+    dashboard/competitor
+    dashboard/post
+
 Selain itu fitur yang melengkapi setiap halaman dashboard antara lain pindah akun, filter tanggal dan export/download data. 
 Berikut adalah diagram alur yang mewakili halaman ini disertai penjelasannya.
 
@@ -30,6 +37,3 @@ Berikut adalah diagram alur yang mewakili halaman ini disertai penjelasannya.
 19. Frontend memuat header dan tab-tab dashboard yang terdiri dari Kompetitor, Statistik dan Top Post.
 20. Frontend menampilkan halaman dashboard pada Pengguna.
 
-.. toctree:: 
-
-    dashboard/statistic

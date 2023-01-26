@@ -28,9 +28,16 @@ Audience City
 
     Mengembalikan data insight lokasi kota followers akun Instagram pengguna.
 
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
+    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
+
     **Contoh Response**:
 
-    .. sourcecode:: json
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
         [
             {
@@ -41,10 +48,6 @@ Audience City
                 "updated_timestamp": "2022-12-26T12:53:58.533Z+07:00"
             }
         ]
-
-    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
-    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
 
 .. _city-coordinate:
 
@@ -57,7 +60,10 @@ City Coordinate
 
     **Contoh Response**:
 
-    .. sourcecode:: json
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
         {
             "city": "Bekasi",
@@ -82,9 +88,16 @@ Audience Country
 
     Mengembalikan data insight lokasi negara followers akun Instagram pengguna.
 
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
+    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
+
     **Contoh Response**:
 
-    .. sourcecode:: json
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
         [
             {
@@ -95,10 +108,6 @@ Audience Country
             }
         ]
 
-    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
-    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
-
 .. _audience-gender-age:
 
 Audience Gender Age
@@ -108,9 +117,16 @@ Audience Gender Age
 
     Mengembalikan data insight jenis kelamin dan umur followers akun Instagram pengguna.
 
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
+    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
+
     **Contoh Response**:
 
-    .. sourcecode:: json
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
         [
             {
@@ -122,10 +138,6 @@ Audience Gender Age
             }
         ]
 
-    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
-    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
-
 .. _impressions-list:
 
 Impressions List
@@ -135,9 +147,16 @@ Impressions List
 
     Mengembalikan data insight impression akun Instagram pengguna.
 
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
+    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
+
     **Contoh Response**:
 
-    .. sourcecode:: json
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
         [
             {
@@ -148,10 +167,6 @@ Impressions List
             }
         ]
 
-    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
-    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
-
 .. _impressions-average-summary:
 
 Impressions Average Summary
@@ -161,19 +176,22 @@ Impressions Average Summary
 
     Mengembalikan data *summary* rerata impression akun Instagram pengguna.
 
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
+    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
+
     **Contoh Response**:
 
-    .. sourcecode:: json
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
         {
             "impressions_average": 1658.8,
             "impressions_before_average": 1666.4,
             "impressions_average_growth": "-0.4560729716754763%"
         }
-
-    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
-    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
 
 .. _online-followers:
 
@@ -184,9 +202,16 @@ Online Followers
 
     Mengembalikan data insight waktu aktif followers akun Instagram pengguna.
 
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
+    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
+
     **Contoh Response**:
 
-    .. sourcecode:: json
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
         [
             {
@@ -197,10 +222,6 @@ Online Followers
             }
         ]
 
-    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
-    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
-
 .. _reach-list:
 
 Reach List
@@ -210,9 +231,16 @@ Reach List
 
     Mengembalikan data insight reach followers akun Instagram pengguna.
 
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
+    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
+
     **Contoh Response**:
 
-    .. sourcecode:: json
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
         [
             {
@@ -223,10 +251,6 @@ Reach List
             }
         ]
 
-    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
-    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
-
 .. _reach-average-summary:
 
 Reach Average Summary
@@ -236,19 +260,22 @@ Reach Average Summary
 
     Mengembalikan data *summary* rerata reach akun Instagram pengguna.
 
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
+    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
+
     **Contoh Response**:
 
-    .. sourcecode:: json
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
         {
             "reach_average": 1322.2,
             "reach_average_before": 1277.8,
             "reach_average_growth": "3.4747221787447247%"
         }
-
-    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
-    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
 
 .. _fetch-hashtag-ig-user-data:
 
@@ -259,9 +286,16 @@ Hashtag Metrics
 
     Mengembalikan daftar data metrik hashtag akun Instagram pengguna.
 
+    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
+    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
+    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90
+
     **Contoh Response**:
 
-    .. sourcecode:: json
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
         [
             {
@@ -271,6 +305,3 @@ Hashtag Metrics
             }
         ]
 
-    :query string start: tanggal awal filter data in UTC-0 (ISO 8601 format)
-    :query string end: tanggal akhir filter data in UTC-0 (ISO 8601 format)
-    :query string date_frame: *frame* tanggal filter data, mencakup 7, 28, 60 dan 90

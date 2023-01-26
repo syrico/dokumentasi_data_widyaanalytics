@@ -3,6 +3,8 @@ Subscription
 
 Meskipun data subscription pengguna disimpan dalam layanan Widya Analytic Store, pada setiap layanan atau produk terdapat kelompok subscription yang memiliki hak nya masing-masing.
 
+.. _subs-groups-list:
+
 Groups List
 ===========
 
@@ -12,7 +14,10 @@ Groups List
 
     **Contoh Response**:
 
-    .. sourcecode:: json
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
         [
             {

@@ -3,7 +3,6 @@ Account
 
 Account adalah akun Instagram pengguna yang tersimpan dalam layanan CekBrand.
 
-
 **Penjelasan Parameter URL**
 
 .. list-table:: 
@@ -167,7 +166,7 @@ User Data
 
     .. sourcecode:: http
 
-        HTTP/1.1 204 NO CONTENT
+        HTTP/1.1 200 OK
         Content-Type: application/json
 
         [

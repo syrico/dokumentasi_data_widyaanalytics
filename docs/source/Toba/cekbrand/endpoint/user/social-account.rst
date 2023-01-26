@@ -4,16 +4,34 @@ Social Account
 Pengguna dapat menambahkan koneksi terhadap akun media sosial terkait, misalkan Facebook, Instagram, Twitter, dsb.
 Endpoint berikut digunakan untuk mengelola akun-akun tersebut.
 
-List
-====
+**Penjelasan Parameter URL**
+
+.. list-table:: 
+      :widths: 15 80
+      :header-rows: 1
+
+      * - Parameter
+        - Deskripsi
+      * - id
+        - ID social account
+
+.. _social-account-list:
+
+Social Account List
+===================
 
 .. http:get:: /user/socialaccount
 
     Mengembalikan semua daftar data akun media sosial pengguna.
 
+    :query string provider: adalah vendor media sosial, contoh nya; `facebook`, `twitter`, dsb.
+
     **Contoh Response**:
 
-    .. sourcecode:: json
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
         [
             {
@@ -37,28 +55,19 @@ List
             }
         ]
 
-    :query string provider: adalah vendor media sosial, contoh nya; `facebook`, `twitter`, dsb.
-
-Detail
-======
+Social Account Detail
+=====================
 
 .. http:get:: /user/socialaccount/(int:id)
 
     Mengembalikan detail data akun media sosial pengguna.
 
-    .. list-table:: 
-      :widths: 15 80
-      :header-rows: 1
-
-      * - Parameter
-        - Deskripsi
-      * - id
-        - ID social account
-
-
     **Contoh Response**:
 
-    .. sourcecode:: json
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
         {
             "id": 0,
@@ -81,23 +90,14 @@ Detail
         }
 
 
-Update
-======
+Social Account Update
+=====================
 
 .. http:put:: /user/socialaccount/(int:id)
 
     Mengubah detail data akun media sosial pengguna.
 
-    .. list-table:: 
-      :widths: 15 80
-      :header-rows: 1
-
-      * - Parameter
-        - Deskripsi
-      * - id
-        - ID social account
-
-    **Contoh Request**:abbr:
+    **Contoh Request Body**:
 
     .. sourcecode:: json
 
@@ -109,7 +109,10 @@ Update
 
     **Contoh Response**:
 
-    .. sourcecode:: json
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
 
         {
             "id": 0,
@@ -131,19 +134,16 @@ Update
             ]
         }
 
-Delete
-======
+Social Account Delete
+=====================
 
 .. http:delete:: /user/socialaccount/(int:id)
 
     Menghapus data akun media sosial pengguna.
 
-    .. list-table:: 
-      :widths: 15 80
-      :header-rows: 1
+    **Contoh Response**:
 
-      * - Parameter
-        - Deskripsi
-      * - id
-        - ID social account
+    .. sourcecode:: http
+    
+        HTTP/1.1 204 NO CONTENT
 

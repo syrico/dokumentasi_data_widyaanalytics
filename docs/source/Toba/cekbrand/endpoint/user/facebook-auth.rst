@@ -14,13 +14,15 @@ Login
 
     Meminta alamat halaman otentikasi Facebook untuk melakukan *connecting* akun Facebbok dengan pengguna.
 
+    :query string process: harus bernilai ``connect``
+
     **Contoh Response**:
 
-    .. sourcecode:: json
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
 
         "https://www.facebook.com/v8.0/dialog/oauth?client_id=390623xxxxxxxxx&redirect_uri=https%3A%2F%apps.toba.ai%3A8081%2Frestapi%2Fuser%2Fauth%2Ffacebook%2Fcallback%2F&scope=pages_show_list+pages_read_engagement+email+instagram_basic+instagram_manage_insights&response_type=code&state=99cSbIHiA4v3&auth_type=reauthenticate"
-
-    :query string process: harus bernilai ``connect``
 
 .. _fb-auth-login-callback:
 
