@@ -1,5 +1,5 @@
 Halaman Top Competitor
-+++++++++++++++++++++    
+++++++++++++++++++++++
 
 Top competitor merupakan fitur pertama saat halaman dashboard aplikasi Toba.ai Cekbrand terbuka dan memiliki fungsi unik 
 untuk membandingkan performa statistik akun Instagram pengguna dengan akun Instagram lain. 
