@@ -1,0 +1,14 @@
+actor User
+
+participant Frontend
+
+autoactivation 
+
+autonumber 
+
+activate User
+
+User->Frontend:Open //Kelola Akun// page
+User<--Frontend:Display account manage page
+
+deactivateafter User

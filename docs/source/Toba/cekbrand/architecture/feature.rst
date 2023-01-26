@@ -8,3 +8,4 @@ Fitur
     feature/detail-post
     feature/admin
     feature/account-summary
+    feature/account-manage
