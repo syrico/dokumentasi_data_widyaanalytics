@@ -1,0 +1,41 @@
+actor Admin
+
+participant Frontend
+participant WAS Backend
+
+database WAS Database
+
+autoactivation on
+
+autonumber 1
+
+entryspacing 0.3
+
+activate Admin
+
+Admin->Frontend:Create new user\ninvoice
+autonumber off
+Frontend->Frontend:Update user subscription data
+autonumber
+Frontend->WAS Backend:Post new user subscription\ndata
+WAS Backend->WAS Database:Update user subscription\ndata
+autonumber off
+WAS Backend<<--WAS Database:
+Frontend<--WAS Backend:
+Frontend<--Frontend:
+
+Frontend->Frontend:Get updated users list data
+autonumber
+Frontend->WAS Backend:Fetch users list data
+WAS Backend->WAS Database:Select CekBrand\nusers data
+autonumber off
+WAS Backend<<--WAS Database:
+Frontend<--WAS Backend:
+
+parallel 
+Frontend<--Frontend:Refresh users list table
+autonumber
+Admin<--Frontend:Display updated users\nlist table
+parallel off
+
+deactivateafter Admin

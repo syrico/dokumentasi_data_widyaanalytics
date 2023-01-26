@@ -4,8 +4,10 @@ Social Account
 Pengguna dapat menambahkan koneksi terhadap akun media sosial terkait, misalkan Facebook, Instagram, Twitter, dsb.
 Endpoint berikut digunakan untuk mengelola akun-akun tersebut.
 
-List
-====
+.. _social-account-list:
+
+Social Account List
+===================
 
 .. http:get:: /user/socialaccount
 
@@ -39,8 +41,8 @@ List
 
     :query string provider: adalah vendor media sosial, contoh nya; `facebook`, `twitter`, dsb.
 
-Detail
-======
+Social Account Detail
+=====================
 
 .. http:get:: /user/socialaccount/(int:id)
 
@@ -81,8 +83,8 @@ Detail
         }
 
 
-Update
-======
+Social Account Update
+=====================
 
 .. http:put:: /user/socialaccount/(int:id)
 
@@ -131,8 +133,8 @@ Update
             ]
         }
 
-Delete
-======
+Social Account Delete
+=====================
 
 .. http:delete:: /user/socialaccount/(int:id)
 

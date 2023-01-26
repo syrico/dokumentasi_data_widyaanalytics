@@ -14,3 +14,4 @@ Fitur
     feature/dashboard/competitor
     feature/dashboard/post
     feature/detail-post
+    feature/admin

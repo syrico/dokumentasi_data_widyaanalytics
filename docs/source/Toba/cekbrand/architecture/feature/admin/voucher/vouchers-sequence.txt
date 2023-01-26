@@ -1,0 +1,19 @@
+actor Admin
+
+participant Frontend
+participant WAS Backend
+
+autoactivation on
+
+autonumber 1
+
+activate Admin
+
+Admin->Frontend:Open //Kelola Kupon// page
+Frontend->WAS Backend:Fetch vouchers and redeemed vouchers data
+autonumber off
+Frontend<--WAS Backend:
+autonumber 3
+Admin<--Frontend:Display vouchers list data
+
+deactivateafter Admin
