@@ -9,6 +9,10 @@ Pada setiap kartu akun Instagram yang terhubung, ditampilkan rangkuman data stat
     :align: left
 
 1. Pengguna membuka halaman **Pilih Akun**.
-2. Frontend memuat data seluruh akun Instagram pengguna termasuk rangkuman data statistik akun-akun tersebut.
-3. Frontend menampilkan kolom-kolom seluruh akun Instagram pengguna.
-4. Pengguna memilih salah satu akun untuk lanjut ke halaman **Dashboard**.
+2. Frontend melakukan request ke endpoint :ref:`account-list` untuk mendapatkan daftar akun pengguna.
+3. Frontend melakukan request ke endpoint :ref:`fetch-user-data` untuk mendapatkan data akun pengguna.
+4. Frontend melakukan request ke endpoint :ref:`engagement-list` untuk mendapatkan data engagement media akun pengguna.
+5. Frontend melakukan request ke endpoint :ref:`reach-list` untuk mendapatkan data reach akun pengguna.
+6. Frontend melakukan request ke endpoint :ref:`impressions-list` untuk mendapatkan data impressions akun pengguna.
+7. Frontend memuat dan menampilkan kolom (*card*) akun dengan rangkuman data statistik.
+8. Pengguna memilih salah satu akun untuk lanjut ke halaman **Dashboard**.

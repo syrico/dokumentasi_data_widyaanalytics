@@ -1,6 +1,9 @@
 actor User
 
 participant Frontend
+participant Backend
+
+entryspacing 0.5
 
 autoactivation on
 
@@ -10,12 +13,34 @@ activate User
 
 User->Frontend:Open //Pilih Akun// page
 
-Frontend->Frontend:Load user accounts list
+autonumber off
+Frontend->Frontend:Get user accounts list
+autonumber 
+Frontend->Backend:Fetch user accounts list
+autonumber off
+Frontend<--Backend:
+
 autonumber off
 Frontend<--Frontend:
 loop i < number of accounts
+Frontend->Frontend:Get user account data,\nincluding statistic\nsummary data
 autonumber 
-Frontend->Frontend:Load user account data,\nincluding statistic summary data
+Frontend->Backend:Fetch account\nuser-data list
+autonumber off
+Frontend<--Backend:
+autonumber 
+Frontend->>Backend:Fetch account media\nengagement list
+autonumber off
+Frontend<--Backend:
+autonumber 
+Frontend->>Backend:Fetch account insight\nreach list
+autonumber off
+Frontend<--Backend:
+autonumber 
+Frontend->>Backend:Fetch account insight\nimpressions list
+autonumber off
+Frontend<--Backend:
+
 parallel
 autoactivation off
 autonumber off
