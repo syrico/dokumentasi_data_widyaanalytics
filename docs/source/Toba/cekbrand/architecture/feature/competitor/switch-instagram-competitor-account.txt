@@ -1,0 +1,34 @@
+title Switch Instagram Account Competitor 
+actor User
+
+
+#Feature6
+autonumber 
+activate User
+User->Frontend: Switch instagram account competitor
+activate Frontend
+
+autonumber
+#Endpoint
+##./cekbrand/accounts/17841425466334067/user-data/summary?date_frame=7
+##./cekbrand/accounts/17841425466334067/competitor-accounts/17841401994904145/user-data?date_frame=7
+##./cekbrand/accounts/17841425466334067/competitor-accounts/17841401994904145/media/engagement/average/summary?date_frame=7
+##./cekbrand/accounts/17841425466334067/competitor-accounts/17841401994904145/media/summary?date_frame=7
+##./cekbrand/accounts/17841425466334067/competitor-accounts/17841401994904145/hashtag-metrics?date_frame=7
+
+Frontend->Backend: Request user instagram account competitor detail
+activate Backend
+
+database Database
+
+Backend->Database: Fetch account instagram competitor data
+activate Database
+Database->Backend: Success/error response
+deactivate Database
+
+
+autonumber
+Backend-->Frontend: Response user instagram account competitor detail
+
+deactivate Backend
+deactivate Frontend

@@ -1,0 +1,57 @@
+actor User
+
+participant Frontend
+participant Backend
+
+database Database
+
+autonumber 1
+
+activate User
+User->Frontend:Choise/switch to a Instagram account
+
+activate Frontend
+Frontend->Frontend:Set active account
+activate Frontend
+
+opt Only at first load
+Frontend->Backend:Fetch list of user accounts
+activate Backend
+Backend->Database:Select list of user\naccounts
+activate Database
+Backend<<--Database:List of user accounts
+deactivate Database
+Frontend<--Backend:List of user accounts
+deactivate Backend
+end
+
+Frontend->Backend:Fetch active account data
+activate Backend
+Backend->Database:Select active account\ndata
+activate Database
+Backend<<--Database:Active account data
+deactivate Database
+Backend->Backend:Validate account token
+activate Backend
+Backend->Database:Select Instagram token
+activate Database
+Backend<<--Database: Instagram token
+deactivate Database
+alt Account access token is invalid
+Frontend<#red--Backend:Token error
+Frontend->Frontend:Redirect to re-authorization\nFacebook page
+User<--Frontend:Display re-authorization\nFacebook page
+else Account access token is valid
+Backend<--Backend:Token valid
+deactivateafter Backend
+Frontend<--Backend:Active account data
+deactivate Backend
+end
+
+Frontend<--Frontend:Selected active\naccount data
+deactivateafter Frontend
+
+Frontend->Frontend:Load dashboard header and tabs
+User<--Frontend:Display dashboard page
+deactivateafter Frontend
+

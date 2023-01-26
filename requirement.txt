@@ -1,0 +1,5 @@
+sphinx==5.3.0
+sphinx_rtd_theme==1.1.1
+myst_parser==0.18.1
+sphinxcontrib.httpdomain==1.8.1
+sphinxcontrib-contentui==0.2.5
