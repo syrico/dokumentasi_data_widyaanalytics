@@ -37,7 +37,13 @@ Hapus akun Facebook
     :align: center
 
 1. Pengguna menekan tombol *Lepas Tautan Facebook*.
-2. Frontend memuat dan menampilkan daftar terbaru akun Facebook pengguna.
+2. Frontend melakukan request ke endpoint :ref:`social-account-delete`.
+3. Backend menghapus data akun Facebook pengguna dari tabel ``public.socialaccount_socialaccount`` dan ``public.socialaccount_socialtoken``.
+4. Backend menginfokan ke Frontend bahwa hapus akun Facebook berhasil.
+5. Frontend melakukan request ke endpoint :ref:`social-account-list`.
+6. Backend mengambil daftar akun pengguna dari tabel ``public.socialaccount_socialaccount`` dan ``public.socialaccount_socialtoken``.
+7. Backend mengembalikan daftar akun pengguna.
+8. Frontend memuat dan menampilkan daftar terbaru akun Facebook pengguna.
 
 .. _account-delete-ig:
 
@@ -49,7 +55,13 @@ Hapus akun Instagram
     :align: center
 
 1. Pengguna menekan tombol *Lepas Koneksi* pada kolom akun Instagram.
-2. Frontend memuat dan menampilkan daftar terbaru akun Instagram pengguna.
+2. Frontend melakukan request ke endpoint :ref:`account-delete`.
+3. Backend mengubah data akun Instagram pengguna menjadi tidak terhubung pada tabel ``instagram.user``.
+4. Backend menginfokan ke Frontend bahwa pemutusan akun Instagram berhasil.
+5. Frontend melakukan request ke endpoint :ref:`account-list`.
+6. Backend mengambil daftar akun pengguna dari tabel ``instagram.user``, ``instagram.user_data`` dan ``public.socialaccount_socialaccount``.
+7. Backend mengembalikan daftar akun pengguna.
+8. Frontend memuat dan menampilkan daftar terbaru akun Instagram pengguna.
 
 .. _account-add-ig:
 
