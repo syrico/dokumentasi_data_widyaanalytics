@@ -2,12 +2,12 @@
 
 Cekbrand root views memiliki path seperti berikut:
 
-```
+```powershell
 ..\frontend\src\views\apps\cekbrand\useCekbrand.js
 ```
 
-
 Pada Cekbrand modules  ini juga terdapat fungsi untuk melakukan pemanggilan API, seperti berikut:
+
 - fetchUserAccounts() dipanggil pada component ini bertujuan untuk mendapatkan data account yang dimiliki oleh user dan ditampilkan dalam bentuk social media card.
 - connectFacebook() fungsi ini bertujuan untuk mengaitkan/mengkonekan account facebook dengan aplikasi toba.ai .
 - fetchUserFacebookAccounts() fungsi ini bertujuan untuk mendapatkan list id account instagram user yang terhubung dengan account facebook yang user miliki.
@@ -19,5 +19,3 @@ Pada Cekbrand modules  ini juga terdapat fungsi untuk melakukan pemanggilan API,
 - fetchUserAccountInsightsImpressions() fungsi ini bertujuan untuk mengetahui nilai impressions dari setiap account instagram user yang dikoneksikan dengan aplikasi toba.ai .
 - fetchUserAccountMediaEngagement() fungsi ini bertujuan untuk mengetahui nilai engagement dari setiap account instagram user yang dikoneksikan dengan aplikasi toba.ai .
 - handleInvalidUserActiveAccountToken() fungsi ini untuk menghandle apabila user account active invalid_token dan akan diarahkan ke component cekbrandReAuthorization.vue
-
-

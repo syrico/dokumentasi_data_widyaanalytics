@@ -1,7 +1,9 @@
 # IG Media Insights
+
 Mewakili metrik interaksi sosial pada objek IG Media.
 
 ## Limitasi
+
 - Insight data tidak tersedia untuk media apa pun dalam album IG Media.
 - Metrik story media hanya tersedia selama 24 jam, meskipun story tersebut diarsipkan atau di-highlight. Untuk mendapatkan insight terbaru tentang sebuah story sebelum kedaluwarsa, siapkan Webhook untuk field ``Instagram`` dan subscribe ke field ``story_insights``.
 - Metrik story media dengan nilai kurang dari 5 menampilkan kode kesalahan ``10`` dengan pesan ``(#10) Not enough viewers for the media to show insights.``
@@ -11,6 +13,7 @@ Mewakili metrik interaksi sosial pada objek IG Media.
 - Data yang digunakan untuk menghitung metrik dapat ditunda hingga 48 jam.
 
 ## Persyaratan
+
 | Tipe          | Deskripsi                                                                                                                                                                                           |
 |---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Akses Token | User.                                                                                                                                                                                                 |
@@ -18,7 +21,7 @@ Mewakili metrik interaksi sosial pada objek IG Media.
 
 ## Request Syntax
 
-```
+```http
 GET https://graph.facebook.com/{api-version}/{ig-media-id}/insights
     ?metric={metric}
     &access_token={access-token}
@@ -51,6 +54,7 @@ GET https://graph.facebook.com/{api-version}/{ig-media-id}/insights
 | ``carousel_album_video_views`` | Total jumlah akun Instagram unik yang telah melihat video IG Media dalam album. |
 
 ### Metrik Foto dan Video
+
 Metrik pada media dalam album tidak didukung. Sebagai gantinya, diambil metrik di album.
 | Metrik      | Deskripsi                                                                                                                                 |
 |-------------|---------------------------------------------------------------------------------------------------------------------------------------------|
@@ -85,14 +89,14 @@ Metrik pada media dalam album tidak didukung. Sebagai gantinya, diambil metrik d
 
 ## Request Syntax 3rd-party pyfacebook
 
-```
+```python
 def get_media_insights(self, media_id, metrics, access_token=None, return_json=False)
 ```
-        
+
 Mengambil data media insights. Penjelasan parameter fungsi ``get_media_insights``    sebagai berikut, dengan tipe data List[Union[IgProInsight, dict]].
 | Parameter    | Tipe Data                    | Keterangan                                                      |
 |--------------|------------------------------|-----------------------------------------------------------------|
 | ``media_id``     | str                          | ID media yang ingin kita dapatkan datanya.                    |
-| ``metrics``      | Union[str, List, Tuple, Set] | String id yang dipisahkan koma untuk metrik yang perlu diambil. Kita juga dapat meneruskan ini dengan list, tuple, atau set dari id. <br />Catatan: Jenis media yang berbeda memiliki metrik yang berbeda. <br />Lihat selengkapnya: https://developers.facebook.com/docs/instagram-api/reference/media/insights#insights-2 |
+| ``metrics``      | Union[str, List, Tuple, Set] | String id yang dipisahkan koma untuk metrik yang perlu diambil. Kita juga dapat meneruskan ini dengan list, tuple, atau set dari id. <br />Catatan: Jenis media yang berbeda memiliki metrik yang berbeda. <br />Lihat selengkapnya: <https://developers.facebook.com/docs/instagram-api/reference/media/insights#insights-2> |
 | ``access_token`` | str                          | Token akses pengguna target. Jika tidak akan menggunakan token akses default. |
 | ``return_json``  | bool                         | Set ke false akan mengembalikan list instance IgProInsight. Atau kembalikan data json. Default adalah false.   |

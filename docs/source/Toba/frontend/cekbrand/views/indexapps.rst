@@ -2,6 +2,6 @@ Apps
 +++++
 
 .. toctree::
-   :maxdepth: 6
-   
-   apps/indexappscekbrand
+    :maxdepth: 6
+    
+    apps/indexappscekbrand

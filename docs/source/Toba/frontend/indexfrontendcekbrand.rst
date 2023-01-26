@@ -2,7 +2,7 @@ CekBrand
 ++++++++
 
 .. toctree::
-   :maxdepth: 5
-   
-   
-   cekbrand/indexviews
+    :maxdepth: 5
+    
+    
+    cekbrand/indexviews

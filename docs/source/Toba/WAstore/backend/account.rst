@@ -3,6 +3,6 @@ Account
 
 .. toctree:: 
 
-   account/account
-   account/password
-   account/verify-email
+    account/account
+    account/password
+    account/verify-email

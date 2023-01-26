@@ -1,9 +1,11 @@
 # IG Media
+
 Mewakili album, foto, atau video Instagram (video yang diunggah, video live, video yang dibuat dengan aplikasi Instagram TV, reel, atau story Instagram).
 
 Cekbrand menggunakan 3rd-party dari pyfacebook yang memfasilitasi pemanggilan dari masing-masing endpoint API Graph facebook.
 
 ## Limitasi
+
 - Kolom yang menampilkan nilai aggregat tidak menyertakan data yang digerakkan oleh iklan. Misalnya, comments_count menghitung komentar pada sebuah foto, tetapi tidak menghitung komentar pada iklan yang berisi foto tersebut.
 - Caption tidak menyertakan simbol @ kecuali pengguna aplikasi juga dapat melakukan tugas yang setara dengan Admin di aplikasi.
 - Beberapa kolom tidak dapat digunakan pada foto di dalam album (anak).
@@ -11,15 +13,15 @@ Cekbrand menggunakan 3rd-party dari pyfacebook yang memfasilitasi pemanggilan da
 - Live video IG Media hanya dapat dibaca saat sedang disiarkan.
 
 ## Persyaratan
+
 | Tipe          | Deskripsi                                                                                                                                                                                           |
 |---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Akses Token | User.                                                                                                                                                                                                 |
 | Izin   | ``instagram_basic`` <br /> ``pages_read_engagement`` <br /> ``pages_show_list`` <br /><br /> Jika pengguna aplikasi diberi peran di Halaman melalui Business Manager, kita juga memerlukan salah satu dari yang berikut: <br /> ``ads_management`` <br /> ``business_management`` |
 
-
 ## Request Syntax
 
-```
+```http
 GET https://graph.facebook.com/{api-version}/{ig-media-id}
     ?fields={fields}
     &access_token={access-token}
@@ -32,7 +34,6 @@ GET https://graph.facebook.com/{api-version}/{ig-media-id}
 | ``{api-version}`` | Versi API.           |
 | ``{ig-media-id}`` | Perlu. IG Media ID. |
 
-
 ## Parameter String Kueri
 
 |      Key     |   Placeholder  |                       Value                       |
@@ -41,6 +42,7 @@ GET https://graph.facebook.com/{api-version}/{ig-media-id}
 | ``fields``       | ``{fields}``       | List yang dipisahkan dengan tanda koma dari field yang ingin dihasilkan. |
 
 ## Fields
+
 Public fields dan dapat di-read via ekspansi field.
 
 | Field                     | Deskripsi                                                                                                                                                                                                                                                                                                                                                                                      |
@@ -64,6 +66,7 @@ Public fields dan dapat di-read via ekspansi field.
 | ``video_title`` <br />Public        | Tidak digunakan lagi. Dihilangkan dari respons.                                                                                                                                                                                                                                                                                                                                                               |
 
 ## Edges
+
 Public edges dapat dikembalikan melalui ekspansi field.
 
 | Edge             | Description                                                       |
@@ -72,14 +75,13 @@ Public edges dapat dikembalikan melalui ekspansi field.
 | ``comments``         | Merepresentasikan kumpulan Komentar IG pada objek Media IG.     |
 | ``insights``         | Merepresentasikan metrik interaksi sosial pada objek IG Media.      |
 
-
 ## Request Syntax 3rd-party pyfacebook
 
-```
+```python
 def get_user_medias(self,
   user_id, fields=None, since_time=None, until_time=None,  count=10, limit=10, return_json=False)
 ```
-        
+
 Mengambil data media pengguna ig berdasarkan user_id. Penjelasan parameter fungsi ``get_user_medias`` sebagai berikut.
 |     Parameter      |     Tipe Data                                   |     Keterangan                                                                                                                      |
 |--------------------|-------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|

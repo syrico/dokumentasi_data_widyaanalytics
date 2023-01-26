@@ -2,10 +2,10 @@ Sentiment Analysis
 +++++++++++++++++++++++++++++++++++++++++++++
 
 .. toctree::
-   :maxdepth: 6
-   
-   
-   sentimen/sentimen
-   sentimen/arsitektur
+    :maxdepth: 6
+    
+    
+    sentimen/sentimen
+    sentimen/arsitektur
 
 

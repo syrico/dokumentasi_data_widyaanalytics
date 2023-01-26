@@ -3,15 +3,17 @@
 
 Merepresentasi metrik interaksi sosial pada IG User.
 
-```
+```http
 GET /{ig-user-id}/insights
 ```
+
 Mengembalikan insights tentang IG User.
 
 ## Limitasi
-- Metrik ``follower_count``, ``online_followers``, dan semua ``audience_\``* tidak tersedia di IG Users dengan followers kurang dari 100. 
+
+- Metrik ``follower_count``, ``online_followers``, dan semua ``audience_\``* tidak tersedia di IG Users dengan followers kurang dari 100.
 - Data insights untuk metrik ``online_followers`` hanya tersedia selama 30 hari terakhir.
--  Jika data insights yang kita minta tidak ada atau saat ini tidak tersedia, API akan mengembalikan kumpulan data kosong, bukan 0 untuk masing-masing metrik.
+- Jika data insights yang kita minta tidak ada atau saat ini tidak tersedia, API akan mengembalikan kumpulan data kosong, bukan 0 untuk masing-masing metrik.
 - Metrik demografis hanya menampilkan 45 artis dengan performa teratas (misalnya untuk ``audience_city``, hingga 45 kota dengan jumlah pengikut tertinggi dapat ditampilkan).
 - Hanya viewers yang data demografisnya kami miliki yang digunakan dalam penghitungan metrik demografis.
 - Menjumlahkan nilai metrik demografi dapat menghasilkan nilai yang kurang dari jumlah pengikut (lihat poin-poin sebelumnya).
@@ -27,7 +29,7 @@ Mengembalikan insights tentang IG User.
 
 ## Request Syntax
 
-```
+```http
 GET https://graph.facebook.com/{api-version}/{ig-user-id}/insights
     ?metric={metric}
     &period={period}
@@ -80,9 +82,9 @@ Edge ini mendukung paginasi berbasis waktu, sehingga kita dapat menyertakan para
 ``metric=impressions&period=days_28&since=1501545600&until=1502493720``
 <br />Parameter ``since`` dan ``until`` bersifat inklusif, sehingga jika range kita menyertakan hari yang belum berakhir (misalnya hari ini), kueri berikutnya sepanjang hari dapat mengembalikan nilai yang meningkat. Jika kita tidak menyertakan parameter ``since`` dan ``until``, API akan default ke range 2 hari: kemarin sampai hari ini.
 
-## Request Syntax 3rd-party pyfacebook 
+## Request Syntax 3rd-party pyfacebook
 
-```
+```python
 def get_user_insights(self, user_id, period, metrics, since=None, until=None, access_token=None, return_json=False)
 ```
 
@@ -91,7 +93,7 @@ Mengambil user insights data dari akun instagram business. Penjelasan parameter 
 |--------------|------------------------------|--------------------------------------------------------------------|
 | ``user_id``      | str    | Id untuk instagram business user yang ingin kita dapatkan datanya.     |
 | ``period``       | str                          | Periode untuk data agregasi. Parameter yang diterima: lifetime, day, dan days_28.                                    |
-| ``metrics``      | Union[str, List, Tuple, Set] | String id yang dipisahkan koma untuk metrik yang perlu diambil. Kita juga dapat meneruskan ini dengan list, tuple, atau set dari id. <br/>Catatan: Beberapa metrik tidak sesuai dengan periode.  <br/>Lihat selengkapnya: https://developers.facebook.com/docs/instagram-api/reference/user/insights#metrics-periods|
+| ``metrics``      | Union[str, List, Tuple, Set] | String id yang dipisahkan koma untuk metrik yang perlu diambil. Kita juga dapat meneruskan ini dengan list, tuple, atau set dari id. <br/>Catatan: Beberapa metrik tidak sesuai dengan periode.  <br/>Lihat selengkapnya: <https://developers.facebook.com/docs/instagram-api/reference/user/insights#metrics-periods|>
 | ``since``        | Optional[int]                | Batas bawah rentang waktu untuk mengambil data. Perlu Unix timestamps. |
 | ``until``        | Optional[int]                | Batas atas rentang waktu untuk mengambil data. Perlu Unix timestamps. Rentang waktu tidak lebih dari 30 hari (2592000 detik). |
 | ``access_token`` | str                          | Token akses pengguna target. Jika tidak akan menggunakan token akses default.    |

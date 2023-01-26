@@ -2,7 +2,7 @@
 
 Cekbrand loading modal views memiliki path seperti berikut:
 
-```text
+```powershell
 ..\frontend\src\views\apps\cekbrand\CekbrandLoadingModal.vue
 ```
 

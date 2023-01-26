@@ -15,17 +15,19 @@ Update data dijalankan di main.py, dengan parameter yang digunakan adalah sebaga
 
 Untuk menjalankan main.py, terlebih dahulu dilakukan import berikut ini.
 
-```
+```python
 from cekbrand import update_data as ud
 ```
 
 Update data akan dilakukan secara paralel, dengan cara update dan endpoint yang digunakan dijelaskan sebagai berikut.
 
 ### User
-```
+
+```python
 user = ud.UpdateDataUser(db_state='dev', airflow=False, retry_count=2, range_data=7)
 user.update(end_point = '...')
 ```
+
 | end_point           | Keterangan                                                                        |
 |---------------------|-----------------------------------------------------------------------------------|
 | info_static         |  Berisi tentang informasi yang statis atau jarang berubah, seperti id, usename, name, dll. |
@@ -40,10 +42,12 @@ user.update(end_point = '...')
 | media               | Berisi tentang data media (foto/video) setiap user.                               |
 
 ### Competitor
-```
+
+```python
 comp = ud.UpdateDataCompetitor(db_state='dev', airflow=False, retry_count=2)
 comp.update(end_point = '...')
 ```
+
 | end_point    | Keterangan                                          |
 |--------------|-----------------------------------------------------|
 | info_static  | Berisi tentang informasi yang statis atau jarang berubah, seperti id, usename, name, dll. |
@@ -51,7 +55,8 @@ comp.update(end_point = '...')
 | media        | Berisi tentang data media (foto/video) setiap user. |
 
 ### Media
-```
+
+```python
 media = ud.UpdateDataMedia(db_state='dev', airflow=False, retry_count=2)
 media.update(end_point = '...')
 ```
@@ -62,11 +67,13 @@ media.update(end_point = '...')
 | media_comments | Berisi   tentang data komentar pada media (foto/video) setiap user.                                               |
 
 ### First Fetch
-```
+
+```python
 firstfetch = ud.single_fetch_update(db_state='dev', airflow=False, retry_count=2)
 firstfetch.update(end_point = '...', user_id=str('17841408671998486'))
 ```
-Parameter ``user_id`` merupakan nama id dari user yang akan dilakukan firstfetch, contoh seperti di atas, yaitu 17841408671998486. 
+
+Parameter ``user_id`` merupakan nama id dari user yang akan dilakukan firstfetch, contoh seperti di atas, yaitu 17841408671998486.
 
 | end_point          | Keterangan                                                             |
 |--------------------|------------------------------------------------------------------------|
@@ -79,13 +86,16 @@ Run analytics juga dijalankan di main.py, dengan parameter yang analog dengan up
 
 Untuk menjalankan main.py, terlebih dahulu dilakukan import berikut ini.
 
-```
+```python
 from cekbrand.analytics import AnalyticsEngine
 ```
+
 Fungsi untuk menjalankan analytic adalah sebagai berikut.
-```
+
+```python
 analytics_engine = AnalyticsEngine(db_state='dev', airflow=False)
 analytics_engine.single_instagram_user_hashtags_metrics_distribution(total_media=40,
 user_id=str('17841408671998486'))
 ```
-Parameter ``total_media`` adalah jumlah media yang akan dilakukan analytic, sedangkan ``user_id`` merupakan nama id dari user yang akan dilakukan analytic, contoh seperti di atas, jumlah media dari id 17841408671998486 yang akan di-analytic adalah sebesar 40. 
+
+Parameter ``total_media`` adalah jumlah media yang akan dilakukan analytic, sedangkan ``user_id`` merupakan nama id dari user yang akan dilakukan analytic, contoh seperti di atas, jumlah media dari id 17841408671998486 yang akan di-analytic adalah sebesar 40.

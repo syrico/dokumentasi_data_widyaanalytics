@@ -2,9 +2,11 @@
 # IG Comment Replies
 
 Merupakan kumpulan Komentar IG pada IG Comment untuk mendapatkan semua balasan pada Komentar.
-```
+
+```http
 GET /{ig-comment-id}/replies
 ```
+
 Mengembalikan daftar komentar IG pada IG Comment.
 
 ## Limitasi
@@ -14,19 +16,20 @@ Kita tidak bisa mendapatkan balasan untuk komentar yang telah dihapus.
 ## Persyaratan
 
 Token akses dari User yang membuat komentar, dengan izin berikut:
+
 - ``instagram_basic``
 - ``pages_show_list``
 - ``page_read_engagement``
 
 Jika token berasal dari User yang peran halamannya diberikan melalui Business Manager, salah satu izin berikut juga diperlukan:
+
 - ``ads_management``
 - ``pages_read_engagement``
 - ``business_management``
 
-
 ## Request Syntax 3rd-party pyfacebook
 
-```
+```python
 def get_replies_info(self, reply_ids, fields=None, return_json=False)
 ```
 
