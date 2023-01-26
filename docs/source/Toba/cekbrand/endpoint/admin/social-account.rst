@@ -3,6 +3,8 @@ Social Account
 
 Berikut adalah beberapa endpoint yang digunakan pada halaman **Daftar Pengguna** yang hanya dapat digunakan oleh `admin`.
 
+.. _facebook-list:
+
 Facebook List
 =============
 
@@ -47,6 +49,8 @@ Facebook List
                 ]
             }
         ]
+
+.. _instagram-list:
 
 Instagram List
 ==============
