@@ -142,7 +142,6 @@ Berisi data media yang memiliki nilai engagement terbanyak pada suatu user denga
 | engagement_count  | -           | int       | Jumlah engagement media                        |          |
 | updated_timestamp | -           | timestamp | Timestamp kapan data di update                 |          |
 
-
 ### ``user_media_largest_reach``
 
 Berisi data media yang memiliki nilai reach terbanyak pada suatu user dengan periode waktu 7 atau 28 hari.
