@@ -13,3 +13,4 @@ Cekbrand
   cekbrand/indexcekbrandsplashscreen
   cekbrand/indexcekbrandcallback
   cekbrand/indexcekbrandonboarding
+  cekbrand/indexcekbranddashboard
