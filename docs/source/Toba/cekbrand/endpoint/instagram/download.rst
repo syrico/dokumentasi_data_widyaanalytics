@@ -14,6 +14,8 @@ Data akun Instagram pengguna dapat diunduh (*download*) menggunakan endpoint ber
       * - data_type
         - Tipe data yang akan diunduh, mencakup: media, profile, city, country, gender, age, dan hashtag
 
+.. _csv:
+
 CSV
 ===
 
@@ -28,6 +30,8 @@ CSV
     **Contoh Hasil**:
 
     .. image:: ../images/download-csv.png
+
+.. _excel:
 
 Excel
 =====
