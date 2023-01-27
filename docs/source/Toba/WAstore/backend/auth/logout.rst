@@ -1,19 +1,26 @@
 Logout
-+++++++
+++++++
 
 Pengguna dapat melakukan logout pengguna. Endpoint berikut digunakan untuk mengelola akun yang dimiliki
 
-GET
-======
+Logout List
+===========
 
 .. http:get:: /auth/logout/
+    
+    Mendapatkan list logout
+    
+    .. note::
+        - Calls Django logout method and delete the Token object assigned to the current User object. Accepts/Returns nothing.
+        - Accepts/Returns nothing.
 
-    Calls Django logout method and delete the Token object assigned to the current User object. Accepts/Returns nothing.
+Add Logout
+==========
 
-
-
-POST
-======
 .. http:post:: /auth/logout/
 
-    Calls Django logout method and delete the Token object assigned to the current User object. Accepts/Returns nothing.
+    Menambahkan list logout
+
+    .. note::
+        - Calls Django logout method and delete the Token object assigned to the current User object. Accepts/Returns nothing.
+        - Accepts/Returns nothing.

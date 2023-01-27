@@ -1,0 +1,6 @@
+Payments
+++++++++
+
+.. toctree:: 
+
+    payments/payments

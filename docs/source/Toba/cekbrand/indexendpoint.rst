@@ -1,4 +1,4 @@
-End point
+Endpoint
 +++++++++
 
 .. toctree::
