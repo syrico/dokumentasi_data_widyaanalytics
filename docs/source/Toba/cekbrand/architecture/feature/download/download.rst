@@ -45,11 +45,11 @@ Berikut penjelasan dan diagram alur mengenail export data dengan format csv, for
         2. Frontend akan menampilkan pop up dropdown file extension.
         3. Response pop up diterima oleh pengguna.
         4. Pengguna akan memilih file extension xlsx.
-        4. Frontend akan meminta request download file xlsx melalui endpoint :ref:`excel`.
-        5. Backend akan mencari data berdasarkan request.
-        6. Backend akan menerima response success/error dari database.
-        7. Backend akan mengenerate xlsx file.
-        8. Pengguna akan mendapatkan file xlsx yang digenerate oleh backend.
+        5. Frontend akan meminta request download file xlsx melalui endpoint :ref:`excel`.
+        6. Backend akan mencari data berdasarkan request.
+        7. Backend akan menerima response success/error dari database.
+        8. Backend akan mengenerate xlsx file.
+        9. Pengguna akan mendapatkan file xlsx yang digenerate oleh backend.
 
 .. toggle-header::
         :header: **Export data format pdf**
