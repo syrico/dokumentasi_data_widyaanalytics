@@ -1,6 +1,6 @@
 Feedback
-+++++
+++++++++
 
 .. toctree:: 
 
-   feedback/feedback
+    feedback/feedback
