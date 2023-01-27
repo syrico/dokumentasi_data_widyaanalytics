@@ -1,18 +1,18 @@
 Subscription Groups
-+++++++
++++++++++++++++++++
 
 Untuk memperoleh *Subscription Groups*. Endpoint yang digunakan sebagai berikut.
 
 List
-=====
+====
 
 .. http:get:: /subscription-groups/
 
     Mengembalikan *Subscription Groups* yang dimiliki pengguna.
 
-   **Contoh Response**:
+    **Contoh Response**:
 
-   .. sourcecode:: json
+    .. sourcecode:: json
 
         [
             {

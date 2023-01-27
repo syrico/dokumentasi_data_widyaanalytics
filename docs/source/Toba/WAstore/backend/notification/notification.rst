@@ -1,10 +1,10 @@
 Notification
-+++++++
+++++++++++++
 
 Pengaturan untuk notifikasi WNS. Endpoint berikut digunakan untuk mengelola akun yang dimiliki
 
 Add
-=====
+===
 
 .. http:post:: /notification/push/device/wns/
 
@@ -15,9 +15,9 @@ Add
         - Accepts the following POST parameters: email
         - Returns the success/fail message.
 
-   **Contoh Response**:
+    **Contoh Response**:
 
-   .. sourcecode:: json
+    .. sourcecode:: json
 
         {
             "id": 0,

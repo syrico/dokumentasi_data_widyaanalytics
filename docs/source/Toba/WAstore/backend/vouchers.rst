@@ -1,7 +1,7 @@
 Vouchers
-+++++
+++++++++
 
 .. toctree:: 
 
-   vouchers/invitation
-   vouchers/redeemed
+    vouchers/invitation
+    vouchers/redeemed

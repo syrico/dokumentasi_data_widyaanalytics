@@ -1,7 +1,7 @@
 User Management
-+++++
++++++++++++++++
 
 .. toctree:: 
 
-   user-management/categories
-   user-management/subscription
+    user-management/categories
+    user-management/subscription

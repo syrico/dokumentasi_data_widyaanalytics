@@ -54,7 +54,6 @@ User List
                 ]
             }
         ]
-        
 
 User Update
 ===========
@@ -72,33 +71,33 @@ User Update
 
     .. sourcecode:: json
 
-    {
-        "id": 0,
-        "email": "user@example.com",
-        "first_name": "string",
-        "last_name": "string",
-        "is_staff": true,
-        "is_superuser": true,
-        "is_verified": "string",
-        "profile": {
-            "phone": "1512062301716",
-            "photo": "string",
-            "photo_url": "string",
-            "category": {
-                "id": 0,
-                "name": "string"
+        {
+            "id": 0,
+            "email": "user@example.com",
+            "first_name": "string",
+            "last_name": "string",
+            "is_staff": true,
+            "is_superuser": true,
+            "is_verified": "string",
+            "profile": {
+                "phone": "1512062301716",
+                "photo": "string",
+                "photo_url": "string",
+                "category": {
+                    "id": 0,
+                    "name": "string"
+                },
+                "category_id": 0
             },
-            "category_id": 0
-        },
-        "subscriptions": [
-            {
-                "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-                "user": 0,
-                "status": "string",
-                "plan": 0,
-                "group": 0,
-                "period_start": "2022-12-23T05:21:19.868Z",
-                "period_end": "2022-12-23T05:21:19.869Z"
-            }
-        ]
-    }
+            "subscriptions": [
+                {
+                    "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+                    "user": 0,
+                    "status": "string",
+                    "plan": 0,
+                    "group": 0,
+                    "period_start": "2022-12-23T05:21:19.868Z",
+                    "period_end": "2022-12-23T05:21:19.869Z"
+                }
+            ]
+        }

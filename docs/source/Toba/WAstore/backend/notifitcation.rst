@@ -1,6 +1,0 @@
-Notification
-+++++
-
-.. toctree:: 
-
-   notification/notification

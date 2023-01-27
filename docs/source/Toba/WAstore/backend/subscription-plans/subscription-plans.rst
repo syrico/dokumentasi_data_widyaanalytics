@@ -1,18 +1,18 @@
 Subscription Plans
-+++++++
+++++++++++++++++++
 
 Untuk memperoleh *Subscription Plans*. Endpoint yang digunakan sebagai berikut.
 
 List
-=====
+====
 
 .. http:get:: /subscription-plans/
 
     Mengembalikan *Subscription Plans* yang tersedia.
 
-   **Contoh Response**:
+    **Contoh Response**:
 
-   .. sourcecode:: json
+    .. sourcecode:: json
 
         [
             {
@@ -31,7 +31,7 @@ List
 
 
 Detail
-=====
+======
 
 .. http:get:: /subscription-plans/(int:id)/
 
@@ -40,18 +40,17 @@ Detail
     **Penjelasan Parameter URL**
 
     .. list-table:: 
-        :widths: 15 80
-        :header-rows: 1
+      :widths: 15 80
+      :header-rows: 1
 
-        * - Parameter
-          - Deskripsi
-        * - id
-          - ID yang memiliki nilai *unique integer* untuk mengidentifikasi *Subscription Plan*
+      * - Parameter
+        - Deskripsi
+      * - id
+        - ID yang memiliki nilai *unique integer* untuk mengidentifikasi *Subscription Plan*
 
+    **Contoh Response**:
 
-   **Contoh Response**:
-
-   .. sourcecode:: json
+    .. sourcecode:: json
 
         {
             "id": 0,

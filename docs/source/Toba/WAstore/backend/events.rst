@@ -1,7 +1,7 @@
 Events
-+++++
+++++++
 
 .. toctree:: 
 
-   events/events
-   events/payments
+    events/events
+    events/payments

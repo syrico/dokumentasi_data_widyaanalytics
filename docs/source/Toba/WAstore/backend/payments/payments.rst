@@ -1,10 +1,10 @@
 Payments
-+++++++
+++++++++
 
 Untuk dilakukan pertukaran data dengan Midtrans dalam melakukan pembayaran. Endpoint berikut digunakan untuk mengelola akun yang dimiliki
 
 Callback Payments
-=====
+=================
 
 .. http:get:: /payments/callback/
     
@@ -14,7 +14,7 @@ Callback Payments
         *Payment re-callback from Midtrans snap transaction*
 
 Add Notification
-=====
+================
 
 .. http:post:: /payments/notification/handling/
 
@@ -22,10 +22,10 @@ Add Notification
 
     .. note::
         Notification auto update from Midtrans
-   
-   **Contoh Response**:
 
-   .. sourcecode:: json
+    **Contoh Response**:
+
+    .. sourcecode:: json
 
         {
             "order_id": "string",

@@ -1,18 +1,18 @@
 Subscription
-+++++++
+++++++++++++
 
 Untuk memperoleh data *Subscription*. Endpoint yang digunakan sebagai berikut.
 
 List
-=====
+====
 
 .. http:get:: /subscription/
 
     Mengembalikan data *Subscription* yang tersedia.
 
-   **Contoh Response**:
+    **Contoh Response**:
 
-   .. sourcecode:: json
+    .. sourcecode:: json
 
         [
             {
@@ -26,15 +26,14 @@ List
             }
         ]
 
-
 Detail
-=====
+======
 
 .. http:get:: /subscription/(uuid:id)/
 
     Mengembalikan detail *Subscription* yang tersedia berdasarkan ``id``.
 
-   **Penjelasan Parameter URL**
+    *Penjelasan Parameter URL**
 
     .. list-table:: 
       :widths: 15 80
@@ -44,10 +43,10 @@ Detail
         - Deskripsi
       * - id
         - ID yang memiliki nilai *UUID* untuk mengidentifikasi *Subscription*
-  
-   **Contoh Response**:
 
-   .. sourcecode:: json
+    **Contoh Response**:
+
+    .. sourcecode:: json
 
         {
             "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
@@ -60,10 +59,12 @@ Detail
         }
 
 Delate
-=====
+======
 
 .. http:delete:: /subscription/(uuid:id)/
 
+    Menghapus detail *Subscription* yang tersedia berdasarkan ``id``.
+    
     .. list-table:: 
       :widths: 15 80
       :header-rows: 1
@@ -72,5 +73,3 @@ Delate
         - Deskripsi
       * - id
         - ID yang memiliki nilai *UUID* untuk mengidentifikasi *Subscription*
-
-    Menghapus detail *Subscription* yang tersedia berdasarkan ``id``.

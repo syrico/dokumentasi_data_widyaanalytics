@@ -1,5 +1,5 @@
 High Level Architecture
-+++++++
++++++++++++++++++++++++
 
 High Level Architecture atau dapat disingkat sebagai HLA merupakan kerangka arsitektur secara umum yang eksis dalam sistem aplikasi atau *software* sehingga *developer* ataupun orang lain dapat memahami sistem yang sedang berjalan. Pada *software* Widay Analytics Store atau WAStore memiliki HLA sebagai berikut.
 
@@ -12,6 +12,7 @@ WAStore terdapat dua *actor* yang dapat menggunakan WAStore, yakni Admin dan *us
 
 Admin
 =====
+
 Akses admin dilakukan untuk mengatur dan mengontrol sistem secara umum. Pada HLA diatas, tampak bahwa admin (yang ditunjukan pada *flow* berwarna merah). Adapun detail dari admin sebagai berikut.
 1. Admin akan mengakses sitem melalui HTTP Apache server.
 2. Kemudian, sebelum memasuki docker akan dilakukan *proxy pass*.
@@ -23,7 +24,8 @@ Akses admin dilakukan untuk mengatur dan mengontrol sistem secara umum. Pada HLA
 8. Pada frontend akan mengakses Sentry
 
 User
-=====
+====
+
 Akses USer dilakukan untuk mengatur dan mengontrol sistem secara umum. Pada HLA diatas, tampak bahwa admin (yang ditunjukan pada *flow* berwarna merah). Adapun detail dari admin sebagai berikut.
 1. User akan mengakses sitem melalui HTTP Apache server.
 2. Kemudian, sebelum memasuki docker akan dilakukan *proxy pass*.
