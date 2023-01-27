@@ -1,11 +1,15 @@
 # Schema Public CekBrand
+
 Merupakan Schema data yang menjadi main data dari Toba.ai CekBrand.
 
 ![ER Diagram Instagram](image/Public_schema.png)
 
 ## **Akun**
+
 Kelompok tabel yang mengatur data akun pengguna
+
 ### **AKUN ALAMAT EMAIL**
+
 Berisi data akun berupa email dan user id pengguna. \
 Nama Tabel : ``account_emailaddress``
 
@@ -18,6 +22,7 @@ Nama Tabel : ``account_emailaddress``
 | **user\_id**   | Foreign Key | INT           | Nomor ID yang merujuk pada table users\_user |             |
 
 ### **KONFIRMASI AKUN**
+
 Berisi data akun yang harus dilakukan konfirmasi.\
 Nama Tabel : ``account_emailconfirmation``
 
@@ -27,11 +32,14 @@ Nama Tabel : ``account_emailconfirmation``
 | **created**            |             | TIMESTAMPTZ   | Timestamp kapan data dibuat                                  |             |
 | **sent**               |             | TIMESTAMPTZ   | Timestamp kapan data dikirim                                 |             |
 | **key**                |             | VARCHAR(64)   |                                                              |             |
-| **email\_address\_id** | FOREIGN KEY | INT4          | Nomor ID email yang merujuk dari tabel account\_emailaddress |             | 
+| **email\_address\_id** | FOREIGN KEY | INT4          | Nomor ID email yang merujuk dari tabel account\_emailaddress |             |
 
 ## **Auth**
+
 Kelompok tabel yang mengatur autentikasi pengguna
+
 ### **PENGELOMPOKAN AUTENTIKASI PENGGUNA**
+
 Berisi field data untuk mendefinisikan user menjadi admin, trial, paid, atau enterprise. \
 Nama Tabel : ``auth_group``
 
@@ -41,6 +49,7 @@ Nama Tabel : ``auth_group``
 | **name**       |             | VARCHAR(150)  | Nama yang memuat _role_ autentikasi, seperti admin, _trial_, _paid_, dam _enterprise_. | UNIQUE KEY |
 
 ### **PENGELOMPOKAN AKSI AKSES TERHADAP PENGGUNA**
+
 Berisi field data yang mengelompokkan kelompok user untuk dapat melakukan aksi tertentu berdasarkan permission_id dalam lingkup django dashboard (masih digunakan hanya oleh engineer).
 Nama Tabel: ``auth_group_permissions``
 
@@ -51,6 +60,7 @@ Nama Tabel: ``auth_group_permissions``
 | **permission\_id** |             | INT           | Nomor ID yang merujuk pada tabel auth\_permission |UNIQUE KEY |
 
 ### **PENGELOMPOKAN AKSI AKSES PENGGUNA**
+
 Berisi field data yang mengelompokkan aksi akses yang dapat dilakukan oleh pengguna. \
 Nama Tabel: ``auth_permission``
 
@@ -62,8 +72,11 @@ Nama Tabel: ``auth_permission``
 | **codename**          |             | VARCHAR(100)  | Berisi aksi-aksi yang dapat dilakukan dalam bentuk kode. | Unique Key  |
 
 ## **Django**
-Kelompok tabel yang menjadi bawaan dari *framework* Django
+
+Kelompok tabel yang menjadi bawaan dari _framework_ Django
+
 ### **DJANGO ADMIN LOG**
+
 Berisi terkait aktivitas dashboard admin. \
 Nama Tabel: ``django_admin_log``
 | **Nama Kolom**        | **Tipe**    | **Tipe Data** | **Isi**                                                   | **Catatan** |
@@ -78,6 +91,7 @@ Nama Tabel: ``django_admin_log``
 | **user\_id**          | Foreign Key | INT           | Nomor ID yang merujuk pada tabel user\_users              |             |
 
 ### **DJANGO CONTENT TYPE**
+
 Mendifiniskan permission melalui representasi model. \
 Nama Tabel: ``django_content_type``
 
@@ -88,7 +102,8 @@ Nama Tabel: ``django_content_type``
 | **model**      |             | VARCHAR(100)  | Mengkategorikan _permission_        | Unique Key  |
 
 ### **DJANGO MIGRATION**
-Berisi riwayat perubahan data yang terjadi pada schema (*migrate*). \
+
+Berisi riwayat perubahan data yang terjadi pada schema (_migrate_). \
 Nama Tabel: ``django_migration``
 
 | **Nama Kolom** | **Tipe**    | **Tipe Data** | **Isi**                             | **Catatan** |
@@ -99,6 +114,7 @@ Nama Tabel: ``django_migration``
 | **applied**    |             | TIMESTAMTZ    | Timestamp kapan perubahan dilakukan |             |
 
 ### **DJANGO SESSION**
+
 Tabel yang berfungsi untuk menyimpan aktivitas session user. \
 Nama Tabel: ``django_session``
 
@@ -109,6 +125,7 @@ Nama Tabel: ``django_session``
 | **expire\_date**  |             | TIMESTAMPTZ   | Timestamp kapan _session_ berakhir |             |
 
 ### **DJANGO SITE**
+
 Menyimpan alamat aplikasi. \
 Nama Tabel: ``django_site``
 
@@ -119,8 +136,11 @@ Nama Tabel: ``django_site``
 | **name**       |             | VARCHAR(50)   | Nama domain     |             |
 
 ## **Social Account**
-Kelompok tabel yang mengatur pengaturan *Social Account* yang dimiliki pengguna.
+
+Kelompok tabel yang mengatur pengaturan _Social Account_ yang dimiliki pengguna.
+
 ### **SOCIAL ACCOUNT**
+
 Berisi data akun CekBrand dari pengguna. \
 Nama Tabel: ``socialaccount_socialaccount``
 
@@ -135,6 +155,7 @@ Nama Tabel: ``socialaccount_socialaccount``
 | **user\_id**     | Foreign Key | INT           | Nomor ID yang merujuk pada tabel user\_users |             |
 
 ### **APLIKASI AKUN SOSIAL**
+
 Berisi data sosial media yang digunakan. \
 Nama Tabel: ``socialaccount_socialapp``
 
@@ -147,7 +168,8 @@ Nama Tabel: ``socialaccount_socialapp``
 | **secret**     |             | VARCHAR(191)  | Token yang bersifat rahasia  |             |
 | **key**        |             | VARCHAR(191)  | 111                          |             |
 
-### ***SITES* APLIKASI AKUN SOSIAL**
+### **_SITES_ APLIKASI AKUN SOSIAL**
+
 Merupakan tabel yang mengintegrasikan atau mengelompokkan aplikasi akun sosial dengan sites Toba.ai. \
 Nama Tabel: ``socialaccount_socialapp_sites``
 
@@ -158,6 +180,7 @@ Nama Tabel: ``socialaccount_socialapp_sites``
 | **site\_id**      |             | INT           | Nomor ID yang merujuk pada tabel django\_site             | UNIQUE KEY  |
 
 ### **TOKEN APLIKASI**
+
  Berisi field data yang memberikan Token pada setiap akun dan aplikasi. \
  Nama Tabel: ``socialaccount_socialtoken``
 
@@ -171,8 +194,11 @@ Nama Tabel: ``socialaccount_socialapp_sites``
 | **app\_id**       | FOREIGN KEY | INT           | Nomor ID yang merujuk pada tabel socialaccount\_socialapp     |             |
 
 ## **Store Product**
+
 Kelompok tabel yang menyimpan data layanan yang dimiliki CekBrand
+
 ### **STORE PRODUCT**
+
 Berisi field data yang berisi produk atau layanan dari CekBrand. \
 Nama Tabel: ``store_product``
 
@@ -185,8 +211,11 @@ Nama Tabel: ``store_product``
 | **extra\_data** |             | JSONB         | Informasi lainnya berbentuk json |             |
 
 ## **Subscription**
+
 Kelompok tabel yang menyimpan data pengguna untuk melakukan langganan
+
 ### **SUBSCRIPTION GROUP**
+
 Berisi field data yang memberikan informasi terkait batasan akun ig, kompetitor ig, dan social account. \
 Nama Tabel: ``subscriptions_group``
 
@@ -198,6 +227,7 @@ Nama Tabel: ``subscriptions_group``
 | **limit\_social\_account** |             | INT           | 111                                          |             |
 
 ### **SUBSCRIPTION PLAN**
+
 Berisi field data yang men-define plan atau paket langganan apa saja yang disediakan Toba.ai CekBrand. \
 Nama Tabel: ``subscriptions_plan``
 
@@ -212,6 +242,7 @@ Nama Tabel: ``subscriptions_plan``
 | **product\_id**  | Foreign Key | INT           | Nomor ID yang merujuk pada tabel store\_product |             |
 
 ### **AKUN BERLANGGANAN**
+
 Berisi field data yang berisi user yang telah melakukan langganan. \
 Nama Tabel: ``subscriptions_subscription``
 
@@ -228,10 +259,12 @@ Nama Tabel: ``subscriptions_subscription``
 | **updated\_at**   |             | TIMESTAMPTZ   | Timestamp kapan terakhir kali status langganan diperbarui |             |
 | **plan\_id**      | Foreign Key | INT           | Nomor ID yang merujuk pada tabel subscriptions\_plan      |             |
 
-
 ## **User**
-Kelompok tabel yang mengatur akun *user* Toba Ai
+
+Kelompok tabel yang mengatur akun _user_ Toba Ai
+
 ### **AKUN PENGGUNA**
+
 Berisi field data pengguna. \
 Nama Tabel: ``users_user``
 
@@ -249,6 +282,7 @@ Nama Tabel: ``users_user``
 | **email**         |             | VARCHAR(254)  | Email _user_ yang didaftarkan                        | Unique Key  |
 
 ### **USER GROUP**
+
 Berisi field data terkait data pengguna dan pelanggan. \
 Nama Tabel: ``users_user_groups``
 
@@ -258,7 +292,8 @@ Nama Tabel: ``users_user_groups``
 | **user\_id**   | Foreign Key | INT           | Nomor ID yang merujuk pada tabel users\_user          | Unique Key  |
 | **group\_id**  | Foreign Key | INT           | Nomor ID yang merujuk pada tabel subscriptions\_group | Unique Key  |
 
-### ***Permissions* *User***
+### **_Permissions User_**
+
 Berisi field data yang mengelompokkan pengguna degan permission yang dapat dilakukan. \
 Nama Tabel: ``users_user_user_permissions``
 

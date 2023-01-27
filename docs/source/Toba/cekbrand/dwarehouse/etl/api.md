@@ -1,4 +1,5 @@
 # API Call
+
 Berikut adalah nama-nama fungsi yang digunakan dalam proses pemanggilan API Call.
 
 ## User
@@ -25,7 +26,6 @@ Berikut adalah nama-nama fungsi yang digunakan dalam proses pemanggilan API Call
 | update comp media   | competitor_medias_api_call | discovery_user_medias | fields = None  | transform_media_dataDev          | media     |
 
 ## Media Insight
-
 
 | update_data.py       | api_call.py                  | instagram.py (function)  | instagram.py (metrics/fields)                                                                                                                                                                                                                                                                                               | transform.py                  |Schema   Instagram |
 |----------------------|------------------------------|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------|--------------------|

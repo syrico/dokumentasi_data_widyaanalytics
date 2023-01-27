@@ -2,6 +2,6 @@ Views
 +++++
 
 .. toctree::
-   :maxdepth: 6
-   
-   views/indexapps
+    :maxdepth: 6
+    
+    views/indexapps

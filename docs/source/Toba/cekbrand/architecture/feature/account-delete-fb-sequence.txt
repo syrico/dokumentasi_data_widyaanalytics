@@ -1,0 +1,44 @@
+ actor User
+
+participant Frontend
+participant Backend
+
+database Database
+
+entryspacing 0.5
+
+autoactivation 
+
+autonumber 
+
+activate User
+
+User->Frontend:Delete Facebook\account
+autonumber off
+Frontend->Frontend:
+autonumber 
+Frontend->Backend:Delete user Facebook\naccount
+Backend->Database:Delete Facebook\naccount
+autonumber off
+Backend<<--Database:
+autonumber 
+Frontend<--Backend:Success delete Facebook\naccount
+autonumber off
+Frontend<--Frontend:
+
+Frontend->Frontend:Get user Facebook accounts
+autonumber 
+Frontend->Backend:Fetch user Facebook\naccounts list
+Backend->Database: Select Facebook\naccounts
+autonumber off
+Backend<<--Database:
+autonumber 
+Frontend<--Backend:Facebook accounts list
+autonumber off
+parallel 
+Frontend<--Frontend:
+autonumber 
+User<--Frontend:Load updated user Facebook\naccounts list
+parallel off
+
+deactivateafter User    

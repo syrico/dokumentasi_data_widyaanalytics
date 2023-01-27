@@ -1,0 +1,85 @@
+actor User
+
+participant Frontend
+participant Backend
+
+database Database
+
+entryspacing 0.7
+
+autoactivation 
+
+autonumber 
+
+activate User
+
+User->Frontend:Open //Kelola Akun// page
+
+autonumber off
+Frontend->Frontend:Get user Facebook accounts\ndata, including their related\nInstagram account
+autonumber 
+Frontend->Backend:Fetch user Facebook\naccounts list
+Backend->Database:Select Facebook\naccounts
+autonumber off
+Backend<<--Database:
+autonumber 
+Frontend<--Backend:Facebook accounts list
+
+autonumber off
+Frontend<--Frontend:
+
+autoactivation
+
+alt For re-authorization flow
+
+Frontend->Frontend:
+autonumber 
+Frontend->Backend:Re-authorization user\nFacebook account
+Backend->Database:Save Facebook as\nInstagram token
+autonumber off
+Backend<<--Database:
+
+autonumber 
+Frontend<--Backend: Success
+autonumber off
+Frontend<--Frontend:
+parallel 
+autoactivation off
+autonumber 
+Frontend<-Frontend:Redirect to //Pilih Akun// page
+autonumber off
+User<--Frontend:Display //Pilih Akun// page
+parallel off
+
+else
+
+autonumber 
+User<<--Frontend:Display account\nmanage page
+autoactivation 
+autonumber off
+Frontend->Frontend:Get user Instagram accounts\nand subscription groups
+autonumber 
+Frontend->Backend:Fetch user Instagram\naccounts list
+Backend->Database:Selecr Instagram\naccounts
+autonumber off
+Backend<<--Database:
+autonumber 
+Frontend<--Backend:Instagram accounts list
+
+Frontend->Backend:Fetch subscription\ngroups list
+Backend->Database:Select subscription\ngroups
+autonumber off
+Backend<<--Database:
+autonumber 
+Frontend<--Backend:Subscription groups list
+parallel
+autonumber off
+Frontend<--Frontend:
+autoactivation off
+autonumber 
+User<<--Frontend:Display account\nmanage limit
+parallel off
+
+end
+
+deactivateafter User

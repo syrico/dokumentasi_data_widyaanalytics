@@ -142,6 +142,8 @@ Account Detail
                 }
             }
 
+.. _account-delete:
+
 Account Delete
 ==============
 
@@ -218,6 +220,8 @@ User Data Summary
     :>json string followers_growth_rate: *rate* peningkatan jumlah pengikut pada rentang tanggal
     :>json string followers_growth_rate_before: *rate* peningkatan jumlah pengikut sebelum rentang tanggal
     :>json string followers_growth_rate_growth: selisih *rate* peningkatan jumlah pengikut dari sebelum rentang tanggal
+
+.. _re-authorization:
 
 Re-Authorization
 ================

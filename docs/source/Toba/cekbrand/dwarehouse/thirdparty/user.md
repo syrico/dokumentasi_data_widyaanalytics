@@ -1,10 +1,11 @@
 # IG User
 
-Mewakili Akun Bisnis Instagram atau Akun Kreator Instagram. 
+Mewakili Akun Bisnis Instagram atau Akun Kreator Instagram.
 
-```
+```http
 GET /{ig-user-id}
 ```
+
 Mendapatkan fields dan edges pada Instagram Business atau Akun Kreator.
 
 ## Persyaratan
@@ -14,11 +15,11 @@ Mendapatkan fields dan edges pada Instagram Business atau Akun Kreator.
 | Aksen Token  | User.                                                                                                                                                                                                                                                                                                                                                              |
 | Peran Bisnis | Jika kita meminta field ``shopping_product_tag_eligibility`` untuk tagging produk, pengguna aplikasi harus memiliki peran admin di Business Manager yang memiliki Instagram Shop dari Pengguna IG.                                                                                                                                                                        |
 | Instagram Shop | Jika kita meminta field ``shopping_product_tag_eligibility`` untuk tagging produk, Pengguna IG harus memiliki Instagram Shop yang disetujui dengan katalog produk berisi produk.                                                                                                                                                                                 |
-| Izin    | ``instagram_basic`` <br /> ``pages_read_engagement`` <br /> ``pages_show_list`` <br /> Jika pengguna aplikasi diberi peran di Halaman melalui Business Manager, kita juga memerlukan salah satu dari yang berikut: <br />``ads_management`` <br /> ``business_management`` <br /> Jika kita meminta field ``shopping_product_tag_eligibility`` untuk pemberian tag produk, kita juga memerlukan: <br /> ``catalog_management`` <br /> ``instagram_shopping_tag_products`` <br /> |
+| Izin    | ``instagram_basic`` \ ``pages_read_engagement`` <br /> ``pages_show_list`` <br /> Jika pengguna aplikasi diberi peran di Halaman melalui Business Manager, kita juga memerlukan salah satu dari yang berikut: <br />``ads_management`` <br /> ``business_management`` <br /> Jika kita meminta field ``shopping_product_tag_eligibility`` untuk pemberian tag produk, kita juga memerlukan: <br /> ``catalog_management`` <br /> ``instagram_shopping_tag_products`` <br /> |
 
 ## Request Syntax
 
-```
+```http
 GET https://graph.facebook.com/{api-version}/{ig-user-id}
     ?fields={fields}
     &access_token={access-token}
@@ -39,6 +40,7 @@ GET https://graph.facebook.com/{api-version}/{ig-user-id}
 | ``fields``       | ``{fields}``       | List yang dipisahkan dengan tanda koma dari field IG User yang ingin dihasilkan oleh setiap IG User pada himpunan hasil.|
 
 ## Fields
+
 Field publik dapat dikembalikan oleh edge menggunakan ekspansi field.
 
 | Field Nama                       | Deskripsi                                                                                                                      |
@@ -74,7 +76,7 @@ Field publik dapat dikembalikan oleh edge menggunakan ekspansi field.
 
 ## Request Syntax 3rd-party pyfacebook
 
-```
+```python
 def get_user_info(self, user_id, fields=None, return_json=False)
 ```
 

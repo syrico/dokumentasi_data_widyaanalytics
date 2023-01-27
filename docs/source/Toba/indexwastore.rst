@@ -2,11 +2,11 @@ Widya Analytic Store
 ++++++++++++++++++++
 
 .. toctree::
-   :maxdepth: 5
-   
-   
-   WAstore/indexsysdata
-   WAstore/indexbackend
+    :maxdepth: 5
+    
+    
+    WAstore/indexsysdata
+    WAstore/indexbackend
 
 
 

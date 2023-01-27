@@ -7,6 +7,7 @@ Berisi tentang data olahan analytics dari data awal instagram.
 ## Schema User
 
 ### ``user_insight_engagement``
+
 Berisi data nilai engagement yang diperoleh dari penambahan jumlah like dan jumlah comment untuk setiap user dengan periode waktu 7 hari dan 28 hari.
 | Nama Kolom        | Tipe        | Tipe Data | Isi                                               | Catatan         |
 |-------------------|-------------|-----------|---------------------------------------------------|-----------------|
@@ -20,6 +21,7 @@ Berisi data nilai engagement yang diperoleh dari penambahan jumlah like dan juml
 | updated_timestamp | -           | timestamp | Timestamp kapan data di update                    |                 |
 
 ### ``user_insight_engagement_growth``
+
 Berisi data nilai growth engagement dengan perhitungan nilai engagement pada hari ini dibandingkan dengan 7 hari atau 28 hari yang lalu untuk setiap user.
 
 | Nama Kolom        | Tipe        | Tipe Data | Isi                                                      | Catatan |
@@ -32,6 +34,7 @@ Berisi data nilai growth engagement dengan perhitungan nilai engagement pada har
 | updated_timestamp | -           | timestamp | Timestamp kapan data di update                           |         |
 
 ### ``user_insight_engagement_rate_growth``
+
 Berisi data nilai rate growth engagement dengan perhitungan nilai engagement pada hari ini dibagi jumlah follower dibandingkan dengan nilai 7 hari atau 28 hari yang lalu untuk setiap user.
 
 | Nama Kolom        | Tipe        | Tipe Data | Isi                                                           | Catatan |
@@ -44,6 +47,7 @@ Berisi data nilai rate growth engagement dengan perhitungan nilai engagement pad
 | updated_timestamp | -           | timestamp | Timestamp kapan data di update                                |         |
 
 ### ``user_insight_follower_online``
+
 Berisi tentang data insight sebaran jam online follower dari suatu user.
 
 | Nama Kolom   | Tipe        | Tipe Data | Isi                                   | Catatan |
@@ -56,6 +60,7 @@ Berisi tentang data insight sebaran jam online follower dari suatu user.
 | updated_date | -           | timestamp | Timestamp kapan data di update        |         |
 
 ### ``user_insight_follower_growth``
+
 Berisi data nilai growth jumlah follower dengan perhitungan nilai pada hari ini dibandingkan dengan nilai 7 hari atau 28 hari yang lalu untuk setiap user.
 
 | Nama Kolom        | Tipe        | Tipe Data | Isi                                             | Catatan  |
@@ -68,6 +73,7 @@ Berisi data nilai growth jumlah follower dengan perhitungan nilai pada hari ini 
 | updated_timestamp | -           | timestamp | Timestamp kapan data di update                  |          |
 
 ### ``user_insight_impressions_growth``
+
 Berisi data nilai growth impression user dengan perhitungan nilai pada hari ini dibandingkan dengan nilai 7 hari atau 28 hari yang lalu untuk setiap user.
 
 | Nama Kolom        | Tipe        | Tipe Data | Isi                                             | Catatan  |
@@ -80,6 +86,7 @@ Berisi data nilai growth impression user dengan perhitungan nilai pada hari ini 
 | updated_timestamp | -           | timestamp | Timestamp kapan data di update                  |          |
 
 ### ``user_insight_reach_growth``
+
 Berisi data nilai growth jumlah reach user dengan perhitungan nilai pada hari ini dibandingkan dengan nilai 7 hari atau 28 hari yang lalu untuk setiap user.
 
 | Nama Kolom        | Tipe        | Tipe Data | Isi                                             | Catatan  |
@@ -92,6 +99,7 @@ Berisi data nilai growth jumlah reach user dengan perhitungan nilai pada hari in
 | updated_timestamp | -           | timestamp | Timestamp kapan data di update                  |          |
 
 ### ``user_insight_sentiment``
+
 Berisi data nilai sentiment user (positif, negatif, dan netral) dari komentar pada media suatu user.
 
 | Nama Kolom        | Tipe        | Tipe Data | Isi                                   | Catatan |
@@ -105,6 +113,7 @@ Berisi data nilai sentiment user (positif, negatif, dan netral) dari komentar pa
 | updated_timestamp | -           | timestamp | Timestamp kapan data di update        |         |
 
 ### ``user_insight_sentiment_growth``
+
 Berisi data nilai growth setiap sentiment dengan melakukan penguragan nilai pada hari ini dibandingkan dengan nilai 7 hari atau 28 hari yang lalu untuk setiap user.
 
 | Nama Kolom        | Tipe        | Tipe Data | Isi                                              | Catatan  |
@@ -121,6 +130,7 @@ Berisi data nilai growth setiap sentiment dengan melakukan penguragan nilai pada
 ## Schema Media
 
 ### ``user_media_largest_engagement``
+
 Berisi data media yang memiliki nilai engagement terbanyak pada suatu user dengan periode waktu 7 atau 28 hari.
 
 | Nama Kolom        | Tipe        | Tipe Data | Isi                                            | Catatan  |
@@ -132,8 +142,8 @@ Berisi data media yang memiliki nilai engagement terbanyak pada suatu user denga
 | engagement_count  | -           | int       | Jumlah engagement media                        |          |
 | updated_timestamp | -           | timestamp | Timestamp kapan data di update                 |          |
 
-
 ### ``user_media_largest_reach``
+
 Berisi data media yang memiliki nilai reach terbanyak pada suatu user dengan periode waktu 7 atau 28 hari.
 
 | Nama Kolom        | Tipe        | Tipe Data | Isi                                            | Catatan  |
@@ -146,6 +156,7 @@ Berisi data media yang memiliki nilai reach terbanyak pada suatu user dengan per
 | updated_timestamp | -           | timestamp | Timestamp kapan data di update                 |          |
 
 ### ``user_media_most_negative``
+
 Berisi data media yang memiliki sentiment negatif terbanyak pada suatu user dengan periode waktu 7 atau 28 hari.
 
 | Nama Kolom        | Tipe        | Tipe Data | Isi                                            | Catatan  |
@@ -158,6 +169,7 @@ Berisi data media yang memiliki sentiment negatif terbanyak pada suatu user deng
 | updated_timestamp | -           | timestamp | Timestamp kapan data di update                 |          |
 
 ### ``user_media_most_positive``
+
 Berisi data media yang memiliki sentiment positif terbanyak pada suatu user dengan periode waktu 7 atau 28 hari.
 
 | Nama Kolom        | Tipe        | Tipe Data | Isi                                            | Catatan  |
@@ -170,6 +182,7 @@ Berisi data media yang memiliki sentiment positif terbanyak pada suatu user deng
 | updated_timestamp | -           | timestamp | Timestamp kapan data di update                 |          |
 
 ### ``user_media_smallest_engagement``
+
 Berisi data media yang memiliki nilai engagement paling sedikit pada suatu user dengan periode waktu 7 atau 28 hari.
 
 | Nama Kolom        | Tipe        | Tipe Data | Isi                                            | Catatan  |
@@ -182,6 +195,7 @@ Berisi data media yang memiliki nilai engagement paling sedikit pada suatu user 
 | updated_timestamp | -           | timestamp | Timestamp kapan data di update                 |          |
 
 ### ``user_media_comment_sentiment``
+
 Berisi data sentiment setiap komentar pada suatu media.
 
 | Nama Kolom        | Tipe        | Tipe Data | Isi                                      | Catatan          |
@@ -195,6 +209,7 @@ Berisi data sentiment setiap komentar pada suatu media.
 ## Schema Lainnya
 
 ### ``user_hastags_metrics``
+
 Berisi data metrics setiap hashtag pada suatu media user.
 
 | Nama Kolom          | Tipe        | Tipe Data   | Isi                                                         | Catatan          |
@@ -213,6 +228,7 @@ Berisi data metrics setiap hashtag pada suatu media user.
 | saved_per_post      |             | int         | Penghitungan media disimpan per jumlah post                 |                  |
 
 ### ``user_hastags_metrics_distribution``
+
 Berisi data distribusi metrics setiap hashtag pada suatu media user.
 
 | Nama Kolom        | Tipe        | Tipe Data   | Isi                                            | Catatan |
@@ -231,6 +247,7 @@ Berisi data distribusi metrics setiap hashtag pada suatu media user.
 | like_count        |             | int         | Jumlah Like pada suatu media                   |         |
 
 ### ``user_insight_follower_online_wording (not active)``
+
 Berisi data insight.
 
 | Nama Kolom        | Tipe        | Tipe Data | Isi                                   | Catatan |
@@ -244,6 +261,7 @@ Berisi data insight.
 | updated_date      | -           | timestamp | Timestamp kapan data di update        |         |
 
 ### ``user_media_comment_sentiment (not active)``
+
 Berisi data waktu paling aktif suatu user.
 
 | Nama Kolom         | Tipe        | Tipe Data   | Isi                                   | Catatan |

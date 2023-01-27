@@ -2,9 +2,9 @@ CekTren
 +++++++++
 
 .. toctree::
-   :maxdepth: 5
-   
-   
-   cektren/syscektren
+    :maxdepth: 5
+    
+    
+    cektren/syscektren
 
 
