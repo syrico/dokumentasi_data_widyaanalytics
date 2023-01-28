@@ -8,4 +8,6 @@ Dashboard Kompetitor Performa Item memiliki path seperti berikut:
 
 Terdapat module yang dipakai pada Dashboard Kompetitor Performa Item ini:
 
-- useDashboardStatisticFollowers.js pada file ini merupakan kumpulan dari berbagai fungsi yang dapat dipakai secara berulang.
+- useDashboardStatisticFollowers.js
+
+pada file ini merupakan kumpulan dari berbagai fungsi yang dapat dipakai secara berulang.

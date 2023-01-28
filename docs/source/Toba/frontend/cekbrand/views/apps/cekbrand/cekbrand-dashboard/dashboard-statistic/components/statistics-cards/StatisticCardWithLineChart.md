@@ -1,12 +1,9 @@
-# Dashboard Statistik
+# StatisticCardWithLineChart.vue
 
-Dashboard _Statistic_ memiliki path seperti berikut:
+StatisticCardWithLineChart.vue memiliki path seperti berikut:
 
 ```
-..\frontend\src\views\apps\cekbrand\cekbrand-dashboard\dashboard-statistic\DashboardStatistic.vue
+..\frontend\src\views\apps\cekbrand\cekbrand-dashboard\dashboard-statistic\components\statistics-cards\StatisticCardWithLineChart.vue
 ```
 
-Di dalam Dashboard _Statistic_ ini terdapat beberapa component penyusun. Berikut component penyusun yang ada pada Dashboard _Statistic_:
-
-- DashboardStatisticAccount.vue
-- DashboardStatisticFollowers.vue
+Merupakan komponen untukk statistik _card_ dengan _line Chart_

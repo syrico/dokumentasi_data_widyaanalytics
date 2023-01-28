@@ -9,4 +9,5 @@ _Dashboard Statistic Followers Location_ memiliki path seperti berikut:
 Terdapat module yang dipakai pada _Dashboard Statistic Followers Location_ ini:
 
 - useDashboardStatisticFollowersLocation.js
-  pada file ini merupakan kumpulan dari berbagai fungsi yang dapat dipakai secara berulang.
+
+pada file ini merupakan kumpulan dari berbagai fungsi yang dapat dipakai secara berulang.
