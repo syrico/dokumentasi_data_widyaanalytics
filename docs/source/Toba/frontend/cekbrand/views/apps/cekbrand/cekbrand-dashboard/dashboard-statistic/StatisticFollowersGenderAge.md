@@ -1,6 +1,6 @@
 # _Dashboard Statistic Followers Gender Age_
 
-Dashboard Kompetitor Performa Item memiliki path seperti berikut:
+_Dashboard Statistic Followers Gender Age_ memiliki path seperti berikut:
 
 ```
 ..\frontend\src\views\apps\cekbrand\cekbrand-dashboard\dashboard-statistic\DashboardStatisticFollowersGenderAge.vue
