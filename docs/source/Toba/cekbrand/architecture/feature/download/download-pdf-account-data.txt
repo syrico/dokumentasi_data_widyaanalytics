@@ -1,0 +1,123 @@
+title Export / Download Account Data (PDF Extension)
+actor User
+
+activate User
+#Feature4
+autonumber 1
+User->Frontend: Click export button
+activate Frontend
+
+activate Frontend
+Frontend->Frontend: Display op up dropdown extension
+deactivate Frontend
+
+Frontend-->User: Response display dropdown extension(csv, pdf, xlsx)
+
+User->Frontend:Choose pdf extension file
+activate Frontend
+Frontend->Frontend: Displays a pop up combo box containing the page you want to download
+deactivate Frontend
+note over Frontend: Page choice: Kompetitor,Statistik, Top Post
+
+Frontend-->User: Response page choice
+User->Frontend: Select a page file
+
+#Endpoint account
+autonumber
+Frontend->Backend : .Request user account toba.ai
+autonumber
+activate Backend
+
+database Database
+
+Backend->Database: Fetch user account toba.ai data
+activate Database
+Database-->Backend: Success/error response
+deactivate Database
+
+autonumber 
+Backend-->Frontend: Response user account toba.ai
+deactivate Backend
+autonumber
+
+#Endpoint accounts
+autonumber 
+Frontend->Backend: Request user list instagram account
+autonumber 
+activate Backend
+Backend->Database: Fetch user list instagram account data
+activate Database
+Database-->Backend: Success/error response
+deactivate Database
+
+autonumber 
+Backend-->Frontend: Response user list instagram account
+autonumber
+deactivate Backend
+
+
+#Endpoint
+##1./cekbrand/accounts/17841425466334067/media?date_frame=7
+##2./cekbrand/accounts/17841425466334067/user-data?date_frame=7
+##3./cekbrand/accounts/17841425466334067/media/summary
+##4./cekbrand/accounts/17841425466334067/media/engagement/average/summary?date_frame=7
+##5./cekbrand/accounts/17841425466334067/hashtag-metrics?date_frame=7
+##6./cekbrand/accounts/17841425466334067/media/summary?date_frame=7
+autonumber 
+Frontend->Backend: Request user instagram account detail
+autonumber
+activate Backend
+
+Backend->Database:Fetch user instagram account detail data
+activate Database
+Database-->Backend: Success/error response
+deactivate Database
+
+autonumber
+Backend->Frontend: Response user instagram account detail
+autonumber
+deactivate Backend
+
+autonumber
+#Endpoint
+##./cekbrand/accounts/17841425466334067/competitor-accounts?date_frame=7
+Frontend->Backend: Request user instagram list account competitor
+autonumber
+activate Backend
+
+Backend->Database: Fetch user instagram list account competitor data
+activate Database
+Database-->Backend: Success/error response
+deactivate Database
+
+autonumber
+Backend-->Frontend: Response user instagram list account competitor
+autonumber
+deactivate Backend
+
+autonumber
+#Endpoint
+##./cekbrand/accounts/17841425466334067/user-data/summary?date_frame=7
+##./cekbrand/accounts/17841425466334067/competitor-accounts/17841401994904145/user-data?date_frame=7
+##./cekbrand/accounts/17841425466334067/competitor-accounts/17841401994904145/media/engagement/average/summary?date_frame=7
+##./cekbrand/accounts/17841425466334067/competitor-accounts/17841401994904145/media/summary?date_frame=7
+##./cekbrand/accounts/17841425466334067/competitor-accounts/17841401994904145/hashtag-metrics?date_frame=7
+Frontend->Backend: Request user instagram account competitor detail
+activate Backend
+autonumber
+
+Backend->Database: Fetch user instagram account competitor detail data
+activate Database
+Database->Backend: Success/error response
+deactivate Database
+
+autonumber 
+Backend-->Frontend: Response user instagram account competitor detail
+autonumber
+deactivate Backend
+
+activate Frontend
+Frontend->Frontend: Generate PDF File
+Frontend->Frontend: Generate Zip
+deactivate Frontend
+Frontend-->User:Get PDF file

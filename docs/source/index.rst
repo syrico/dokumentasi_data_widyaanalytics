@@ -3,17 +3,32 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Data Team's documentation!
-=======================================
+Welcome to Widya Analytic's documentation!
+==========================================
+
+Selamat datang di Dokumentasi Teknis *Project* Widya Analytic.
+Pada Widya Analytic terdapat 2 *Project* utama yang sedang dikembangkan, yakni Toba AI dan Folderlink.
+Adapun Dokumentasi teknis dari 2 *Project* tersebut sebagai berikut. 
 
 .. toctree::
-   :maxdepth: 3
-   :caption: Contents:
+    :maxdepth: 10
+    :caption: Toba
+    
+    Toba/indexcekbrand
+    Toba/indexwastore
+    Toba/indexcektren
+    Toba/indexfrontend
 
-   myfile
+
+.. toctree::
+    :maxdepth: 5
+    :caption: Folderlink
+
+    Folderlink/indexfolderlink
+
 
 Indices and tables
-==================
+------------------
 
 * :ref:`genindex`
 * :ref:`modindex`

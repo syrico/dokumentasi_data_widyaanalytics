@@ -1,0 +1,109 @@
+actor User
+
+entryspacing 0.2
+participant Frontend
+participant Backend
+
+database Database
+
+autonumber 1
+
+autoactivation on
+
+activate User
+User->Frontend:Open //Statistik// tab
+
+autonumber off
+Frontend->>Frontend:Get online followers list
+autonumber 2
+Frontend->Backend:Fetch online followers list
+Backend->Database:Select list of insight online followers
+autonumber off
+Backend<<--Database:
+autonumber 4
+Frontend<--Backend:Online followers list
+autonumber off
+autoactivation off
+Frontend<--Frontend:
+deactivateafter Frontend
+autonumber 5
+parallel
+Frontend->>Frontend:Load online followers heat map
+autonumber off
+User<<--Frontend:Display online followers heat map
+parallel off
+autonumber 6
+parallel
+Frontend->>Frontend:Load top online followers schedule
+autonumber off
+User<<--Frontend:Display top online followers schedule
+parallel off
+
+autoactivation on
+Frontend->>Frontend:Get follower gender-age list
+autonumber 7
+Frontend->Backend:Fetch follower gender-age list
+Backend->Database:Select list of follower\ngender-age
+autonumber off
+Backend<<--Database:
+autonumber 9
+Frontend<--Backend:follower gender-age list
+autonumber off
+autoactivation off
+Frontend<--Frontend:
+autonumber 10
+deactivateafter Frontend
+parallel
+Frontend->>Frontend:Load follower gender-age\npercentage and charts
+autonumber off
+User<<--Frontend:Display follower gender-age card
+parallel off
+
+autoactivation on
+Frontend->Frontend:Get follower country list
+autonumber 11
+Frontend->Backend:Fetch follower country list
+Backend->Database:Select list of follower country
+autonumber off
+Backend<<--Database:
+autonumber 13
+Frontend<--Backend:follower country list
+autoactivation off
+Frontend->Frontend:Map top follower country coordinate
+parallel
+autonumber off
+Frontend<<--Frontend:
+deactivateafter Frontend
+autonumber 15
+User<<--Frontend:Display top follower country map
+parallel off
+
+autonumber off
+autoactivation on
+Frontend->Frontend:Get follower city list
+autonumber 16
+Frontend->Backend:Fetch follower city list
+Backend->Database:Select list of follower city
+autonumber off
+Backend<<--Database:
+autonumber 18
+Frontend<--Backend:Follower city list
+loop i <= count of top city
+Frontend->>Backend:Fetch top follower city coordinate
+Backend->Backend:Get the city coordinate from JSON
+deactivateafter Backend
+Frontend<--Backend:City coordinate
+end
+autoactivation off
+Frontend->Frontend:Load top follower city table
+parallel
+autonumber off
+Frontend<<--Frontend:
+deactivateafter Frontend
+autonumber 23
+User<<--Frontend:Display top follower city table
+parallel off
+
+deactivateafter Frontend
+
+deactivateafter User

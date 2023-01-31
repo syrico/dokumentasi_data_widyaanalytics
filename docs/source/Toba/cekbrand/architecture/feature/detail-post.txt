@@ -1,0 +1,53 @@
+title Detail Post
+actor User
+
+
+#Feature3
+activate User
+autonumber 1
+User->Frontend: Click detail post feature
+autonumber off
+activate Frontend
+
+autonumber 2
+#Endpoint absolute date
+##1./cekbrand/accounts/17841425466334067/media/17874751982810518/sentiment
+Frontend->Backend: Request sentiment endpoint
+activate Backend
+autonumber off
+
+autonumber 
+database Database
+Backend->Database:Fetch sentiment data by account_id and media_id
+activate Database
+Database-->Backend: Success/error response
+deactivate Database
+
+autonumber 
+Backend->Frontend: Response sentiment data
+autonumber off
+deactivate Backend
+
+
+
+autonumber 2
+#Endpoint absolute date
+##1./cekbrand/accounts/17841425466334067/media/17874751982810518/comments
+Frontend->Backend: Request comments endpoint
+activate Backend
+autonumber off
+
+autonumber 
+database Database
+Backend->Database:Fetch comments data by account_id and media_id
+activate Database
+Database-->Backend: Success/error response
+deactivate Database
+
+autonumber 
+Backend->Frontend: Response comments data
+autonumber off
+
+deactivate Backend
+autonumber off
+deactivate Frontend

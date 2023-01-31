@@ -1,0 +1,33 @@
+title Export / Download Account Data (xlsx Extension)
+actor User
+
+activate User
+#Feature4
+autonumber 1
+User->Frontend: Click export button
+activate Frontend
+
+activate Frontend
+Frontend->Frontend: Display op up dropdown extension
+deactivate Frontend
+
+Frontend-->User: Response display dropdown extension(csv, pdf, xlsx)
+
+User->Frontend:Choose xlsx extension file
+Frontend->Backend: Request download account data(xlsx extension)
+deactivate Frontend
+activate Backend
+
+database Database
+Backend->Database: Select account data
+activate Database
+Database-->Backend: Success/error response
+deactivate Database
+
+activate Backend
+Backend->Backend: Generate xlsx file
+deactivate Backend
+deactivate Frontend
+Backend-->User: File xlsx
+
+

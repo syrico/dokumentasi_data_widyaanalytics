@@ -1,0 +1,43 @@
+actor User
+
+participant Frontend
+participant Backend
+
+autoactivation 
+
+autonumber 
+
+activate User
+
+User->Frontend:Select Instagram accounts\nto connect
+
+loop i < selected accounts
+autonumber off
+Frontend->Frontend:Get Instagram accout data
+autonumber 
+Frontend->Backend:Fetch Instagram data
+autonumber off
+Frontend<--Backend:
+autoactivation off 
+parallel 
+Frontend<--Frontend:
+deactivate Frontend
+autonumber 
+User<--Frontend:Success fetched\nInstagram data
+parallel off
+end
+
+autoactivation 
+autonumber off
+Frontend->Frontend:Get updated Instagram\naccounts list
+autonumber
+Frontend->Backend:Fetch user Instagram\naccounts list
+autonumber off
+Frontend<--Backend:
+parallel 
+Frontend<--Frontend:
+autonumber 
+User<--Frontend:Display updated user Instagram\naccounts list
+parallel off
+
+deactivateafter User

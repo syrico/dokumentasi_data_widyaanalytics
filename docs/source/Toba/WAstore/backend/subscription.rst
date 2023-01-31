@@ -1,0 +1,6 @@
+Subscription
+++++++++++++
+
+.. toctree:: 
+
+    subscription/subscription

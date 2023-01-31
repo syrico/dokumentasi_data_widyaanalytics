@@ -1,0 +1,44 @@
+   actor User
+
+  participant Frontend
+  participant Backend
+
+  database Database
+
+  entryspacing 0.5
+
+  autoactivation 
+
+  autonumber 
+
+  activate User
+
+  User->Frontend:Delete Instagram account
+  autonumber off
+  Frontend->Frontend:
+  autonumber 
+  Frontend->Backend:Delete user Instagram\naccount
+  Backend->Database:Update Instagram\naccount
+  autonumber off
+  Backend<<--Database:
+  autonumber 
+  Frontend<--Backend:Success disconnect\nInstagram account
+  autonumber off
+  Frontend<--Frontend:
+
+  Frontend->Frontend:Get user Instagram accounts
+  autonumber 
+  Frontend->Backend:Fetch user Instagram\naccounts list
+  Backend->Database: Select Instagram\naccounts
+  autonumber off
+  Backend<<--Database:
+  autonumber 
+  Frontend<--Backend:Instagram accounts list
+  autonumber off
+  parallel 
+  Frontend<--Frontend:
+  autonumber 
+  User<--Frontend:Load updated user Instagram\naccounts list
+  parallel off
+
+  deactivateafter User

@@ -1,0 +1,5 @@
+Arsitektur
+++++++++++++++++
+.. toctree::
+
+   arsitektur/HLA
